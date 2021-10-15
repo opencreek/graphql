@@ -51,6 +51,7 @@ export interface BaseAuthRule {
     allow?: { [k: string]: any } | "*";
     bind?: { [k: string]: any } | "*";
     where?: { [k: string]: any } | "*";
+    whereCypher?: { query: string };
     roles?: string[];
     AND?: BaseAuthRule[];
     OR?: BaseAuthRule[];
