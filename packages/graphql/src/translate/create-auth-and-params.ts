@@ -49,6 +49,24 @@ function createRolesStr({ roles, escapeQuotes }: { roles: string[]; escapeQuotes
     return `ANY(r IN [${joined}] WHERE ANY(rr IN $auth.roles WHERE r = rr))`;
 }
 
+function createCypherAuthPredicate({
+    rule,
+}: {
+    context: Context;
+    varName: string;
+    node: Node;
+    rule: AuthRule;
+    chainStr: string;
+    kind: "whereCypher";
+}): [string, any] {
+    const query = rule.whereCypher?.query;
+    if (query === undefined) {
+        return ["", {}];
+    }
+
+    return [query, []];
+}
+
 function createAuthPredicate({
     rule,
     node,
@@ -201,26 +219,43 @@ function createAuthAndParams({
     if (where) {
         const subPredicates = authRules.reduce(
             (res: Res, authRule: AuthRule, index): Res => {
-                if (!authRule.where) {
-                    return res;
+                if (authRule.where) {
+                    const authWhere = createAuthPredicate({
+                        rule: {
+                            where: authRule.where,
+                            allowUnauthenticated: authRule.allowUnauthenticated,
+                        },
+                        context,
+                        node: where.node,
+                        varName: where.varName,
+                        chainStr: `${where.chainStr || where.varName}_auth_where${index}`,
+                        kind: "where",
+                    });
+                    return {
+                        strs: [...res.strs, authWhere[0]],
+                        params: { ...res.params, ...authWhere[1] },
+                    };
                 }
 
-                const authWhere = createAuthPredicate({
-                    rule: {
-                        where: authRule.where,
-                        allowUnauthenticated: authRule.allowUnauthenticated,
-                    },
-                    context,
-                    node: where.node,
-                    varName: where.varName,
-                    chainStr: `${where.chainStr || where.varName}_auth_where${index}`,
-                    kind: "where",
-                });
+                if (authRule.whereCypher) {
+                    const authWhereCypher = createCypherAuthPredicate({
+                        rule: {
+                            whereCypher: authRule.whereCypher,
+                        },
+                        context,
+                        node: where.node,
+                        varName: where.varName,
+                        chainStr: `${where.chainStr || where.varName}_auth_where${index}`,
+                        kind: "whereCypher",
+                    });
 
-                return {
-                    strs: [...res.strs, authWhere[0]],
-                    params: { ...res.params, ...authWhere[1] },
-                };
+                    return {
+                        strs: [...res.strs, authWhereCypher[0]],
+                        params: res.params,
+                    };
+                }
+
+                return res;
             },
             { strs: [], params: {} }
         );
