@@ -52,6 +52,7 @@ function createRolesStr({ roles, escapeQuotes }: { roles: string[]; escapeQuotes
 
 function createCypherAuthPredicate({
     rule,
+    varName,
 }: {
     context: Context;
     varName: string;
@@ -65,7 +66,7 @@ function createCypherAuthPredicate({
         return ["", {}];
     }
 
-    return [query, []];
+    return [query.replace(/\$\$this/g, varName), []];
 }
 
 function createAuthPredicate({
