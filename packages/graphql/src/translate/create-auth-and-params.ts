@@ -239,8 +239,6 @@ function createAuthAndParams({
                 }
 
                 if (authRule.whereCypher) {
-                    console.dir(where);
-                    console.dir(authRule);
                     const authWhereCypher = createCypherAuthPredicate({
                         rule: {
                             whereCypher: authRule.whereCypher,
