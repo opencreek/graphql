@@ -51,6 +51,7 @@ function createRolesStr({ roles, escapeQuotes }: { roles: string[]; escapeQuotes
 
 function createCypherAuthPredicate({
     rule,
+    varName,
 }: {
     context: Context;
     varName: string;
@@ -64,7 +65,7 @@ function createCypherAuthPredicate({
         return ["", {}];
     }
 
-    return [query, []];
+    return [query.replace(/\$\$this/g, varName), []];
 }
 
 function createAuthPredicate({
@@ -238,6 +239,8 @@ function createAuthAndParams({
                 }
 
                 if (authRule.whereCypher) {
+                    console.dir(where);
+                    console.dir(authRule);
                     const authWhereCypher = createCypherAuthPredicate({
                         rule: {
                             whereCypher: authRule.whereCypher,
