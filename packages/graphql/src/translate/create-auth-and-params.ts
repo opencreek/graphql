@@ -49,10 +49,7 @@ function createRolesStr({ roles, escapeQuotes }: { roles: string[]; escapeQuotes
     return `ANY(r IN [${joined}] WHERE ANY(rr IN $auth.roles WHERE r = rr))`;
 }
 
-function createCypherAuthPredicate({
-    rule,
-    varName,
-}: {
+function createCypherAuthPredicate(input: {
     context: Context;
     varName: string;
     node: Node;
@@ -60,12 +57,18 @@ function createCypherAuthPredicate({
     chainStr: string;
     kind: "whereCypher";
 }): [string, any] {
+    const { rule, varName } = input;
     const query = rule.whereCypher?.query;
     if (query === undefined) {
         return ["", {}];
     }
 
-    return [query.replace(/\$\$this/g, varName), []];
+    return [
+        query.replace(/\$\$this/g, varName),
+        {
+            auth: input.context.auth,
+        },
+    ];
 }
 
 function createAuthPredicate({
@@ -252,7 +255,7 @@ function createAuthAndParams({
 
                     return {
                         strs: [...res.strs, authWhereCypher[0]],
-                        params: res.params,
+                        params: { ...res.params, ...authWhereCypher[1] },
                     };
                 }
 
