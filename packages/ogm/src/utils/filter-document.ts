@@ -1,5 +1,5 @@
 import { DefinitionNode, DocumentNode, FieldDefinitionNode } from "graphql";
-import { Neo4jGraphQLConstructor } from "@neo4j/graphql";
+import { Neo4jGraphQLConstructor } from "@opencreek/neo4j-graphql";
 import { mergeTypeDefs } from "@graphql-tools/merge";
 
 const excludedDirectives = ["auth", "exclude", "private", "readonly", "writeonly"];

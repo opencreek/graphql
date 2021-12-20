@@ -1,6 +1,6 @@
 {
     "name": "@opencreek/neo4j-graphql-ogm",
-    "version": "2.5.0-alpha.2",
+    "version": "2.5.0-alpha.3",
     "description": "GraphQL powered OGM for Neo4j and Javascript applications",
     "keywords": [
         "neo4j",

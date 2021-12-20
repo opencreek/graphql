@@ -1,4 +1,4 @@
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 
 export { default as filterDocument } from "./filter-document";
 
