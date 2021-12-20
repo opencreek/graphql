@@ -34,10 +34,12 @@ import type {
     PointField,
     Auth,
     BaseField,
+    Context,
+    FullText,
 } from "../types";
 import Exclude from "./Exclude";
-import NodeDirective from "./NodeDirective";
 import { GraphElement, GraphElementConstructor } from "./GraphElement";
+import { NodeDirective } from "./NodeDirective";
 
 export interface NodeConstructor extends GraphElementConstructor {
     name: string;
@@ -56,6 +58,7 @@ export interface NodeConstructor extends GraphElementConstructor {
     pointFields: PointField[];
     ignoredFields: BaseField[];
     auth?: Auth;
+    fulltextDirective?: FullText;
     exclude?: Exclude;
     nodeDirective?: NodeDirective;
     description?: string;
@@ -81,6 +84,10 @@ type AuthableField =
     | PointField
     | CypherField;
 
+type SortableField = PrimitiveField | CustomScalarField | CustomEnumField | TemporalField | PointField | CypherField;
+
+type ConstrainableField = PrimitiveField | TemporalField | PointField;
+
 class Node extends GraphElement {
     public relationFields: RelationField[];
     public connectionFields: ConnectionField[];
@@ -92,6 +99,7 @@ class Node extends GraphElement {
     public objectFields: ObjectField[];
     public exclude?: Exclude;
     public nodeDirective?: NodeDirective;
+    public fulltextDirective?: FullText;
     public auth?: Auth;
     public description?: string;
 
@@ -107,15 +115,8 @@ class Node extends GraphElement {
         this.objectFields = input.objectFields;
         this.exclude = input.exclude;
         this.nodeDirective = input.nodeDirective;
+        this.fulltextDirective = input.fulltextDirective;
         this.auth = input.auth;
-    }
-
-    public get labelString(): string {
-        return this.nodeDirective?.getLabelsString(this.name) || `:${this.name}`;
-    }
-
-    public get labels(): string[] {
-        return this.nodeDirective?.getLabels(this.name) || [this.name];
     }
 
     // Fields you can set in a create or update mutation
@@ -133,7 +134,7 @@ class Node extends GraphElement {
         ];
     }
 
-    // Fields you can apply auth allow and bind to
+    /** Fields you can apply auth allow and bind to */
     public get authableFields(): AuthableField[] {
         return [
             ...this.primitiveFields,
@@ -145,6 +146,53 @@ class Node extends GraphElement {
             ...this.pointFields,
             ...this.cypherFields,
         ];
+    }
+
+    /** Fields you can sort on */
+    public get sortableFields(): SortableField[] {
+        return [
+            ...this.primitiveFields,
+            ...this.scalarFields,
+            ...this.enumFields,
+            ...this.temporalFields,
+            ...this.pointFields,
+            ...this.cypherFields.filter((field) =>
+                [
+                    "Boolean",
+                    "ID",
+                    "Int",
+                    "BigInt",
+                    "Float",
+                    "String",
+                    "DateTime",
+                    "LocalDateTime",
+                    "Time",
+                    "LocalTime",
+                    "Date",
+                    "Duration",
+                ].includes(field.typeMeta.name)
+            ),
+        ].filter((field) => !field.typeMeta.array);
+    }
+
+    public get constrainableFields(): ConstrainableField[] {
+        return [...this.primitiveFields, ...this.temporalFields, ...this.pointFields];
+    }
+
+    public get uniqueFields(): ConstrainableField[] {
+        return this.constrainableFields.filter((field) => field.unique);
+    }
+
+    public getLabelString(context: Context): string {
+        return this.nodeDirective?.getLabelsString(this.name, context) || `:${this.name}`;
+    }
+
+    public getLabels(context: Context): string[] {
+        return this.nodeDirective?.getLabels(this.name, context) || [this.name];
+    }
+
+    public getMainLabel(): string {
+        return this.nodeDirective?.label || this.name;
     }
 
     public getPlural(options: { camelCase: boolean }): string {
