@@ -272,7 +272,7 @@ describe("GraphQL - Infer Schema nodes basic tests", () => {
         const wSession = driver.session({ defaultAccessMode: neo4j.session.WRITE, database: dbName });
         await wSession.writeTransaction((tx) =>
             tx.run(
-                `CREATE (:FullNode {amb: $props.str, str: $props.str}) 
+                `CREATE (:FullNode {amb: $props.str, str: $props.str})
                 CREATE (:FullNode {amb: $props.int, str: $props.str})
                 CREATE (:OnlyAmb {amb: $props.str})
                 CREATE (:OnlyAmb {amb: $props.int})
