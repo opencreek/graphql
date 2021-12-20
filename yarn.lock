@@ -2110,7 +2110,7 @@ __metadata:
     "@graphql-codegen/plugin-helpers": 2.0.0
     "@graphql-codegen/typescript": 2.0.0
     "@graphql-tools/merge": 6.2.14
-    "@opencreek/neo4j-graphql": ^2.5.0-alpha.2
+    "@opencreek/neo4j-graphql": ^2.5.0-alpha.4
     "@types/jest": 26.0.8
     "@types/node": 14.0.27
     camelcase: ^6.2.0
@@ -2131,7 +2131,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql@^2.5.0-alpha.2, @opencreek/neo4j-graphql@workspace:packages/graphql":
+"@opencreek/neo4j-graphql@^2.5.0-alpha.2, @opencreek/neo4j-graphql@^2.5.0-alpha.4, @opencreek/neo4j-graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
   resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
   dependencies:
