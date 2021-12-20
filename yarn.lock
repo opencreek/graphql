@@ -2110,7 +2110,7 @@ __metadata:
     "@graphql-codegen/plugin-helpers": 2.0.0
     "@graphql-codegen/typescript": 2.0.0
     "@graphql-tools/merge": 6.2.14
-    "@opencreek/neo4j-graphql": ^2.5.0-alpha.5
+    "@opencreek/neo4j-graphql": ^2.5.0-alpha.6
     "@types/jest": 26.0.8
     "@types/node": 14.0.27
     camelcase: ^6.2.0
@@ -2131,7 +2131,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql@^2.5.0-alpha.2, @opencreek/neo4j-graphql@^2.5.0-alpha.5, @opencreek/neo4j-graphql@workspace:packages/graphql":
+"@opencreek/neo4j-graphql@^2.5.0-alpha.2, @opencreek/neo4j-graphql@^2.5.0-alpha.6, @opencreek/neo4j-graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
   resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
   dependencies:
@@ -2153,7 +2153,7 @@ __metadata:
     deep-equal: ^2.0.5
     dot-prop: ^6.0.1
     faker: 5.2.0
-    graphql-compose: ^9.0.4
+    graphql-compose: 9.0.4
     graphql-parse-resolve-info: ^4.12.0
     graphql-relay: ^0.8.0
     graphql-tag: 2.11.0
@@ -9307,7 +9307,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"graphql-compose@npm:^9.0.4":
+"graphql-compose@npm:9.0.4":
   version: 9.0.4
   resolution: "graphql-compose@npm:9.0.4"
   dependencies:
