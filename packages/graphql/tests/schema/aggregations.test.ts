@@ -27,6 +27,7 @@ describe("Aggregations", () => {
         const typeDefs = gql`
             type Movie {
                 id: ID
+                isbn: String!
                 title: String
                 createdAt: DateTime
                 someTime: Time
@@ -51,9 +52,10 @@ describe("Aggregations", () => {
             scalar BigInt
 
             type BigIntAggregateSelection {
-              average: BigInt!
-              max: BigInt!
-              min: BigInt!
+              average: BigInt
+              max: BigInt
+              min: BigInt
+              sum: BigInt
             }
 
             type CreateInfo {
@@ -71,8 +73,8 @@ describe("Aggregations", () => {
             scalar DateTime
 
             type DateTimeAggregateSelection {
-              max: DateTime!
-              min: DateTime!
+              max: DateTime
+              min: DateTime
             }
 
             type DeleteInfo {
@@ -85,47 +87,50 @@ describe("Aggregations", () => {
             scalar Duration
 
             type DurationAggregateSelection {
-              max: Duration!
-              min: Duration!
+              max: Duration
+              min: Duration
             }
 
             type FloatAggregateSelection {
-              average: Float!
-              max: Float!
-              min: Float!
+              average: Float
+              max: Float
+              min: Float
+              sum: Float
             }
 
             type IDAggregateSelection {
-              longest: ID!
-              shortest: ID!
+              longest: ID
+              shortest: ID
             }
 
             type IntAggregateSelection {
-              average: Float!
-              max: Int!
-              min: Int!
+              average: Float
+              max: Int
+              min: Int
+              sum: Int
             }
 
             \\"\\"\\"A local datetime, represented as 'YYYY-MM-DDTHH:MM:SS'\\"\\"\\"
             scalar LocalDateTime
 
             type LocalDateTimeAggregateSelection {
-              max: LocalDateTime!
-              min: LocalDateTime!
+              max: LocalDateTime
+              min: LocalDateTime
             }
 
             \\"\\"\\"A local time, represented as a time string without timezone information\\"\\"\\"
             scalar LocalTime
 
             type LocalTimeAggregateSelection {
-              max: LocalTime!
-              min: LocalTime!
+              max: LocalTime
+              min: LocalTime
             }
 
             type Movie {
               createdAt: DateTime
               id: ID
               imdbRating: Float
+              isbn: String!
               screenTime: Duration
               someBigInt: BigInt
               someInt: Int
@@ -140,6 +145,7 @@ describe("Aggregations", () => {
               createdAt: DateTimeAggregateSelection!
               id: IDAggregateSelection!
               imdbRating: FloatAggregateSelection!
+              isbn: StringAggregateSelection!
               screenTime: DurationAggregateSelection!
               someBigInt: BigIntAggregateSelection!
               someInt: IntAggregateSelection!
@@ -153,6 +159,7 @@ describe("Aggregations", () => {
               createdAt: DateTime
               id: ID
               imdbRating: Float
+              isbn: String!
               screenTime: Duration
               someBigInt: BigInt
               someInt: Int
@@ -174,6 +181,7 @@ describe("Aggregations", () => {
               createdAt: SortDirection
               id: SortDirection
               imdbRating: SortDirection
+              isbn: SortDirection
               screenTime: SortDirection
               someBigInt: SortDirection
               someInt: SortDirection
@@ -187,6 +195,7 @@ describe("Aggregations", () => {
               createdAt: DateTime
               id: ID
               imdbRating: Float
+              isbn: String
               screenTime: Duration
               someBigInt: BigInt
               someInt: Int
@@ -225,6 +234,16 @@ describe("Aggregations", () => {
               imdbRating_LTE: Float
               imdbRating_NOT: Float
               imdbRating_NOT_IN: [Float]
+              isbn: String
+              isbn_CONTAINS: String
+              isbn_ENDS_WITH: String
+              isbn_IN: [String]
+              isbn_NOT: String
+              isbn_NOT_CONTAINS: String
+              isbn_NOT_ENDS_WITH: String
+              isbn_NOT_IN: [String]
+              isbn_NOT_STARTS_WITH: String
+              isbn_STARTS_WITH: String
               screenTime: Duration
               screenTime_GT: Duration
               screenTime_GTE: Duration
@@ -305,16 +324,16 @@ describe("Aggregations", () => {
             }
 
             type StringAggregateSelection {
-              longest: String!
-              shortest: String!
+              longest: String
+              shortest: String
             }
 
             \\"\\"\\"A time, represented as an RFC3339 time string\\"\\"\\"
             scalar Time
 
             type TimeAggregateSelection {
-              max: Time!
-              min: Time!
+              max: Time
+              min: Time
             }
 
             type UpdateInfo {
@@ -379,9 +398,10 @@ describe("Aggregations", () => {
             scalar BigInt
 
             type BigIntAggregateSelection {
-              average: BigInt!
-              max: BigInt!
-              min: BigInt!
+              average: BigInt
+              max: BigInt
+              min: BigInt
+              sum: BigInt
             }
 
             type CreateInfo {
@@ -404,8 +424,8 @@ describe("Aggregations", () => {
             scalar DateTime
 
             type DateTimeAggregateSelection {
-              max: DateTime!
-              min: DateTime!
+              max: DateTime
+              min: DateTime
             }
 
             type DeleteInfo {
@@ -418,25 +438,27 @@ describe("Aggregations", () => {
             scalar Duration
 
             type DurationAggregateSelection {
-              max: Duration!
-              min: Duration!
+              max: Duration
+              min: Duration
             }
 
             type FloatAggregateSelection {
-              average: Float!
-              max: Float!
-              min: Float!
+              average: Float
+              max: Float
+              min: Float
+              sum: Float
             }
 
             type IDAggregateSelection {
-              longest: ID!
-              shortest: ID!
+              longest: ID
+              shortest: ID
             }
 
             type IntAggregateSelection {
-              average: Float!
-              max: Int!
-              min: Int!
+              average: Float
+              max: Int
+              min: Int
+              sum: Int
             }
 
             interface Likes {
@@ -584,16 +606,16 @@ describe("Aggregations", () => {
             scalar LocalDateTime
 
             type LocalDateTimeAggregateSelection {
-              max: LocalDateTime!
-              min: LocalDateTime!
+              max: LocalDateTime
+              min: LocalDateTime
             }
 
             \\"\\"\\"A local time, represented as a time string without timezone information\\"\\"\\"
             scalar LocalTime
 
             type LocalTimeAggregateSelection {
-              max: LocalTime!
-              min: LocalTime!
+              max: LocalTime
+              min: LocalTime
             }
 
             type Mutation {
@@ -715,6 +737,11 @@ describe("Aggregations", () => {
               someBigInt_MIN_GTE: BigInt
               someBigInt_MIN_LT: BigInt
               someBigInt_MIN_LTE: BigInt
+              someBigInt_SUM_EQUAL: BigInt
+              someBigInt_SUM_GT: BigInt
+              someBigInt_SUM_GTE: BigInt
+              someBigInt_SUM_LT: BigInt
+              someBigInt_SUM_LTE: BigInt
               someDateTime_EQUAL: DateTime
               someDateTime_GT: DateTime
               someDateTime_GTE: DateTime
@@ -770,6 +797,11 @@ describe("Aggregations", () => {
               someFloat_MIN_GTE: Float
               someFloat_MIN_LT: Float
               someFloat_MIN_LTE: Float
+              someFloat_SUM_EQUAL: Float
+              someFloat_SUM_GT: Float
+              someFloat_SUM_GTE: Float
+              someFloat_SUM_LT: Float
+              someFloat_SUM_LTE: Float
               someId_EQUAL: ID
               someInt_AVERAGE_EQUAL: Float
               someInt_AVERAGE_GT: Float
@@ -791,6 +823,11 @@ describe("Aggregations", () => {
               someInt_MIN_GTE: Int
               someInt_MIN_LT: Int
               someInt_MIN_LTE: Int
+              someInt_SUM_EQUAL: Int
+              someInt_SUM_GT: Int
+              someInt_SUM_GTE: Int
+              someInt_SUM_LT: Int
+              someInt_SUM_LTE: Int
               someLocalDateTime_EQUAL: LocalDateTime
               someLocalDateTime_GT: LocalDateTime
               someLocalDateTime_GTE: LocalDateTime
@@ -886,6 +923,11 @@ describe("Aggregations", () => {
               someBigInt_MIN_GTE: BigInt
               someBigInt_MIN_LT: BigInt
               someBigInt_MIN_LTE: BigInt
+              someBigInt_SUM_EQUAL: BigInt
+              someBigInt_SUM_GT: BigInt
+              someBigInt_SUM_GTE: BigInt
+              someBigInt_SUM_LT: BigInt
+              someBigInt_SUM_LTE: BigInt
               someDateTime_EQUAL: DateTime
               someDateTime_GT: DateTime
               someDateTime_GTE: DateTime
@@ -941,6 +983,11 @@ describe("Aggregations", () => {
               someFloat_MIN_GTE: Float
               someFloat_MIN_LT: Float
               someFloat_MIN_LTE: Float
+              someFloat_SUM_EQUAL: Float
+              someFloat_SUM_GT: Float
+              someFloat_SUM_GTE: Float
+              someFloat_SUM_LT: Float
+              someFloat_SUM_LTE: Float
               someId_EQUAL: ID
               someInt_AVERAGE_EQUAL: Float
               someInt_AVERAGE_GT: Float
@@ -962,6 +1009,11 @@ describe("Aggregations", () => {
               someInt_MIN_GTE: Int
               someInt_MIN_LT: Int
               someInt_MIN_LTE: Int
+              someInt_SUM_EQUAL: Int
+              someInt_SUM_GT: Int
+              someInt_SUM_GTE: Int
+              someInt_SUM_LT: Int
+              someInt_SUM_LTE: Int
               someLocalDateTime_EQUAL: LocalDateTime
               someLocalDateTime_GT: LocalDateTime
               someLocalDateTime_GTE: LocalDateTime
@@ -1148,16 +1200,16 @@ describe("Aggregations", () => {
             }
 
             type StringAggregateSelection {
-              longest: String!
-              shortest: String!
+              longest: String
+              shortest: String
             }
 
             \\"\\"\\"A time, represented as an RFC3339 time string\\"\\"\\"
             scalar Time
 
             type TimeAggregateSelection {
-              max: Time!
-              min: Time!
+              max: Time
+              min: Time
             }
 
             type UpdateInfo {

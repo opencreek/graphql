@@ -20,7 +20,7 @@
 import { gql } from "apollo-server";
 import { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../src";
-import { createJwtRequest } from "../../../../src/utils/test/utils";
+import { createJwtRequest } from "../../../utils/create-jwt-request";
 import { formatCypher, translateQuery, formatParams } from "../../utils/tck-test-utils";
 
 describe("Cypher Aggregations Int", () => {
@@ -113,14 +113,12 @@ describe("Cypher Aggregations Int", () => {
         expect(formatParams(result.params)).toMatchInlineSnapshot(`"{}"`);
     });
 
-    test("Min and Max and Average", async () => {
+    test("Sum", async () => {
         const query = gql`
             {
                 moviesAggregate {
                     imdbRating {
-                        min
-                        max
-                        average
+                        sum
                     }
                 }
             }
@@ -133,7 +131,34 @@ describe("Cypher Aggregations Int", () => {
 
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:Movie)
-            RETURN { imdbRating: { min: min(this.imdbRating), max: max(this.imdbRating), average: avg(this.imdbRating) } }"
+            RETURN { imdbRating: { sum: sum(this.imdbRating) } }"
+        `);
+
+        expect(formatParams(result.params)).toMatchInlineSnapshot(`"{}"`);
+    });
+
+    test("Min, Max, Sum and Average", async () => {
+        const query = gql`
+            {
+                moviesAggregate {
+                    imdbRating {
+                        min
+                        max
+                        average
+                        sum
+                    }
+                }
+            }
+        `;
+
+        const req = createJwtRequest("secret", {});
+        const result = await translateQuery(neoSchema, query, {
+            req,
+        });
+
+        expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
+            "MATCH (this:Movie)
+            RETURN { imdbRating: { min: min(this.imdbRating), max: max(this.imdbRating), average: avg(this.imdbRating), sum: sum(this.imdbRating) } }"
         `);
 
         expect(formatParams(result.params)).toMatchInlineSnapshot(`"{}"`);

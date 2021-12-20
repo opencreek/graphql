@@ -23,14 +23,8 @@ import {
     Neo4jGraphQLForbiddenError,
     Neo4jGraphQLAuthenticationError,
     Neo4jGraphQLConstraintValidationError,
-    Neo4jGraphQLRelationshipValidationError,
 } from "../classes";
-import {
-    AUTH_FORBIDDEN_ERROR,
-    AUTH_UNAUTHENTICATED_ERROR,
-    DEBUG_EXECUTE,
-    RELATIONSHIP_REQUIREMENT_PREFIX,
-} from "../constants";
+import { AUTH_FORBIDDEN_ERROR, AUTH_UNAUTHENTICATED_ERROR, DEBUG_EXECUTE } from "../constants";
 import createAuthParam from "../translate/create-auth-param";
 import { Context, DriverConfig } from "../types";
 import environment from "../environment";
@@ -70,6 +64,7 @@ async function execute(input: {
     const userAgent = `${environment.NPM_PACKAGE_NAME}/${environment.NPM_PACKAGE_VERSION}`;
 
     // @ts-ignore: below
+    // eslint-disable-next-line no-underscore-dangle
     if (input.context.driver?._config) {
         // @ts-ignore: (driver >= 4.3)
         input.context.driver._config.userAgent = userAgent; // eslint-disable-line no-underscore-dangle
@@ -124,11 +119,6 @@ async function execute(input: {
 
             if (error.message.includes(`Caused by: java.lang.RuntimeException: ${AUTH_UNAUTHENTICATED_ERROR}`)) {
                 throw new Neo4jGraphQLAuthenticationError("Unauthenticated");
-            }
-
-            if (error.message.includes(`Caused by: java.lang.RuntimeException: ${RELATIONSHIP_REQUIREMENT_PREFIX}`)) {
-                const [, message] = error.message.split(RELATIONSHIP_REQUIREMENT_PREFIX);
-                throw new Neo4jGraphQLRelationshipValidationError(message);
             }
 
             if (error.code === "Neo.ClientError.Schema.ConstraintValidationFailed") {

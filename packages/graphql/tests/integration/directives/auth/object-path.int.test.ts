@@ -22,7 +22,7 @@ import { graphql } from "graphql";
 import { generate } from "randomstring";
 import neo4j from "../../neo4j";
 import { Neo4jGraphQL } from "../../../../src/classes";
-import { createJwtRequest } from "../../../../src/utils/test/utils";
+import { createJwtRequest } from "../../../utils/create-jwt-request";
 
 describe("auth/object-path", () => {
     let driver: Driver;
@@ -196,6 +196,58 @@ describe("auth/object-path", () => {
             const [user] = (gqlResult.data as any).users;
 
             expect(user).toEqual({ id: userId });
+        } finally {
+            await session.close();
+        }
+    });
+
+    test("should use object path with JWT endpoint", async () => {
+        const session = driver.session({ defaultAccessMode: "WRITE" });
+
+        const typeDefs = `
+            type User {
+                id: ID
+            }
+
+            extend type User @auth(rules: [{ operations: [READ], roles: ["admin"] }])
+        `;
+
+        const userId = generate({
+            charset: "alphabetic",
+        });
+
+        const query = `
+            {
+                users(where: {id: "${userId}"}) {
+                    id
+                }
+            }
+        `;
+
+        // Pass the well-known JWKS Endpoint
+        const neoSchema = new Neo4jGraphQL({
+            typeDefs,
+            config: {
+                jwt: { jwksEndpoint: "https://YOUR_DOMAIN/.well-known/jwks.json" },
+            },
+        });
+
+        try {
+            await session.run(`
+                CREATE (:User {id: "${userId}"})
+            `);
+
+            // Not a valid JWT since signature shall never match
+            const req = createJwtRequest(secret);
+
+            const gqlResult = await graphql({
+                schema: neoSchema.schema,
+                source: query,
+                contextValue: { driver, req, driverConfig: { bookmarks: session.lastBookmark() } },
+            });
+
+            // Since we don't have a valid JWKS Endpoint, we will always get an error validating our JWKS
+            expect((gqlResult.errors as any[])[0].message).toEqual("Forbidden");
         } finally {
             await session.close();
         }
