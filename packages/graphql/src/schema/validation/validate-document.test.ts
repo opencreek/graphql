@@ -565,17 +565,17 @@ describe("validateDocument", () => {
                 );
             });
 
-            test("should throw when using Node as node name", () => {
-                const doc = gql`
-                    type Node {
-                        id: ID
-                    }
-                `;
-
-                expect(() => validateDocument(doc)).toThrow(
-                    RESERVED_TYPE_NAMES.find((x) => x.regex.test("Node"))?.error
-                );
-            });
+//            test("should throw when using Node as node name", () => {
+//                const doc = gql`
+//                    type Node {
+//                        id: ID
+//                    }
+//                `;
+//
+//                expect(() => validateDocument(doc)).toThrow(
+//                    RESERVED_TYPE_NAMES.find((x) => x.regex.test("Node"))?.error
+//                );
+//            });
         });
 
         describe("Interface", () => {
@@ -621,26 +621,26 @@ describe("validateDocument", () => {
                 );
             });
 
-            test("should throw when using Node as relationship properties interface name", () => {
-                const doc = gql`
-                    type Movie {
-                        id: ID
-                        actors: [Actor] @relationship(type: "ACTED_IN", direction: OUT, properties: "Node")
-                    }
-
-                    interface Node {
-                        screenTime: Int
-                    }
-
-                    type Actor {
-                        name: String
-                    }
-                `;
-
-                expect(() => validateDocument(doc)).toThrow(
-                    RESERVED_TYPE_NAMES.find((x) => x.regex.test("Node"))?.error
-                );
-            });
+//            test("should throw when using Node as relationship properties interface name", () => {
+//                const doc = gql`
+//                    type Movie {
+//                        id: ID
+//                        actors: [Actor] @relationship(type: "ACTED_IN", direction: OUT, properties: "Node")
+//                    }
+//
+//                    interface Node {
+//                        screenTime: Int
+//                    }
+//
+//                    type Actor {
+//                        name: String
+//                    }
+//                `;
+//
+//                expect(() => validateDocument(doc)).toThrow(
+//                    RESERVED_TYPE_NAMES.find((x) => x.regex.test("Node"))?.error
+//                );
+//            });
         });
     });
 });
