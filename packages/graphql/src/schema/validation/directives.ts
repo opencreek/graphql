@@ -121,6 +121,16 @@ export const ignoreDirective = new GraphQLDirective({
     locations: [DirectiveLocation.FIELD_DEFINITION],
 });
 
+export const customResolverDirective = new GraphQLDirective({
+    name: "customResolver",
+    locations: [DirectiveLocation.FIELD_DEFINITION],
+    args: {
+        requiredFields: {
+            type: new GraphQLList(GraphQLString),
+        },
+    },
+});
+
 export const nodeDirective = new GraphQLDirective({
     name: "node",
     description: "Informs @neo4j/graphql of node metadata",

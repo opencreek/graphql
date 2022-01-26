@@ -115,6 +115,7 @@ export interface BaseField {
     arguments: InputValueDefinitionNode[];
     private?: boolean;
     auth?: Auth;
+    requiredFieldsToLoad?: string[];
     description?: string;
     readonly?: boolean;
     writeonly?: boolean;

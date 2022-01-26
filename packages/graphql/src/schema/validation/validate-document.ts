@@ -154,6 +154,8 @@ function filterDocument(document: DocumentNode): DocumentNode {
 function validateDocument(document: DocumentNode): void {
     const doc = filterDocument(document);
 
+    console.dir(directives)
+
     const schemaToExtend = new GraphQLSchema({
         directives: Object.values(directives),
         types: [...Object.values(scalars), ...Object.values(enums), ...Object.values(point)],

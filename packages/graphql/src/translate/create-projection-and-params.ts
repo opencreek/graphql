@@ -21,7 +21,7 @@ import { UnionTypeDefinitionNode } from "graphql/language/ast";
 import { FieldsByTypeName, ResolveTree } from "graphql-parse-resolve-info";
 import { Node } from "../classes";
 import createWhereAndParams from "./create-where-and-params";
-import { GraphQLOptionsArg, GraphQLSortArg, GraphQLWhereArg, Context, ConnectionField } from "../types";
+import { GraphQLOptionsArg, GraphQLSortArg, GraphQLWhereArg, Context, ConnectionField, BaseField } from "../types";
 import createAuthAndParams from "./create-auth-and-params";
 import { AUTH_FORBIDDEN_ERROR } from "../constants";
 import { createDatetimeElement } from "./projection/elements/create-datetime-element";
@@ -145,7 +145,7 @@ function createProjectionAndParams({
 
         const whereInput = field.args.where as GraphQLWhereArg;
         const optionsInput = field.args.options as GraphQLOptionsArg;
-        const fieldFields = (field.fieldsByTypeName as unknown) as FieldsByTypeName;
+        const fieldFields = field.fieldsByTypeName as unknown as FieldsByTypeName;
         const cypherField = node.cypherFields.find((x) => x.fieldName === field.name);
         const relationField = node.relationFields.find((x) => x.fieldName === field.name);
         const connectionField = node.connectionFields.find((x) => x.fieldName === field.name);
@@ -557,6 +557,7 @@ function createProjectionAndParams({
         } else if (temporalField?.typeMeta.name === "DateTime") {
             res.projection.push(createDatetimeElement({ resolveTree: field, field: temporalField, variable: varName }));
         } else {
+            console.dir(field);
             // If field is aliased, rename projected field to alias and set to varName.fieldName
             // e.g. RETURN varname { .fieldName } -> RETURN varName { alias: varName.fieldName }
             let aliasedProj: string;
@@ -594,6 +595,43 @@ function createProjectionAndParams({
             // with the fields of the node
             fieldsByTypeName[node.name]
         );
+
+    console.dir(node);
+    const fieldsWithExtraRequirements = Object.values(fields)
+        .map((it) => node.ignoredFields.find((o) => o.fieldName === it.name))
+        .filter((f): f is BaseField => f?.requiredFieldsToLoad !== undefined);
+    const extraFieldsToLoad = fieldsWithExtraRequirements
+        .map((f) => f.requiredFieldsToLoad ?? [])
+        .reduce((a, b) => [...a, ...b], []);
+
+    function buildResolveTree(name: string, fields: Array<string>, node: Node): ResolveTree {
+        const next = fields.shift();
+        const relationField = node.relationFields?.find((e) => e.fieldName === name);
+        const referenceNode = context.neoSchema.nodes.find((x) => x.name === relationField?.typeMeta?.name) as Node;
+
+        return {
+            name,
+            alias: name,
+            args: {},
+            fieldsByTypeName:
+                relationField == null || next == null
+                    ? {}
+                    : {
+                          [relationField.typeMeta.name]: {
+                              [next]: buildResolveTree(next, fields, referenceNode),
+                          },
+                      },
+        };
+    }
+
+    console.dir(fields);
+    for (const name of extraFieldsToLoad) {
+        const split = name.split(".");
+        const field = split.shift() ?? "";
+
+        fields[field] = buildResolveTree(field, split, node);
+    }
+    console.dir(fields);
 
     const { projection, params, meta } = Object.entries(fields).reduce(reducer, {
         projection: resolveType ? [`__resolveType: "${node.name}"`] : [],

@@ -127,6 +127,16 @@ function getObjFieldMeta({
             const fieldEnum = enums.find((x) => x.name.value === typeMeta.name);
             const fieldObject = objects.find((x) => x.name.value === typeMeta.name);
 
+            const requiredFieldsToLoadList = directives
+                .find((d) => d.name.value === "customResolver")
+                ?.arguments?.find((a) => a.name.value === "requiredFields")?.value;
+
+            const requiredFieldsToLoadValues =
+                requiredFieldsToLoadList?.kind === "ListValue" ? requiredFieldsToLoadList.values : undefined;
+            const requiredFieldsToLoadListValuesString = requiredFieldsToLoadValues
+                ?.map((v) => (v.kind === "StringValue" ? v.value : undefined))
+                ?.filter((s): s is string => s !== undefined);
+
             const baseField: BaseField = {
                 fieldName: field.name.value,
                 dbPropertyName: field.name.value,
@@ -141,6 +151,7 @@ function getObjFieldMeta({
                             "readonly",
                             "writeonly",
                             "ignore",
+                            "customResolver",
                             "default",
                             "coalesce",
                             "timestamp",
@@ -158,6 +169,7 @@ function getObjFieldMeta({
                     directives.some((d) => d.name.value === "writeonly") ||
                     interfaceField?.directives?.some((x) => x.name.value === "writeonly"),
                 ...(unique ? { unique } : {}),
+                requiredFieldsToLoad: requiredFieldsToLoadListValuesString,
             };
 
             if (aliasDirective) {
@@ -348,6 +360,11 @@ function getObjFieldMeta({
             } else if (
                 field.directives?.some((d) => d.name.value === "ignore") ||
                 interfaceField?.directives?.some((d) => d.name.value === "ignore")
+            ) {
+                res.ignoredFields.push(baseField);
+            } else if (
+                field.directives?.some((d) => d.name.value === "customResolver") ||
+                interfaceField?.directives?.some((d) => d.name.value === "customResolver")
             ) {
                 res.ignoredFields.push(baseField);
             } else {
