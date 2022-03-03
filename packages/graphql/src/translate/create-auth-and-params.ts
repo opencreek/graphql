@@ -68,6 +68,7 @@ function createCypherAuthPredicate(input: {
         query.replace(/\$\$this/g, varName),
         {
             auth: input.context.auth,
+            jwt: input.context.jwt,
         },
     ];
 }
@@ -224,7 +225,7 @@ function createAuthAndParams({
     }
 
     const hasWhere = (rule: BaseAuthRule): boolean =>
-        !!(rule.where || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
+        !!(rule.where || rule.whereCypher || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
 
     if (where && !authRules.some(hasWhere)) {
         return ["", [{}]];

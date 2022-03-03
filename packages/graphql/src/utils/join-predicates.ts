@@ -17,7 +17,6 @@
  * limitations under the License.
  */
 
-
 export const PREDICATE_JOINS = ["AND", "OR"] as const;
 export type PredicateJoin = typeof PREDICATE_JOINS[number];
 
@@ -37,8 +36,8 @@ export default function joinPredicates(predicates: string[], joinType: Predicate
     }
 
     return `(${
-        joinType === "AND" 
-            ? filteredPredicates.join(" AND ") 
+        joinType === "AND"
+            ? filteredPredicates.join(" AND ")
             : filteredPredicates.map((predicate) => `(${predicate})`).join(" OR ")
     })`;
 }
