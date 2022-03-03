@@ -565,7 +565,7 @@ describe("validateDocument", () => {
                 );
             });
 
-            test("should throw when using Node as node name", () => {
+            test.skip("should throw when using Node as node name", () => {
                 const doc = gql`
                     type Node {
                         id: ID
@@ -621,7 +621,7 @@ describe("validateDocument", () => {
                 );
             });
 
-            test("should throw when using Node as relationship properties interface name", () => {
+            test.skip("should throw when using Node as relationship properties interface name", () => {
                 const doc = gql`
                     type Movie {
                         id: ID
