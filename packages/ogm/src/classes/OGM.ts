@@ -22,7 +22,7 @@ import { GraphQLSchema } from "graphql";
 import Model from "./Model";
 import { filterDocument } from "../utils";
 
-export type OGMConstructor = Neo4jGraphQLConstructor;
+export type OGMConstructor = Neo4jGraphQLConstructor & { excludeAuth?: boolean };
 
 class OGM<ModelMap = {}> {
     public checkNeo4jCompat: () => Promise<void>;
@@ -42,7 +42,7 @@ class OGM<ModelMap = {}> {
 
         this.neoSchema = new Neo4jGraphQL({
             ...rest,
-            typeDefs: filterDocument(typeDefs),
+            typeDefs: filterDocument(typeDefs, input.excludeAuth ?? true),
         });
 
         this.checkNeo4jCompat = function checkNeo4jCompat() {
