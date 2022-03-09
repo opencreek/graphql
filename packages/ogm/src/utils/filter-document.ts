@@ -26,7 +26,7 @@ const EXCLUDED_DIRECTIVES = ["auth", "exclude", "private", "readonly", "writeonl
 function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"], excludeAuth = true): DocumentNode {
     const merged = mergeTypeDefs(Array.isArray(typeDefs) ? (typeDefs as string[]) : [typeDefs as string]);
 
-    const excludedDirectives = EXCLUDED_DIRECTIVES.filter((it) => (excludeAuth ? false : it === "auth"));
+    const excludedDirectives = EXCLUDED_DIRECTIVES.filter((it) => (excludeAuth ? true : it !== "auth"));
 
     return {
         ...merged,
