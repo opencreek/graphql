@@ -49,10 +49,10 @@ export const RESERVED_TYPE_NAMES = [
         regex: /^.+Connection$/,
         error: 'Type or Interface with name ending "Connection" are reserved to support the pagination model of connections. See https://relay.dev/graphql/connections.htm#sec-Reserved-Types for more information.',
     },
-    {
-        regex: /^Node$/,
-        error: "Type or Interface with name `Node` reserved to support Relay. See https://relay.dev/graphql/ for more information.",
-    },
+    //    {
+    //        regex: /^Node$/,
+    //        error: "Type or Interface with name `Node` reserved to support Relay. See https://relay.dev/graphql/ for more information.",
+    //    },
 ];
 
 // [0]Field [1]Error
