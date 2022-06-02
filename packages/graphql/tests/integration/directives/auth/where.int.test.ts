@@ -41,6 +41,54 @@ describe("auth/where", () => {
     });
 
     describe("read", () => {
+        test("should use whereCypher and return user", async () => {
+            const session = driver.session({ defaultAccessMode: "WRITE" });
+
+            const typeDefs = `
+                type User {
+                    id: ID
+                }
+
+                extend type User @auth(rules: [{ operations: [READ], whereCypher: { query: "$$this.id = $jwt.sub" }}])
+            `;
+
+            const userId = generate({
+                charset: "alphabetic",
+            });
+
+            const query = `
+                {
+                    users {
+                        id
+                    }
+                }
+            `;
+
+            const neoSchema = new Neo4jGraphQL({ typeDefs, plugins: { auth: jwtPlugin } });
+
+            try {
+                await session.run(`
+                    CREATE (:User {id: "${userId}"})
+                    CREATE (:User {id: "some other id"})
+                `);
+
+                const req = createJwtRequest(secret, { sub: userId });
+
+                const gqlResult = await graphql({
+                    schema: await neoSchema.getSchema(),
+                    source: query,
+                    contextValue: { driver, req, driverConfig: { bookmarks: session.lastBookmark() } },
+                });
+
+                expect(gqlResult.errors).toBeUndefined();
+
+                const users = (gqlResult.data as any).users as any[];
+                expect(users).toEqual([{ id: userId }]);
+            } finally {
+                await session.close();
+            }
+        });
+
         test("should add $jwt.id to where and return user", async () => {
             const session = driver.session({ defaultAccessMode: "WRITE" });
 
@@ -69,6 +117,7 @@ describe("auth/where", () => {
             try {
                 await session.run(`
                     CREATE (:User {id: "${userId}"})
+                    CREATE (:User {id: "some other id"})
                 `);
 
                 const req = createJwtRequest(secret, { sub: userId });
