@@ -21,10 +21,12 @@ import { DefinitionNode, DocumentNode, FieldDefinitionNode } from "graphql";
 import { Neo4jGraphQLConstructor } from "@neo4j/graphql";
 import { mergeTypeDefs } from "@graphql-tools/merge";
 
-const excludedDirectives = ["auth", "exclude", "private", "readonly", "writeonly"];
+const EXCLUDED_DIRECTIVES = ["auth", "exclude", "private", "readonly", "writeonly"];
 
-function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"]): DocumentNode {
+function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"], excludeAuth = true): DocumentNode {
     const merged = mergeTypeDefs(Array.isArray(typeDefs) ? (typeDefs as string[]) : [typeDefs as string]);
+
+    const excludedDirectives = EXCLUDED_DIRECTIVES.filter((it) => (excludeAuth ? true : it !== "auth"));
 
     return {
         ...merged,
