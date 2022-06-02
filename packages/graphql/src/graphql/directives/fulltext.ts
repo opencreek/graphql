@@ -29,7 +29,7 @@ import {
 export const fulltextDirective = new GraphQLDirective({
     name: "fulltext",
     description:
-        "Informs @neo4j/graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.",
+        "Informs @opencreek/neo4j-graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.",
     args: {
         indexes: {
             type: new GraphQLNonNull(

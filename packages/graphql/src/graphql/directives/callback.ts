@@ -23,7 +23,7 @@ import { CallbackOperationEnum } from "./arguments/enums/CallbackOperation";
 export const callbackDirective = new GraphQLDirective({
     name: "callback",
     description:
-        "Instructs @neo4j/graphql to invoke the specified callback function when updating or creating the properties on a node or relationship.",
+        "Instructs @opencreek/neo4j-graphql to invoke the specified callback function when updating or creating the properties on a node or relationship.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         operations: {

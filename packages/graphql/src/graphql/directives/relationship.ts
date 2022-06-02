@@ -25,7 +25,7 @@ import { RelationshipQueryDirectionOption } from "../../constants";
 export const relationshipDirective = new GraphQLDirective({
     name: "relationship",
     description:
-        "Instructs @neo4j/graphql to treat this field as a relationship. Opens up the ability to create and connect on this field.",
+        "Instructs @opencreek/neo4j-graphql to treat this field as a relationship. Opens up the ability to create and connect on this field.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         type: {

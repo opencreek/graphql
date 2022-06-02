@@ -22,7 +22,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLList, GraphQLNonNull, Graph
 export const computedDirective = new GraphQLDirective({
     name: "computed",
     description:
-        "Informs @neo4j/graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies.",
+        "Informs @opencreek/neo4j-graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         from: {

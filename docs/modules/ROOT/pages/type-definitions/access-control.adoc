@@ -21,7 +21,7 @@ enum ExcludeOperation {
     DELETE
 }
 
-"""Instructs @neo4j/graphql to exclude the specified operations from query and mutation generation. If used without an argument, no queries or mutations will be generated for this type."""
+"""Instructs @opencreek/neo4j-graphql to exclude the specified operations from query and mutation generation. If used without an argument, no queries or mutations will be generated for this type."""
 directive @exclude(
     operations: [ExcludeOperation!]! = [CREATE, READ, UPDATE, DELETE]
 ) on OBJECT
@@ -83,7 +83,7 @@ The field will only feature in mutations for creating, and object types for quer
 
 [source, graphql, indent=0]
 ----
-"""Instructs @neo4j/graphql to only include a field in generated input type for creating, and in the object type within which the directive is applied."""
+"""Instructs @opencreek/neo4j-graphql to only include a field in generated input type for creating, and in the object type within which the directive is applied."""
 directive @readonly on FIELD_DEFINITION
 ----
 
@@ -96,6 +96,6 @@ This field will only feature in input types, and will not be available for query
 
 [source, graphql, indent=0]
 ----
-"""Instructs @neo4j/graphql to only include a field in the generated input types for the object type within which the directive is applied, but exclude it from the object type itself."""
+"""Instructs @opencreek/neo4j-graphql to only include a field in the generated input types for the object type within which the directive is applied, but exclude it from the object type itself."""
 directive @writeonly on FIELD_DEFINITION
 ----

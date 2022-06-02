@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { SubscriptionsEvent } from "@neo4j/graphql";
+import { SubscriptionsEvent } from "@opencreek/neo4j-graphql";
 import { Neo4jGraphQLSubscriptionsAMQPPlugin } from "../../src";
 import createPlugin from "./setup/plugin";
 import getRabbitConnectionOptions from "./setup/rabbitmq";

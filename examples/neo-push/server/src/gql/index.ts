@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server-express";
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { OGM } from "@neo4j/graphql-ogm";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { OGM } from "@opencreek/neo4j-graphql-ogm";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { driver } from "../neo4j";
 import { Context } from "../types";
 import * as User from "./User";

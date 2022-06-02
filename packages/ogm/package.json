@@ -1,5 +1,5 @@
 {
-    "name": "@neo4j/graphql-ogm",
+    "name": "@opencreek/neo4j-graphql-ogm",
     "version": "3.3.0",
     "description": "GraphQL powered OGM for Neo4j and Javascript applications",
     "keywords": [
@@ -35,7 +35,7 @@
         "@graphql-codegen/plugin-helpers": "^2.3.2",
         "@graphql-codegen/typescript": "^2.4.2",
         "@graphql-tools/merge": "^8.2.1",
-        "@neo4j/graphql": "^3.3.0",
+        "@opencreek/neo4j-graphql": "^3.3.0",
         "prettier": "^2.5.1"
     },
     "peerDependencies": {
@@ -43,7 +43,7 @@
         "neo4j-driver": "^4.1.0"
     },
     "devDependencies": {
-        "@neo4j/graphql-plugin-auth": "^1.0.0",
+        "@opencreek/neo4j-graphql-plugin-auth": "^1.0.0",
         "@types/jest": "27.5.1",
         "@types/node": "16.11.36",
         "camelcase": "6.3.0",

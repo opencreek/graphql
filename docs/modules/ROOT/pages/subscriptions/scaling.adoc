@@ -16,7 +16,7 @@ In the previous example, the server running the GraphQL service, will do the fol
 2. Run the Cypher Query on Neo4j.
 3. Trigger the subscription event to _Client A_.
 
-This setup works fine for a single instance of `@neo4j/graphql`. However, when trying to scale horizontally, by adding more GraphQL servers,
+This setup works fine for a single instance of `@opencreek/neo4j-graphql`. However, when trying to scale horizontally, by adding more GraphQL servers,
 we may encounter the following situation:
 
 image::subscriptions/diagram2.png[title="Subscriptions with 2 servers"]
@@ -29,7 +29,7 @@ will **not** receive any update, as the server it's connected to will not get no
 This is the behaviour of the xref::subscriptions/plugins/single-instance.adoc[single instance plugin] provided by the library, so it is not suitable for use in a horizontally scaled environment.
 
 ## Using PubSub
-One solution to this problem, and how `@neo4j/graphql` is intended to work, is to use a PubSub pattern with an external broker to broadcast events through multiple
+One solution to this problem, and how `@opencreek/neo4j-graphql` is intended to work, is to use a PubSub pattern with an external broker to broadcast events through multiple
 instances. This can be achieved through xref::subscriptions/plugins/index.adoc[subscription plugins].
 
 Following the previous example, using an intermediate broker to broadcast the events across all instances, the infrastructure would look like:

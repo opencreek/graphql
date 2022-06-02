@@ -1,13 +1,13 @@
-# @neo4j/graphql-plugin-auth
+# @opencreek/neo4j-graphql-plugin-auth
 
-Auth decode plugins for @neo4j/graphql
+Auth decode plugins for @opencreek/neo4j-graphql
 
 1. [Documentation](https://neo4j.com/docs/graphql-manual/current/auth/)
 
 ## Installation
 
 ```
-$ npm install @neo4j/graphql-plugin-auth
+$ npm install @opencreek/neo4j-graphql-plugin-auth
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ $ npm install @neo4j/graphql-plugin-auth
 ### `Neo4jGraphQLAuthJWTPlugin`
 
 ```ts
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,
@@ -31,8 +31,8 @@ const neoSchema = new Neo4jGraphQL({
 ### `Neo4jGraphQLAuthJWKSPlugin`
 
 ```ts
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWKSPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWKSPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,

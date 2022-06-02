@@ -18,7 +18,7 @@
  */
 
 import { EventEmitter } from "events";
-import { Neo4jGraphQLSubscriptionsPlugin, SubscriptionsEvent } from "@neo4j/graphql";
+import { Neo4jGraphQLSubscriptionsPlugin, SubscriptionsEvent } from "@opencreek/neo4j-graphql";
 import { AmqpApi, ConnectionOptions } from "./amqp-0-9-1-api";
 
 export { ConnectionOptions } from "./amqp-0-9-1-api";

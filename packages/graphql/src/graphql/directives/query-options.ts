@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLInputObjectType, GraphQLInt
 
 export const queryOptionsDirective = new GraphQLDirective({
     name: "queryOptions",
-    description: "Instructs @neo4j/graphql to inject default values into a query such as a default limit.",
+    description: "Instructs @opencreek/neo4j-graphql to inject default values into a query such as a default limit.",
     args: {
         limit: {
             description: "Limit options.",

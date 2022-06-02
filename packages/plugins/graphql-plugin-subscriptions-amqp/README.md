@@ -1,6 +1,6 @@
-# @neo4j/graphql-plugin-subscriptions-amqp
+# @opencreek/neo4j-graphql-plugin-subscriptions-amqp
 
-Subscription plugin for `@neo4j/graphql`, currently supporting AMQP 0-9-1 brokers such as:
+Subscription plugin for `@opencreek/neo4j-graphql`, currently supporting AMQP 0-9-1 brokers such as:
 
 -   RabbitMQ
 -   Apache Qpid
@@ -11,13 +11,13 @@ Subscription plugin for `@neo4j/graphql`, currently supporting AMQP 0-9-1 broker
 ## Installation
 
 ```
-npm install @neo4j/graphql-plugin-subscriptions-amqp
+npm install @opencreek/neo4j-graphql-plugin-subscriptions-amqp
 ```
 
 ## Usage
 
 ```javascript
-const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@neo4j/graphql-plugin-subscriptions-amqp");
+const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@opencreek/neo4j-graphql-plugin-subscriptions-amqp");
 
 const plugin = new Neo4jGraphQLSubscriptionsAMQPPlugin({
     connection: {

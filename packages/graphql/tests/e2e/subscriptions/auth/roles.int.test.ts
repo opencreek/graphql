@@ -19,7 +19,7 @@
 
 import { Driver } from "neo4j-driver";
 import supertest, { Response } from "supertest";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { Neo4jGraphQL } from "../../../../src/classes";
 import { generateUniqueType } from "../../../utils/graphql-types";
 import { ApolloTestServer, TestGraphQLServer } from "../../setup/apollo-server";

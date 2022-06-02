@@ -17,4 +17,4 @@
  * limitations under the License.
  */
 
-export const DEBUG_PREFIX = "@neo4j/graphql-plugin-auth";
+export const DEBUG_PREFIX = "@opencreek/neo4j-graphql-plugin-auth";

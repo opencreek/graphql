@@ -18,7 +18,7 @@
  */
 
 import { useCallback, useContext, useRef, useState } from "react";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { toGraphQLTypeDefs } from "@neo4j/introspector";
 import { GraphQLError, GraphQLSchema } from "graphql";
 import * as neo4j from "neo4j-driver";

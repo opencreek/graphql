@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../../src";
@@ -76,7 +76,7 @@ describe("Node Directive", () => {
 
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:\`Person\`)
-            CALL apoc.util.validate(NOT(this.id IS NOT NULL AND this.id = $this_auth_allow0_id), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            CALL apoc.util.validate(NOT(this.id IS NOT NULL AND this.id = $this_auth_allow0_id), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this { .id } as this"
         `);
 
@@ -105,7 +105,7 @@ describe("Node Directive", () => {
             "MATCH (this:\`Comment\`)
             WHERE EXISTS((this)<-[:HAS_POST]-(:\`Person\`)) AND ANY(this_creator IN [(this)<-[:HAS_POST]-(this_creator:\`Person\`) | this_creator] WHERE this_creator.id = $this_creator_id)
             WITH this
-            CALL apoc.util.validate(NOT(ANY(r IN [\\"admin\\"] WHERE ANY(rr IN $auth.roles WHERE r = rr))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            CALL apoc.util.validate(NOT(ANY(r IN [\\"admin\\"] WHERE ANY(rr IN $auth.roles WHERE r = rr))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             DETACH DELETE this"
         `);
 

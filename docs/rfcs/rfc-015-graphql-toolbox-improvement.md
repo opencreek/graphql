@@ -5,11 +5,11 @@ For reference: The first [RFC concerning the GraphQL UI PoC](https://github.com/
 ## Problem
 
 The GraphQL Toolbox needs to be further improved for a better initial developer experience of Neo4j GraphQL. Central hosting, tracking and adding Canny for feedback collection are additional pieces that should lift the GraphQL Toolbox to a more complete product.
-Moreover, the focus should be on increasing the developer experience for the schema builder as it is unique to our use case, the `@neo4j/graphql` library.
+Moreover, the focus should be on increasing the developer experience for the schema builder as it is unique to our use case, the `@opencreek/neo4j-graphql` library.
 
 ### User audience
 
-The `@neo4j/graphql` lib's user audience are full stack developers who want a GraphQL API quickly without worrying about the database.
+The `@opencreek/neo4j-graphql` lib's user audience are full stack developers who want a GraphQL API quickly without worrying about the database.
 
 The GraphQL Toolbox can further include developers wanting to experiment with GraphQL and Neo4j in general, yet also developers who want to experiment with/edit the (introspected) schema.  
 The main aim is for prototyping and rapid development for both experienced as well as inexperienced users.
@@ -19,8 +19,8 @@ The main aim is for prototyping and rapid development for both experienced as we
 (ordered by priority)
 -   (Must) Central hosting of the GraphQL Toolbox, including a workflow to publish the latest release.
 -   Add a link or button to [Canny](https://canny.io/) for feedback collection
--   Schema builder editor: autocompletion for directives etc, leverage the `@neo4j/graphql` documentation for a better developer experience
--   Make it more prominent that the GraphQL Toolbox uses `@neo4j/graphql` by adding links to the documentation
+-   Schema builder editor: autocompletion for directives etc, leverage the `@opencreek/neo4j-graphql` documentation for a better developer experience
+-   Make it more prominent that the GraphQL Toolbox uses `@opencreek/neo4j-graphql` by adding links to the documentation
 -   Address the highest priority/impact bugs and pebbles listed in the Trello feedback card
 
 Stretch goals:
@@ -66,7 +66,7 @@ Addressing too many pebbles and style issues.
 
 Do not track any sensitive data! The tracking will follow the standards applied at Neo4j and other frontend products at Neo4j.  
 The credentials (login page) to access the database are encrypted and stored in the web browsers' local storage.  
-The GraphQL Toolbox leverages the `@neo4j/graphql` library and does not alter any of its behaviours.  
+The GraphQL Toolbox leverages the `@opencreek/neo4j-graphql` library and does not alter any of its behaviours.  
 
 ## Out of Scope
 

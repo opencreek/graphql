@@ -34,7 +34,7 @@ Before investing the time in building the required infrastructure, [proxy metric
 `dbHits` and `rows` are only dependant on Neo4j version and the database. Both can easily be controlled in our tests, leading to consistent results in which we only test changes to our queries. Testing these is also faster and easier than time. The main pitfall is that in some cases may not be an accurate representation of real execution time (particularly when using [Apoc](https://neo4j.com/labs/apoc/)).
 
 ## Server execution
-Any server will be running the resolvers provided by `@neo4j/graphql`. This code needs to execute in an efficient way. Due to the difference in magnitude, this is probably less important when compared to database execution.
+Any server will be running the resolvers provided by `@opencreek/neo4j-graphql`. This code needs to execute in an efficient way. Due to the difference in magnitude, this is probably less important when compared to database execution.
 
 ### Resolvers execution
 By running simple JavaScript performance tests over our resolvers with complex schemas we should be able to find bottlenecks in our code that may improve overall performance of a running server.
@@ -64,7 +64,7 @@ In addition to the challenges present in every testing strategy, we may find the
 * **Standard measures**: Any time-based measure is bound to hardware dependencies, for CI and long-term purposes, these measures should happen in a strictly controlled machine and standard benchmarking practices (e.g. average multiple runs) should be taken into consideration.
 
 ## Risks and unknowns
-* Currently, `@neo4j/graphql` works on the principle of a single Cypher query per request, we need to validate if this is still the best way to achieve good performance.
+* Currently, `@opencreek/neo4j-graphql` works on the principle of a single Cypher query per request, we need to validate if this is still the best way to achieve good performance.
 
 ## Out of scope
 * How to store these metrics and monitor them over time.

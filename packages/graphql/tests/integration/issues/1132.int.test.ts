@@ -21,7 +21,7 @@ import { graphql } from "graphql";
 import { Driver, Session } from "neo4j-driver";
 import { generate } from "randomstring";
 import { gql } from "apollo-server";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import neo4j from "../neo4j";
 import { getQuerySource } from "../../utils/get-query-source";
 import { generateUniqueType } from "../../utils/graphql-types";

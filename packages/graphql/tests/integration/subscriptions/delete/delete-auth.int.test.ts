@@ -19,7 +19,7 @@
 
 import { graphql } from "graphql";
 import { Driver } from "neo4j-driver";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { generate } from "randomstring";
 import { Neo4jGraphQL } from "../../../../src";
 import { generateUniqueType } from "../../../utils/graphql-types";

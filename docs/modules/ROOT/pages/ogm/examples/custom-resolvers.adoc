@@ -17,16 +17,16 @@ Then you need to install your dependencies:
 
 [source, bash, indent=0]
 ----
-npm install @neo4j/graphql-ogm graphql neo4j-driver apollo-server
+npm install @opencreek/neo4j-graphql-ogm graphql neo4j-driver apollo-server
 ----
 
 Assuming a running Neo4j database at "bolt://localhost:7687" with username "neo4j" and password "password", in your empty `index.js` file, add the following code:
 
 [source, javascript, indent=0]
 ----
-const { Neo4jGraphQL } = require("@neo4j/graphql");
-const { OGM } = require("@neo4j/graphql-ogm");
-const { Neo4jGraphQLAuthJWTPlugin } = require("@neo4j/graphql-plugin-auth");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
+const { OGM } = require("@opencreek/neo4j-graphql-ogm");
+const { Neo4jGraphQLAuthJWTPlugin } = require("@opencreek/neo4j-graphql-plugin-auth");
 const { ApolloServer } = require("apollo-server");
 const neo4j = require("neo4j-driver");
 

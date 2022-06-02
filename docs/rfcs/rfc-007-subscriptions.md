@@ -21,7 +21,7 @@ Our users would like to use [GraphQL Subscriptions](https://graphql.org/blog/sub
 - Database transactions must be successful - no optimisticness.
 - Garbage collection of old subscriptions.
 - Some form of auth validation.
-- `@neo4j/graphql` should still run on browser
+- `@opencreek/neo4j-graphql` should still run on browser
 
 ### Should have
 
@@ -379,7 +379,7 @@ However, due to the hegemony of PubSub, it may be convenient to provide a syntac
 
 Provide a custom PubSub Plugin, similar to the example above;
 ```js
-import { PubsubSubscriptipnPlugin } from "@neo4j/graphql-subscriptions"
+import { PubsubSubscriptipnPlugin } from "@opencreek/neo4j-graphql-subscriptions"
 
 const subscriptionPlugin = new PubsubSubcriptionPlugin(pubsub)
 ```

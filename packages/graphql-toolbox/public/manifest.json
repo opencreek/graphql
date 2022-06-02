@@ -1,5 +1,5 @@
 {
-    "name": "@neo4j/graphql-toolbox",
+    "name": "@opencreek/neo4j-graphql-toolbox",
     "description": "Developer UI For Neo4j GraphQL",
     "icons": [
         {

@@ -1,10 +1,10 @@
 import { ApolloServer } from "apollo-server-express";
-import { OGM } from "@neo4j/graphql-ogm";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { OGM } from "@opencreek/neo4j-graphql-ogm";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { typeDefs, resolvers } from "../../src/gql";
 import { Context } from "../../src/types";
 import * as config from "../../src/config";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 async function server(driver, context = {}) {
     const ogm = new OGM({

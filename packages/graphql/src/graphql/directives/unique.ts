@@ -22,7 +22,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLString } from "graphql";
 export const uniqueDirective = new GraphQLDirective({
     name: "unique",
     description:
-        "Informs @neo4j/graphql that there should be a uniqueness constraint in the database for the decorated field.",
+        "Informs @opencreek/neo4j-graphql that there should be a uniqueness constraint in the database for the decorated field.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         constraintName: {

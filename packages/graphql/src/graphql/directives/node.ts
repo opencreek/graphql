@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLList, GraphQLNonNull, Graph
 
 export const nodeDirective = new GraphQLDirective({
     name: "node",
-    description: "Informs @neo4j/graphql of node metadata",
+    description: "Informs @opencreek/neo4j-graphql of node metadata",
     locations: [DirectiveLocation.OBJECT],
     args: {
         label: {

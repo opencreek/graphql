@@ -3,12 +3,12 @@
 
 == Configuration
 
-To get started with auth you need an instance of an auth plugin for the Neo4j GraphQL Library. For most use cases you will only need to use our provided plugins at `@neo4j/graphql-plugin-auth`. Below is a basic example using the `Neo4jGraphQLAuthJWTPlugin` class:
+To get started with auth you need an instance of an auth plugin for the Neo4j GraphQL Library. For most use cases you will only need to use our provided plugins at `@opencreek/neo4j-graphql-plugin-auth`. Below is a basic example using the `Neo4jGraphQLAuthJWTPlugin` class:
 
 [source, javascript, indent=0]
 ----
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,
@@ -24,8 +24,8 @@ If you would like to use JWKS decoding then use the `Neo4jGraphQLAuthJWKSPlugin`
 
 [source, javascript, indent=0]
 ----
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWKSPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWKSPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,
