@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-import type { Neo4jGraphQLConstructor, Node } from "@neo4j/graphql";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import type { Neo4jGraphQLConstructor, Node } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import type { GraphQLSchema } from "graphql";
 import Model from "./Model";
 import { filterDocument } from "../utils";

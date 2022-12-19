@@ -16,7 +16,7 @@ input FullTextInput {
 }
 
 """
-Informs @neo4j/graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.
+Informs @opencreek/neo4j-graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.
 """
 directive @fulltext(indexes: [FullTextInput]!) on OBJECT
 ```
@@ -39,7 +39,7 @@ input FulltextInput {
 }
 
 """
-Informs @neo4j/graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.
+Informs @opencreek/neo4j-graphql that there should be a fulltext index in the database, allows users to search by the index in the generated schema.
 """
 directive @fulltext(indexes: [FulltextInput!]!) on OBJECT
 ```

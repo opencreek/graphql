@@ -64,7 +64,7 @@ Here the type definitions are never persisted to disk.
 
 [source, javascript, indent=0]
 ----
-const { Neo4jGraphQL } = require("@neo4j/graphql");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
 const { toGraphQLTypeDefs } = require("@neo4j/introspector")
 const neo4j = require("neo4j-driver");
 

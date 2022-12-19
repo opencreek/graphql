@@ -29,7 +29,7 @@ import { WebSocketServer } from "ws";
 import { useServer } from "graphql-ws/lib/use/ws";
 
 // Change the following line:
-//  import { Neo4jGraphQL } from "@neo4j/graphql";
+//  import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { Neo4jGraphQL } from "../../../graphql/src/index";
 
 import * as neo4j from "neo4j-driver";

@@ -2,13 +2,13 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { createServer } = require("http");
-const { Neo4jGraphQL } = require("@neo4j/graphql");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
 const { WebSocketServer } = require("ws");
 const { useServer } = require("graphql-ws/lib/use/ws");
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
-const { Neo4jGraphQLAuthJWTPlugin } = require("@neo4j/graphql-plugin-auth");
+const { Neo4jGraphQLAuthJWTPlugin } = require("@opencreek/neo4j-graphql-plugin-auth");
 
 const setupMap = require("./map-setup");
 const { getDriver } = require("./get-driver");

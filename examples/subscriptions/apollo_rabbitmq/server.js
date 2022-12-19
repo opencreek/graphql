@@ -21,13 +21,13 @@ const fs = require("fs");
 const path = require("path");
 const { createServer } = require("http");
 const neo4j = require("neo4j-driver");
-const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@neo4j/graphql");
+const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@opencreek/neo4j-graphql");
 const { WebSocketServer } = require("ws");
 const { useServer } = require("graphql-ws/lib/use/ws");
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
-const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@neo4j/graphql-plugin-subscriptions-amqp");
+const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@opencreek/neo4j-graphql-plugin-subscriptions-amqp");
 
 const NEO4J_URL = "bolt://localhost:7687";
 const NEO4J_USER = "neo4j";

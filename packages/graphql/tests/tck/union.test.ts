@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../src";
@@ -82,7 +82,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this_search:\`Genre\`)
-                    WHERE apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH this_search  { __resolveType: \\"Genre\\",  .name } AS this_search
                     RETURN this_search AS this_search
                     UNION
@@ -129,7 +129,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this_search:\`Genre\`)
-                    WHERE apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH this_search  { __resolveType: \\"Genre\\",  .name } AS this_search
                     RETURN this_search AS this_search
                     UNION
@@ -183,7 +183,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this_search:\`Genre\`)
-                    WHERE (this_search.name = $param1 AND apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param2)), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                    WHERE (this_search.name = $param1 AND apoc.util.validatePredicate(NOT ((this_search.name IS NOT NULL AND this_search.name = $param2)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                     WITH this_search  { __resolveType: \\"Genre\\",  .name } AS this_search
                     RETURN this_search AS this_search
                     UNION

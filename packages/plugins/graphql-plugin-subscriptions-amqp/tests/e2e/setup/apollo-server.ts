@@ -25,7 +25,7 @@ import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import { useServer } from "graphql-ws/lib/use/ws";
-import type { Neo4jGraphQL } from "@neo4j/graphql";
+import type { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 
 export interface TestGraphQLServer {
     path: string;

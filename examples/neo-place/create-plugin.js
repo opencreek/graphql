@@ -1,5 +1,5 @@
-const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@neo4j/graphql-plugin-subscriptions-amqp");
-const { Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@neo4j/graphql");
+const { Neo4jGraphQLSubscriptionsAMQPPlugin } = require("@opencreek/neo4j-graphql-plugin-subscriptions-amqp");
+const { Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@opencreek/neo4j-graphql");
 const { getEnvVariable } = require("./get-env-variable");
 
 module.exports.createPlugin = async function () {

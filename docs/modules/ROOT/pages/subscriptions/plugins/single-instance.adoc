@@ -1,11 +1,11 @@
 [[single-instance]]
 = Single Instance Plugin
 
-The `@neo4j/graphql` library provides a zero-dependency plugin to be used during development to quickly deploy a subscriptions server locally in a single instance.
+The `@opencreek/neo4j-graphql` library provides a zero-dependency plugin to be used during development to quickly deploy a subscriptions server locally in a single instance.
 If can be imported directly:
 
 ```javascript
-const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require('@neo4j/graphql');
+const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require('@opencreek/neo4j-graphql');
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,

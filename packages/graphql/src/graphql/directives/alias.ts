@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLNonNull, GraphQLString } fr
 
 export const aliasDirective = new GraphQLDirective({
     name: "alias",
-    description: "Instructs @neo4j/graphql to map a GraphQL field to a Neo4j node or relationship property.",
+    description: "Instructs @opencreek/neo4j-graphql to map a GraphQL field to a Neo4j node or relationship property.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         property: {

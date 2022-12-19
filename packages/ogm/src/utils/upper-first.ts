@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-// TODO: duplicate from @neo4j/graphql utils
+// TODO: duplicate from @opencreek/neo4j-graphql utils
 /* Sets first letter of the string as toUpperCase */
 export function upperFirst(str: string): string {
     return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;

@@ -1,4 +1,4 @@
-# @neo4j/graphql
+# @opencreek/neo4j-graphql
 
 ## 3.14.1
 

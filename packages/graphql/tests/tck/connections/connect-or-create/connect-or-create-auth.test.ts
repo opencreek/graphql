@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../src";
@@ -91,7 +91,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -145,7 +145,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -199,7 +199,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -318,7 +318,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -368,7 +368,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -418,7 +418,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -526,7 +526,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *
@@ -577,7 +577,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *
@@ -628,7 +628,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *
@@ -736,7 +736,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    CALL apoc.util.validate(NOT ((this_connectOrCreate_genres0.name IS NOT NULL AND this_connectOrCreate_genres0.name = $this_connectOrCreate_genres0auth_param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    CALL apoc.util.validate(NOT ((this_connectOrCreate_genres0.name IS NOT NULL AND this_connectOrCreate_genres0.name = $this_connectOrCreate_genres0auth_param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *

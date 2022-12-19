@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import { Neo4jGraphQL } from "../../../src";
 import { createJwtRequest } from "../../utils/create-jwt-request";
@@ -120,7 +120,7 @@ describe("https://github.com/neo4j/graphql/issues/1150", () => {
                     CALL {
                         WITH this_DriveComposition
                         MATCH (this_DriveComposition)-[this_DriveComposition_connection_driveComponentConnectionthis0:HAS]->(this_DriveComposition_Battery:\`Battery\`)
-                        WHERE (this_DriveComposition_connection_driveComponentConnectionthis0.current = $this_DriveComposition_connection_driveComponentConnectionparam0 AND apoc.util.validatePredicate(NOT ((any(this_DriveComposition_connection_driveComponentConnectionvar2 IN [\\"admin\\"] WHERE any(this_DriveComposition_connection_driveComponentConnectionvar1 IN $auth.roles WHERE this_DriveComposition_connection_driveComponentConnectionvar1 = this_DriveComposition_connection_driveComponentConnectionvar2)) AND apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@neo4j/graphql/UNAUTHENTICATED\\", [0]))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                        WHERE (this_DriveComposition_connection_driveComponentConnectionthis0.current = $this_DriveComposition_connection_driveComponentConnectionparam0 AND apoc.util.validatePredicate(NOT ((any(this_DriveComposition_connection_driveComponentConnectionvar2 IN [\\"admin\\"] WHERE any(this_DriveComposition_connection_driveComponentConnectionvar1 IN $auth.roles WHERE this_DriveComposition_connection_driveComponentConnectionvar1 = this_DriveComposition_connection_driveComponentConnectionvar2)) AND apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@opencreek/neo4j-graphql/UNAUTHENTICATED\\", [0]))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                         WITH { current: this_DriveComposition_connection_driveComponentConnectionthis0.current, node: { __resolveType: \\"Battery\\", id: this_DriveComposition_Battery.id } } AS edge
                         RETURN edge
                         UNION

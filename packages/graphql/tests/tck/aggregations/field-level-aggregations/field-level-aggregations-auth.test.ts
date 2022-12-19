@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../src";
@@ -73,7 +73,7 @@ describe("Field Level Aggregations", () => {
 
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:\`Movie\`)
-            WHERE apoc.util.validatePredicate(NOT (apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@neo4j/graphql/UNAUTHENTICATED\\", [0])), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT (apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@opencreek/neo4j-graphql/UNAUTHENTICATED\\", [0])), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             CALL {
                 WITH this
                 MATCH (this_actorsAggregate_this1:\`Actor\`)-[this_actorsAggregate_this0:ACTED_IN]->(this)
@@ -118,7 +118,7 @@ describe("Field Level Aggregations", () => {
             CALL {
                 WITH this
                 MATCH (this)-[this_moviesAggregate_this0:ACTED_IN]->(this_moviesAggregate_this1:\`Movie\`)
-                WHERE apoc.util.validatePredicate(NOT (apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@neo4j/graphql/UNAUTHENTICATED\\", [0])), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT (apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@opencreek/neo4j-graphql/UNAUTHENTICATED\\", [0])), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 RETURN count(this) AS this_moviesAggregate_var2
             }
             RETURN this { .name, moviesAggregate: { count: this_moviesAggregate_var2 } } AS this"

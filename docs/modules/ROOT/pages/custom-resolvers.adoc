@@ -47,7 +47,7 @@ Allowable fields are any returning a Scalar or Enum type including those defined
 
 [source, graphql, indent=0]
 ----
-"""Informs @neo4j/graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies."""
+"""Informs @opencreek/neo4j-graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies."""
 directive @customResolver(
     """Fields that the custom resolver will depend on."""
     requires: [String!]
@@ -109,7 +109,7 @@ Allowable fields are any returning a Scalar or Enum type including those defined
 
 [source, graphql, indent=0]
 ----
-"""Informs @neo4j/graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies."""
+"""Informs @opencreek/neo4j-graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies."""
 directive @computed(
     """Fields that the custom resolver will depend on."""
     from: [String!]

@@ -43,5 +43,5 @@ const plugin = new new Neo4jGraphQLSubscriptionsSingleInstancePlugin()();
 And update the `neo4j/graphql` import to:
 
 ```js
-const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@neo4j/graphql");
+const { Neo4jGraphQL, Neo4jGraphQLSubscriptionsSingleInstancePlugin } = require("@opencreek/neo4j-graphql");
 ```

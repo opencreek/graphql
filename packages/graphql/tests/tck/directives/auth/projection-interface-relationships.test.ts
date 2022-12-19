@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "apollo-server";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../src";
@@ -102,7 +102,7 @@ describe("Auth projections for interface relationship fields", () => {
                 UNION
                 WITH this
                 MATCH (this)-[this1:ACTED_IN]->(this_Series:\`Series\`)
-                WHERE apoc.util.validatePredicate(NOT ((this_Series.episodes IS NOT NULL AND this_Series.episodes = $param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ((this_Series.episodes IS NOT NULL AND this_Series.episodes = $param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 RETURN { __resolveType: \\"Series\\", episodes: this_Series.episodes, title: this_Series.title } AS this_actedIn
             }
             RETURN collect(this_actedIn) AS this_actedIn

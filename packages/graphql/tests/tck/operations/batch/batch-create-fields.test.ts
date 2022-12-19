@@ -99,7 +99,7 @@ describe("Batch Create, Scalar types", () => {
                 	WITH create_this0
                 	MATCH (create_this0)-[create_this0_website_Website_unique:HAS_WEBSITE]->(:Website)
                 	WITH count(create_this0_website_Website_unique) as c
-                	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+                	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
                 	RETURN c AS create_this0_website_Website_unique_ignored
                 }
                 RETURN create_this0
@@ -210,7 +210,7 @@ describe("Batch Create, Scalar types", () => {
                     	WITH create_this5
                     	MATCH (create_this5)-[create_this5_website_Website_unique:HAS_WEBSITE]->(:Website)
                     	WITH count(create_this5_website_Website_unique) as c
-                    	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+                    	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
                     	RETURN c AS create_this5_website_Website_unique_ignored
                     }
                     RETURN collect(NULL) AS create_var13
@@ -231,7 +231,7 @@ describe("Batch Create, Scalar types", () => {
                 	WITH create_this0
                 	MATCH (create_this0)-[create_this0_website_Website_unique:HAS_WEBSITE]->(:Website)
                 	WITH count(create_this0_website_Website_unique) as c
-                	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+                	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
                 	RETURN c AS create_this0_website_Website_unique_ignored
                 }
                 RETURN create_this0
@@ -333,7 +333,7 @@ describe("Batch Create, Scalar types", () => {
                     	WITH create_this6
                     	MATCH (create_this6)-[create_this6_website_Website_unique:HAS_WEBSITE]->(:Website)
                     	WITH count(create_this6_website_Website_unique) as c
-                    	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+                    	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
                     	RETURN c AS create_this6_website_Website_unique_ignored
                     }
                     RETURN collect(NULL) AS create_var8
@@ -343,7 +343,7 @@ describe("Batch Create, Scalar types", () => {
                 	WITH create_this1
                 	MATCH (create_this1)-[create_this1_website_Website_unique:HAS_WEBSITE]->(:Website)
                 	WITH count(create_this1_website_Website_unique) as c
-                	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+                	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
                 	RETURN c AS create_this1_website_Website_unique_ignored
                 }
                 RETURN create_this1
@@ -457,7 +457,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this0_actors0_node
             	MATCH (this0_actors0_node)-[this0_actors0_node_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this0_actors0_node_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
             	RETURN c AS this0_actors0_node_website_Website_unique_ignored
             }
             WITH this0
@@ -465,7 +465,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this0
             	MATCH (this0)-[this0_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this0_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this0_website_Website_unique_ignored
             }
             RETURN this0
@@ -486,7 +486,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this1_actors0_node
             	MATCH (this1_actors0_node)-[this1_actors0_node_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this1_actors0_node_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
             	RETURN c AS this1_actors0_node_website_Website_unique_ignored
             }
             WITH this1
@@ -494,7 +494,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this1
             	MATCH (this1)-[this1_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this1_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this1_website_Website_unique_ignored
             }
             RETURN this1
@@ -512,7 +512,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this2
             	MATCH (this2)-[this2_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this2_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this2_website_Website_unique_ignored
             }
             RETURN this2
@@ -546,7 +546,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this3
             	MATCH (this3)-[this3_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this3_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this3_website_Website_unique_ignored
             }
             RETURN this3
@@ -570,7 +570,7 @@ describe("Batch Create, Scalar types", () => {
             	WITH this4
             	MATCH (this4)-[this4_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this4_website_Website_unique) as c
-            	CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this4_website_Website_unique_ignored
             }
             RETURN this4

@@ -20,7 +20,7 @@
 import type { Driver } from "neo4j-driver";
 import type { Response } from "supertest";
 import supertest from "supertest";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import type { TestGraphQLServer } from "./setup/apollo-server";
 import { ApolloTestServer } from "./setup/apollo-server";
 import { WebSocketTestClient } from "./setup/ws-client";

@@ -7,16 +7,16 @@ NOTE: Version 4.0.0 of the library has not yet been released. However, we recomm
 This document lists all breaking changes from version 3.x.y to 4.0.0 and how to update.
 
 == How to upgrade
-Simply update `@neo4j/graphql` using npm or your package manager of choice:
+Simply update `@opencreek/neo4j-graphql` using npm or your package manager of choice:
 
 [source, bash, indent=0]
 ----
-npm update @neo4j/graphql
+npm update @opencreek/neo4j-graphql
 ----
 
 == Updated Directives
 
-We have renamed a number of directives and their arguments, in order to make using `@neo4j/graphql` more intuitive.
+We have renamed a number of directives and their arguments, in order to make using `@opencreek/neo4j-graphql` more intuitive.
 
 [populatedBy-migration]
 === `@callback` renamed to `@populatedBy`

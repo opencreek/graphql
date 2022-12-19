@@ -2751,16 +2751,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@neo4j/graphql-ogm@^3.5.0, @neo4j/graphql-ogm@workspace:packages/ogm":
+"@opencreek/neo4j-graphql-ogm@^3.5.0, @opencreek/neo4j-graphql-ogm@workspace:packages/ogm":
   version: 0.0.0-use.local
-  resolution: "@neo4j/graphql-ogm@workspace:packages/ogm"
+  resolution: "@opencreek/neo4j-graphql-ogm@workspace:packages/ogm"
   dependencies:
     "@graphql-codegen/core": ^2.5.1
     "@graphql-codegen/plugin-helpers": ^3.0.0
     "@graphql-codegen/typescript": ^2.6.0
     "@graphql-tools/merge": ^8.3.3
-    "@neo4j/graphql": ^3.14.1
-    "@neo4j/graphql-plugin-auth": ^1.1.1
+    "@opencreek/neo4j-graphql": ^3.14.1
+    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.1
     "@types/jest": 29.2.4
     "@types/node": 18.11.10
     camelcase: 6.3.0
@@ -2781,9 +2781,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@neo4j/graphql-plugin-auth@^1.0.0, @neo4j/graphql-plugin-auth@^1.1.0, @neo4j/graphql-plugin-auth@^1.1.1, @neo4j/graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
+"@opencreek/neo4j-graphql-plugin-auth@^1.0.0, @opencreek/neo4j-graphql-plugin-auth@^1.1.0, @opencreek/neo4j-graphql-plugin-auth@^1.1.1, @opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
   version: 0.0.0-use.local
-  resolution: "@neo4j/graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth"
+  resolution: "@opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth"
   dependencies:
     "@types/debug": 4.1.7
     "@types/jest": 29.2.4
@@ -2798,11 +2798,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@neo4j/graphql-plugin-subscriptions-amqp@^1.0.0, @neo4j/graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp":
+"@opencreek/neo4j-graphql-plugin-subscriptions-amqp@^1.0.0, @opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp":
   version: 0.0.0-use.local
-  resolution: "@neo4j/graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp"
+  resolution: "@opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp"
   dependencies:
-    "@neo4j/graphql": ^3.14.0
+    "@opencreek/neo4j-graphql": ^3.14.0
     "@types/amqplib": 0.10.0
     "@types/debug": 4.1.7
     "@types/jest": 29.2.4
@@ -2821,17 +2821,17 @@ __metadata:
     typescript: 4.9.4
     ws: 8.11.0
   peerDependencies:
-    "@neo4j/graphql": ^3.14.0
+    "@opencreek/neo4j-graphql": ^3.14.0
   languageName: unknown
   linkType: soft
 
-"@neo4j/graphql-toolbox@workspace:packages/graphql-toolbox":
+"@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox":
   version: 0.0.0-use.local
-  resolution: "@neo4j/graphql-toolbox@workspace:packages/graphql-toolbox"
+  resolution: "@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox"
   dependencies:
     "@neo4j-ndl/base": 0.15.1
     "@neo4j-ndl/react": 0.16.0
-    "@neo4j/graphql": 3.14.1
+    "@opencreek/neo4j-graphql": 3.14.1
     "@neo4j/introspector": 1.0.2
     "@playwright/test": 1.28.1
     "@tsconfig/create-react-app": 1.0.3
@@ -2886,9 +2886,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@neo4j/graphql@3.14.1, @neo4j/graphql@^3.1.0, @neo4j/graphql@^3.13.0, @neo4j/graphql@^3.14.0, @neo4j/graphql@^3.14.1, @neo4j/graphql@^3.5.0, @neo4j/graphql@^3.8.0, @neo4j/graphql@workspace:packages/graphql":
+"@opencreek/neo4j-graphql@3.14.1, @opencreek/neo4j-graphql@^3.1.0, @opencreek/neo4j-graphql@^3.13.0, @opencreek/neo4j-graphql@^3.14.0, @opencreek/neo4j-graphql@^3.14.1, @opencreek/neo4j-graphql@^3.5.0, @opencreek/neo4j-graphql@^3.8.0, @opencreek/neo4j-graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
-  resolution: "@neo4j/graphql@workspace:packages/graphql"
+  resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
   dependencies:
     "@faker-js/faker": 7.6.0
     "@graphql-tools/merge": ^8.3.3
@@ -2896,7 +2896,7 @@ __metadata:
     "@graphql-tools/schema": 9.0.12
     "@graphql-tools/utils": ^9.0.0
     "@neo4j/cypher-builder": ~0.1.8
-    "@neo4j/graphql-plugin-auth": ^1.1.1
+    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.1
     "@types/deep-equal": 1.0.1
     "@types/is-uuid": 1.0.0
     "@types/jest": 29.2.4
@@ -2950,7 +2950,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo4j/introspector@workspace:packages/introspector"
   dependencies:
-    "@neo4j/graphql": ^3.8.0
+    "@opencreek/neo4j-graphql": ^3.8.0
     "@types/jest": 29.2.4
     "@types/node": 18.11.10
     "@types/pluralize": 0.0.29
@@ -5772,8 +5772,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "apollo-suscriptions-server@workspace:examples/subscriptions/apollo_rabbitmq"
   dependencies:
-    "@neo4j/graphql": ^3.1.0
-    "@neo4j/graphql-plugin-subscriptions-amqp": ^1.0.0
+    "@opencreek/neo4j-graphql": ^3.1.0
+    "@opencreek/neo4j-graphql-plugin-subscriptions-amqp": ^1.0.0
     amqplib: ^0.8.0
     apollo-server-core: ^3.6.7
     apollo-server-express: ^3.6.7
@@ -15150,7 +15150,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "migration@workspace:examples/migration"
   dependencies:
-    "@neo4j/graphql": ^3.14.1
+    "@opencreek/neo4j-graphql": ^3.14.1
     apollo-server: 3.11.1
     graphql: 16.6.0
     neo4j-driver: 5.3.0
@@ -15629,9 +15629,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "neo-place@workspace:examples/neo-place"
   dependencies:
-    "@neo4j/graphql": ^3.13.0
-    "@neo4j/graphql-plugin-auth": ^1.1.0
-    "@neo4j/graphql-plugin-subscriptions-amqp": ^1.0.0
+    "@opencreek/neo4j-graphql": ^3.13.0
+    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.0
+    "@opencreek/neo4j-graphql-plugin-subscriptions-amqp": ^1.0.0
     apollo-server-core: ^3.11.1
     apollo-server-express: ^3.11.1
     concurrently: 7.6.0
@@ -15686,9 +15686,9 @@ __metadata:
   resolution: "neo-push-server@workspace:examples/neo-push/server"
   dependencies:
     "@faker-js/faker": 7.6.0
-    "@neo4j/graphql": ^3.5.0
-    "@neo4j/graphql-ogm": ^3.5.0
-    "@neo4j/graphql-plugin-auth": ^1.0.0
+    "@opencreek/neo4j-graphql": ^3.5.0
+    "@opencreek/neo4j-graphql-ogm": ^3.5.0
+    "@opencreek/neo4j-graphql-plugin-auth": ^1.0.0
     "@types/bcrypt": 5.0.0
     "@types/debug": 4.1.7
     "@types/dotenv": 8.2.0
@@ -23102,7 +23102,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "yoga-subscriptions-server@workspace:examples/subscriptions/yoga_sse"
   dependencies:
-    "@neo4j/graphql": ^3.13.0
+    "@opencreek/neo4j-graphql": ^3.13.0
     graphql: ^16.6.0
     graphql-yoga: ^3.1.1
     neo4j-driver: ^5.3.0

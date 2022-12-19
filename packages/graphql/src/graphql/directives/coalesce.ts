@@ -23,7 +23,7 @@ import { ScalarOrEnumType } from "./arguments/scalars/ScalarOrEnum";
 export const coalesceDirective = new GraphQLDirective({
     name: "coalesce",
     description:
-        "Instructs @neo4j/graphql to wrap the property in a coalesce() function during queries, using the single value specified.",
+        "Instructs @opencreek/neo4j-graphql to wrap the property in a coalesce() function during queries, using the single value specified.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         value: {

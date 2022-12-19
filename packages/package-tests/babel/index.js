@@ -18,7 +18,7 @@
  */
 
 // eslint-disable-next-line import/no-unresolved
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { printSchema } from "graphql";
 
 // Augment schema with simple typeDefs input

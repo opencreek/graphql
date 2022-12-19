@@ -1,4 +1,4 @@
-# @neo4j/graphql-toolbox
+# @opencreek/neo4j-graphql-toolbox
 
 Experiment with your Neo4j GraphQL API.
 

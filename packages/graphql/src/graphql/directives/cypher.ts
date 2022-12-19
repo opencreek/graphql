@@ -22,7 +22,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLNonNull, GraphQLString } fr
 export const cypherDirective = new GraphQLDirective({
     name: "cypher",
     description:
-        "Instructs @neo4j/graphql to run the specified Cypher statement in order to resolve the value of the field to which the directive is applied.",
+        "Instructs @opencreek/neo4j-graphql to run the specified Cypher statement in order to resolve the value of the field to which the directive is applied.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         statement: {

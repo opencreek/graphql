@@ -6,7 +6,7 @@ Neo4j GraphQL uses the [Node.js `crypto`](https://nodejs.org/api/crypto.html) li
 
 ## Proposed Solution
 
-Extract the current auth decoding functionally into a new package `@neo4j/graphql-plugin-auth`, this package would be deployed independently to NPM.
+Extract the current auth decoding functionally into a new package `@opencreek/neo4j-graphql-plugin-auth`, this package would be deployed independently to NPM.
 
 ### Monorepo Packages Structure:
 
@@ -14,20 +14,20 @@ Extract the current auth decoding functionally into a new package `@neo4j/graphq
 ║
 ╚═packages
     ║
-    ╠══ graphql- @neo4j/graphql
+    ╠══ graphql- @opencreek/neo4j-graphql
     ║
-    ╠══ ogm - @neo4j/graphql-ogm
+    ╠══ ogm - @opencreek/neo4j-graphql-ogm
     ║
     ╠══ introspector - @neo4j/introspector
     ║
-    ╠══ plugins - @neo4j/graphql-plugin-auth
+    ╠══ plugins - @opencreek/neo4j-graphql-plugin-auth
     ║
     ╚══ package-tests
 ```
 
 ### Versioning
 
-The new package can be versioned independently from `@neo4j/graphql`.
+The new package can be versioned independently from `@opencreek/neo4j-graphql`.
 
 ### Neo4j GraphQL Constructor
 
@@ -41,11 +41,11 @@ interface Neo4jGraphQLAuthPlugin {
 }
 ```
 
-Users are already using the existing JWT decode functionally and it has proven to work so, instead of forcing upgrading users to write their own JWT functionally, let's expose our own `Neo4jGraphQLAuthJWTPlugin` plugin. The ‘core’ `Neo4jGraphQLAuthJWTPlugin` plugin should be exported from the new library `@neo4j/graphql-plugin-auth`:
+Users are already using the existing JWT decode functionally and it has proven to work so, instead of forcing upgrading users to write their own JWT functionally, let's expose our own `Neo4jGraphQLAuthJWTPlugin` plugin. The ‘core’ `Neo4jGraphQLAuthJWTPlugin` plugin should be exported from the new library `@opencreek/neo4j-graphql-plugin-auth`:
 
 ```js
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const typeDefs = `
     type User @auth(rules: [{ isAuthenticated: true }]) {
@@ -66,8 +66,8 @@ const neoSchema = new Neo4jGraphQL({
 If you want to use JWKS then use the `Neo4jGraphQLAuthJWKSPlugin`:
 
 ```js
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWKSPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWKSPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const typeDefs = `
     type User @auth(rules: [{ isAuthenticated: true }]) {
@@ -88,7 +88,7 @@ const neoSchema = new Neo4jGraphQL({
 Below is an example of creating your own auth plugin:
 
 ```js
-import { Neo4jGraphQL, Neo4jGraphQLAuthPlugin } from "@neo4j/graphql";
+import { Neo4jGraphQL, Neo4jGraphQLAuthPlugin } from "@opencreek/neo4j-graphql";
 
 const typeDefs = `
     type User @auth(rules: [{ isAuthenticated: true }]) {

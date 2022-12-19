@@ -18,7 +18,7 @@
  */
 
 import type { Driver } from "neo4j-driver";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import neo4j from "../integration/neo4j";
 import { OGM } from "../../src";
 import { generateUniqueType } from "../utils";

@@ -17,7 +17,7 @@ Frame
 
 ### User audience
 
-The `@neo4j/graphql` lib's user audience are full stack developers who want a GraphQL API quickly without worrying about the database.  
+The `@opencreek/neo4j-graphql` lib's user audience are full stack developers who want a GraphQL API quickly without worrying about the database.  
 This UI can further include developers wanting to experiment in general as well as experiment with/edit the introspected schema.  
 The main aim is for prototyping and rapid development for both experinced as well as non-experienced users.
 
@@ -42,7 +42,7 @@ We want to track valuable events/actions of the UI to get an understanding and d
 A spreasheet is to create to write down all the tracking events, their name, why we track it etc.  
 It is suggested to use [Segment](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/) as it is used by other products at Neo4j. 
 
-_Nice to have_: As a one-off, measure the time it takes to get started with the `@neo4j/graphql` library using the node (`index.ts`) script versus this successor application.
+_Nice to have_: As a one-off, measure the time it takes to get started with the `@opencreek/neo4j-graphql` library using the node (`index.ts`) script versus this successor application.
 
 
 ### Input
@@ -87,7 +87,7 @@ Keybindings
 
 ### Structure
 
-New packages in `@neo4j/graphql` monorepo:
+New packages in `@opencreek/neo4j-graphql` monorepo:
 
 1. _Must have_: Graph App (Neo4j GraphQL UI)
 2. Schema Editor
@@ -129,7 +129,7 @@ Docs generation and presentation.
 
 ### Security consideration
 
-This PoC leverage the `@neo4j/graphql` and does not alter any of its behaviours. If the credentials (login page) need to be stored then they are encrypted.
+This PoC leverage the `@opencreek/neo4j-graphql` and does not alter any of its behaviours. If the credentials (login page) need to be stored then they are encrypted.
 
 ## Out of Scope
 

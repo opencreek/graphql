@@ -3,11 +3,11 @@
 This document lists all breaking changes from version 2.x.y to 3.0.0 and how to update.
 
 == How to upgrade
-Simply update `@neo4j/graphql` using npm or your package manager of choice:
+Simply update `@opencreek/neo4j-graphql` using npm or your package manager of choice:
 
 [source, bash, indent=0]
 ----
-npm update @neo4j/graphql
+npm update @opencreek/neo4j-graphql
 ----
 
 == Asynchronous schema generation
@@ -56,7 +56,7 @@ such as `Director` remain unchanged.
 Runtime checks for "one-to*" relationships have been added in this release, ensuring that the correct number of relationships exist. This means that some
 databases with inconsistent relationships between the schema definition and the actual data may now fail in some queries.
 This may have happened due to different reasons such as direct changes in the database or changes to the type definitions.
-Previous versions of `@neo4j/graphql` did not have any consistency check, so normal use of these versions may have lead to
+Previous versions of `@opencreek/neo4j-graphql` did not have any consistency check, so normal use of these versions may have lead to
 inconsistent relationships.
 
 For these cases, please ensure that the database is following your schema definition or update the schema to reflect the
@@ -124,7 +124,7 @@ To better reflect its intended usage, the `@ignore` directive is now named `@com
 rename this directive in your schema.
 
 == Auth plugin system
-Auth setup now relies on _plugins_ to setup the configuration. You'll need to install `@neo4j/graphql-plugin-auth` or a custom plugin
+Auth setup now relies on _plugins_ to setup the configuration. You'll need to install `@opencreek/neo4j-graphql-plugin-auth` or a custom plugin
 as shown in the xref::auth/setup.adoc[auth setup page].
 
 === JWT auth
@@ -145,8 +145,8 @@ Now the configuration should be passed through `Neo4jGraphQLAuthJWTPlugin`:
 
 [source, javascript, indent=0]
 ----
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,
@@ -179,8 +179,8 @@ const neoSchema = new Neo4jGraphQL({
 Now the `Neo4jGraphQLAuthJWKSPlugin` would take care of that:
 [source, javascript, indent=0]
 ----
-import { Neo4jGraphQL } from "@neo4j/graphql";
-import { Neo4jGraphQLAuthJWKSPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
+import { Neo4jGraphQLAuthJWKSPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 const neoSchema = new Neo4jGraphQL({
     typeDefs,

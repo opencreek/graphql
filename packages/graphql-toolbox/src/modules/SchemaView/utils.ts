@@ -19,7 +19,7 @@
 
 import type { GraphQLDirective, GraphQLScalarType } from "graphql";
 import { GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
-import { directives, scalars, objects } from "@neo4j/graphql";
+import { directives, scalars, objects } from "@opencreek/neo4j-graphql";
 
 export const getSchemaForLintAndAutocompletion = (): GraphQLSchema => {
     return new GraphQLSchema({

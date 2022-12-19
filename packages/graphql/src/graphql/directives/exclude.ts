@@ -23,7 +23,7 @@ import { ExcludeOperationEnum } from "./arguments/enums/ExcludeOperation";
 export const excludeDirective = new GraphQLDirective({
     name: "exclude",
     description:
-        "Instructs @neo4j/graphql to exclude the specified operations from query and mutation generation. If used without an argument, no queries or mutations will be generated for this type.",
+        "Instructs @opencreek/neo4j-graphql to exclude the specified operations from query and mutation generation. If used without an argument, no queries or mutations will be generated for this type.",
     locations: [DirectiveLocation.INTERFACE, DirectiveLocation.OBJECT],
     args: {
         operations: {

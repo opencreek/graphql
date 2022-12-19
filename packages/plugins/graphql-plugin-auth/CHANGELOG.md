@@ -1,4 +1,4 @@
-# @neo4j/graphql-plugin-auth
+# @opencreek/neo4j-graphql-plugin-auth
 
 ## 1.1.1
 

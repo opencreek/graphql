@@ -1,5 +1,5 @@
 const { ApolloServer } = require("apollo-server");
-const { Neo4jGraphQL } = require("@neo4j/graphql");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
 
 const driver = require("./driver");
 const typeDefs = require("./type-definitions");

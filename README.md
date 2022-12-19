@@ -21,7 +21,7 @@ release. This is what you should base your work on if you want to make changes.
 Want to check out the code from the last release? Checkout `master` instead, which
 is only ever merged into on releases.
 
-Want to contribute to `@neo4j/graphql`? See our [contributing guide](./CONTRIBUTING.md)
+Want to contribute to `@opencreek/neo4j-graphql`? See our [contributing guide](./CONTRIBUTING.md)
 and [development guide](./docs/contributing/DEVELOPING.md) to get started!
 
 ## Links
@@ -36,13 +36,13 @@ This is a TypeScript Monorepo managed with [Yarn Workspaces](https://classic.yar
 To learn more on how to; setup, test and contribute to Neo4j GraphQL then please
 visit the [Contributing Guide](./CONTRIBUTING.md).
 
-1. [`@neo4j/graphql`](./packages/graphql) - Familiar GraphQL generation, for usage
+1. [`@opencreek/neo4j-graphql`](./packages/graphql) - Familiar GraphQL generation, for usage
    with an API such as [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
-2. [`@neo4j/graphql-ogm`](./packages/ogm) - Use GraphQL Type Definitions to drive
+2. [`@opencreek/neo4j-graphql-ogm`](./packages/ogm) - Use GraphQL Type Definitions to drive
    interactions with the database
 3. [`@neo4j/introspector`](./packages/introspector) - Introspect schema from an existing Neo4j database
-4. [`@neo4j/graphql-plugin-auth`](./packages/graphql-plugin-auth) - Auth decode plugins for @neo4j/graphql
-5. [`@neo4j/graphql-toolbox`](./packages/graphql-toolbox) - Experiment with your Neo4j GraphQL API on Neo4j Desktop.
+4. [`@opencreek/neo4j-graphql-plugin-auth`](./packages/graphql-plugin-auth) - Auth decode plugins for @opencreek/neo4j-graphql
+5. [`@opencreek/neo4j-graphql-toolbox`](./packages/graphql-toolbox) - Experiment with your Neo4j GraphQL API on Neo4j Desktop.
 
 ## Media
 

@@ -45,13 +45,13 @@ CALL {
     CREATE (this0:Movie)
     SET this0.title = $this0_title
     WITH this0
-    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN [\\"admin\\"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
     WITH this0
     CALL {
         WITH this0
         MATCH (this0)-[this0_website_Website_unique:HAS_WEBSITE]->(:Website)
         WITH count(this0_website_Website_unique) as c
-        CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+        CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
         RETURN c AS this0_website_Website_unique_ignored
     }
     RETURN this0
@@ -60,13 +60,13 @@ CALL {
     CREATE (this1:Movie)
     SET this1.title = $this1_title
     WITH this1
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
     WITH this1
     CALL {
         WITH this1
         MATCH (this1)-[this1_website_Website_unique:HAS_WEBSITE]->(:Website)
         WITH count(this1_website_Website_unique) as c
-        CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+        CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
         RETURN c AS this1_website_Website_unique_ignored
     }
     RETURN this1
@@ -189,13 +189,13 @@ CALL {
     SET
         create_this0.content = create_var1.content
     WITH create_this0, create_var1
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
 ```
 
-The validation could be achieved by appending the statement: `CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])` during the creation of the `Post`.
+The validation could be achieved by appending the statement: `CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])` during the creation of the `Post`.
 
 #### Nested Entity-type solution
 
@@ -222,7 +222,7 @@ CALL {
             create_this6.name = create_var4.name
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         WITH create_this1, create_var4
-        CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         RETURN collect(NULL)
     }
     RETURN create_this1
@@ -236,7 +236,7 @@ CALL {
 RETURN collect(create_this1 { .title, .content, moderators: create_this1_moderators }) AS data
 ```
 
-As shown by the above the `@auth` mechanism can be statically applied to the Nested Entity with the statement `CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])`.
+As shown by the above the `@auth` mechanism can be statically applied to the Nested Entity with the statement `CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])`.
 
 ### Field-level definition auth
 
@@ -251,7 +251,7 @@ CALL {
     CREATE (this0:Post)
     SET this0.content = $this0_content
     WITH this0
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN this0
 }
 CALL {
@@ -277,7 +277,7 @@ CALL {
         create_this0.content = create_var1.content,
         create_this0.title = create_var1.title
     WITH create_var1, create_this0
-    CALL apoc.util.validate(create_var1.content IS NOT NULL and NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(create_var1.content IS NOT NULL and NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
@@ -307,7 +307,7 @@ CALL {
             create_this6.id = create_var4.id,
             create_this6.name = create_var4.name
         WITH create_this6, create_this1, create_var4
-        CALL apoc.util.validate(create_var4.name IS NOT NULL AND NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(create_var4.name IS NOT NULL AND NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         RETURN collect(NULL)
     }
@@ -337,7 +337,7 @@ This could be achieved in the unwind-create context by adding the following vali
                     AND 
             all(auth_this0 IN [(create_this1)<-[:HAS_POST]-(auth_this0:`User`) | auth_this0]
                  WHERE (auth_this0.id IS NOT NULL AND auth_this0.id = $this0auth_param0))))
-                 , "@neo4j/graphql/FORBIDDEN", [0])
+                 , "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     }
 ```
 For instance:
@@ -381,7 +381,7 @@ CALL {
         WITH create_this1
         MATCH (create_this1)<-[create_this1_creator_User_unique:HAS_POST]-(:User)
         WITH count(create_this1_creator_User_unique) as c
-        CALL apoc.util.validate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required', [0])
+        CALL apoc.util.validate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required', [0])
         RETURN c AS create_this1_creator_User_unique_ignored
     }
     WITH create_this1
@@ -392,7 +392,7 @@ CALL {
                     AND 
             all(auth_this0 IN [(create_this1)<-[:HAS_POST]-(auth_this0:`User`) | auth_this0]
                  WHERE (auth_this0.id IS NOT NULL AND auth_this0.id = $this0auth_param0))))
-                 , "@neo4j/graphql/FORBIDDEN", [0])
+                 , "@opencreek/neo4j-graphql/FORBIDDEN", [0])
             RETURN create_this1
     }
     RETURN create_this1
@@ -450,7 +450,7 @@ CALL {
 CREATE (this0:Post)
 SET this0.content = $this0_content
 WITH this0
-CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
 RETURN this0
 }
 RETURN [this0 { .content }] AS data
@@ -484,7 +484,7 @@ CALL {
     SET
         create_this0.content = create_var1.content
     WITH create_this0, create_var1
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
@@ -539,7 +539,7 @@ CALL {
     CREATE (this0:Post)
     SET this0.content = $this0_content
     WITH this0
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN this0
 }
 CALL {
@@ -580,7 +580,7 @@ CALL {
         create_this0.content = create_var1.content,
         create_this0.title = create_var1.title
     WITH create_var1, create_this0
-    CALL apoc.util.validate(create_var1.content IS NOT NULL and NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(create_var1.content IS NOT NULL and NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
@@ -664,7 +664,7 @@ CALL {
     SET this0_moderators0_node.id = $this0_moderators0_node_id
     SET this0_moderators0_node.name = $this0_moderators0_node_name
     WITH this0, this0_moderators0_node
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     MERGE (this0)<-[:MODERATES_POST]-(this0_moderators0_node)
     RETURN this0
 }
@@ -719,7 +719,7 @@ CALL {
             create_this6.name = create_var4.name
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         WITH create_this1, create_var4
-        CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         RETURN collect(NULL)
     }
     RETURN create_this1
@@ -810,7 +810,7 @@ CALL {
     SET this0_moderators0_node.id = $this0_moderators0_node_id
     SET this0_moderators0_node.name = $this0_moderators0_node_name
     WITH this0, this0_moderators0_node
-    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     MERGE (this0)<-[:MODERATES_POST]-(this0_moderators0_node)
     WITH this0
     CREATE (this0_moderators1_node:User)
@@ -869,7 +869,7 @@ CALL {
             create_this6.id = create_var4.id,
             create_this6.name = create_var4.name
         WITH create_this6, create_this1, create_var4
-        CALL apoc.util.validate(create_var4.name IS NOT NULL AND NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(create_var4.name IS NOT NULL AND NOT (any(auth_var1 IN ["admin"] WHERE any(auth_var0 IN $auth.roles WHERE auth_var0 = auth_var1))), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         RETURN collect(NULL)
     }
@@ -955,7 +955,7 @@ CALL {
     SET this0.authorId = $this0_authorId
     SET this0.content = $this0_content
     WITH this0
-    CALL apoc.util.validate(NOT ((this0.authorId IS NOT NULL AND this0.authorId = $this0auth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((this0.authorId IS NOT NULL AND this0.authorId = $this0auth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN this0
 }
 RETURN [this0 { .content }] AS data
@@ -983,7 +983,7 @@ CALL {
         create_this0.authorId = create_var1.authorId,
         create_this0.content = create_var1.content
     WITH create_this0, create_var1
-    CALL apoc.util.validate(NOT ((create_this0.authorId IS NOT NULL AND create_this0.authorId = $this0auth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((create_this0.authorId IS NOT NULL AND create_this0.authorId = $this0auth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
@@ -1045,7 +1045,7 @@ CALL {
     SET this0.authorId = $this0_authorId
     SET this0.content = $this0_content
     WITH this0
-    CALL apoc.util.validate(NOT ((this0.authorId IS NOT NULL AND this0.authorId = $this0auth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((this0.authorId IS NOT NULL AND this0.authorId = $this0auth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN this0
 }
 CALL {
@@ -1079,7 +1079,7 @@ CALL {
         create_this0.authorId = create_var1.authorId,
         create_this0.content = create_var1.content
     WITH create_var1, create_this0
-    CALL apoc.util.validate(create_var1.authorId IS NOT NULL and NOT ((create_this0.authorId IS NOT NULL AND create_this0.authorId = $this0auth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(create_var1.authorId IS NOT NULL and NOT ((create_this0.authorId IS NOT NULL AND create_this0.authorId = $this0auth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     RETURN create_this0
 }
 RETURN collect(create_this0 { .content }) AS data
@@ -1155,13 +1155,13 @@ CALL {
     SET this0_moderators0_node.id = $this0_moderators0_node_id
     SET this0_moderators0_node.name = $this0_moderators0_node_name
     WITH this0, this0_moderators0_node
-    CALL apoc.util.validate(NOT ((this0_moderators0_node.id IS NOT NULL AND this0_moderators0_node.id = $this0_moderators0_nodeauth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((this0_moderators0_node.id IS NOT NULL AND this0_moderators0_node.id = $this0_moderators0_nodeauth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     MERGE (this0)<-[:MODERATES_POST]-(this0_moderators0_node)
     WITH this0
     CREATE (this0_moderators1_node:User)
     SET this0_moderators1_node.id = $this0_moderators1_node_id
     WITH this0, this0_moderators1_node
-    CALL apoc.util.validate(NOT ((this0_moderators1_node.id IS NOT NULL AND this0_moderators1_node.id = $this0_moderators1_nodeauth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((this0_moderators1_node.id IS NOT NULL AND this0_moderators1_node.id = $this0_moderators1_nodeauth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     MERGE (this0)<-[:MODERATES_POST]-(this0_moderators1_node)
     RETURN this0
 }
@@ -1210,7 +1210,7 @@ CALL {
             create_this6.name = create_var4.name
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         WITH create_this6
-        CALL apoc.util.validate(NOT ((create_this6.id IS NOT NULL AND create_this6.id = $auth_param)), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(NOT ((create_this6.id IS NOT NULL AND create_this6.id = $auth_param)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         RETURN collect(NULL)
     }
     RETURN create_this1
@@ -1306,7 +1306,7 @@ CALL {
     CREATE (this0_moderators0_node:User)
     SET this0_moderators0_node.id = $this0_moderators0_node_id
     WITH this0, this0_moderators0_node
-    CALL apoc.util.validate(NOT ((this0_moderators0_node.id IS NOT NULL AND this0_moderators0_node.id = $this0_moderators0_nodeauth_param0)), "@neo4j/graphql/FORBIDDEN", [0])
+    CALL apoc.util.validate(NOT ((this0_moderators0_node.id IS NOT NULL AND this0_moderators0_node.id = $this0_moderators0_nodeauth_param0)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
     MERGE (this0)<-[:MODERATES_POST]-(this0_moderators0_node)
     WITH this0
     CREATE (this0_moderators1_node:User)
@@ -1357,7 +1357,7 @@ CALL {
             create_this6.name = create_var4.name
         MERGE (create_this6)-[create_this7:MODERATES_POST]->(create_this1)
         WITH this0, this0_moderators0_node
-        CALL apoc.util.validate(create_var4.id IS NOT NULL AND NOT ((create_this6.id IS NOT NULL AND create_this6.id = $auth_jwt_sub)), "@neo4j/graphql/FORBIDDEN", [0])
+        CALL apoc.util.validate(create_var4.id IS NOT NULL AND NOT ((create_this6.id IS NOT NULL AND create_this6.id = $auth_jwt_sub)), "@opencreek/neo4j-graphql/FORBIDDEN", [0])
         RETURN collect(NULL)
     }
     RETURN create_this1

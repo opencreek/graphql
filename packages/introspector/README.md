@@ -61,7 +61,7 @@ This example generates a **read-only** version of the schema from the database a
 Here the type definitions are never persisted to disk.
 
 ```js
-const { Neo4jGraphQL } = require("@neo4j/graphql");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
 const { toGraphQLTypeDefs } = require("@neo4j/introspector");
 const neo4j = require("neo4j-driver");
 
