@@ -33,14 +33,14 @@ class OGM<ModelMap = unknown> {
     private _schema?: GraphQLSchema;
     private initializer?: Promise<void>;
 
-    constructor(input: OGMConstructor) {
+    constructor(input: OGMConstructor & { excludeAuth?: boolean }) {
         const { typeDefs, ...rest } = input;
 
         this.models = [];
 
         this.neoSchema = new Neo4jGraphQL({
             ...rest,
-            typeDefs: filterDocument(typeDefs),
+            typeDefs: filterDocument(typeDefs, input.excludeAuth),
         });
 
         this.checkNeo4jCompat = function checkNeo4jCompat() {
