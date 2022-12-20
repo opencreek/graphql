@@ -1917,7 +1917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:8.3.14":
+"@graphql-tools/merge@npm:8.3.14, @graphql-tools/merge@npm:^8.2.1":
   version: 8.3.14
   resolution: "@graphql-tools/merge@npm:8.3.14"
   dependencies:
@@ -1967,6 +1967,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/resolvers-composition@npm:^6.4.1":
+  version: 6.5.14
+  resolution: "@graphql-tools/resolvers-composition@npm:6.5.14"
+  dependencies:
+    "@graphql-tools/utils": 9.1.3
+    lodash: 4.17.21
+    micromatch: ^4.0.4
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 738121bd93358679d255fd3ab48640cc79142863e7a7a68e61453dcbb0da7b0c4fe12997a8a4bc83955f8960cc118286e332065bda04fe325dd996ab28815298
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/resolvers-composition@npm:^6.5.3":
   version: 6.5.12
   resolution: "@graphql-tools/resolvers-composition@npm:6.5.12"
@@ -1981,7 +1995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:8.5.1, @graphql-tools/schema@npm:^8.0.0, @graphql-tools/schema@npm:^8.5.1":
+"@graphql-tools/schema@npm:8.5.1, @graphql-tools/schema@npm:^8.0.0, @graphql-tools/schema@npm:^8.3.1, @graphql-tools/schema@npm:^8.5.1":
   version: 8.5.1
   resolution: "@graphql-tools/schema@npm:8.5.1"
   dependencies:
@@ -2056,7 +2070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:^8.8.0":
+"@graphql-tools/utils@npm:^8.6.0, @graphql-tools/utils@npm:^8.8.0":
   version: 8.13.1
   resolution: "@graphql-tools/utils@npm:8.13.1"
   dependencies:
@@ -2751,206 +2765,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql-ogm@^3.5.0, @opencreek/neo4j-graphql-ogm@workspace:packages/ogm":
-  version: 0.0.0-use.local
-  resolution: "@opencreek/neo4j-graphql-ogm@workspace:packages/ogm"
-  dependencies:
-    "@graphql-codegen/core": ^2.5.1
-    "@graphql-codegen/plugin-helpers": ^3.0.0
-    "@graphql-codegen/typescript": ^2.6.0
-    "@graphql-tools/merge": ^8.3.3
-    "@opencreek/neo4j-graphql": ^3.14.1
-    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.1
-    "@types/jest": 29.2.4
-    "@types/node": 18.11.10
-    camelcase: 6.3.0
-    graphql-tag: 2.12.6
-    jest: 29.3.1
-    jsonwebtoken: 8.5.1
-    libnpmsearch: 6.0.1
-    npm-run-all: 4.1.5
-    pluralize: 8.0.0
-    prettier: ^2.7.1
-    randomstring: 1.2.3
-    semver: 7.3.8
-    ts-jest: 29.0.3
-    typescript: 4.9.4
-  peerDependencies:
-    graphql: ^16.0.0
-    neo4j-driver: ^4.1.0 || ^5.0.0
-  languageName: unknown
-  linkType: soft
-
-"@opencreek/neo4j-graphql-plugin-auth@^1.0.0, @opencreek/neo4j-graphql-plugin-auth@^1.1.0, @opencreek/neo4j-graphql-plugin-auth@^1.1.1, @opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
-  version: 0.0.0-use.local
-  resolution: "@opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth"
-  dependencies:
-    "@types/debug": 4.1.7
-    "@types/jest": 29.2.4
-    "@types/jsonwebtoken": 8.5.9
-    "@types/node": 18.11.10
-    debug: ^4.3.4
-    jest: 29.3.1
-    jsonwebtoken: ^8.5.1
-    jwks-rsa: ^3.0.0
-    ts-jest: 29.0.3
-    typescript: 4.9.4
-  languageName: unknown
-  linkType: soft
-
-"@opencreek/neo4j-graphql-plugin-subscriptions-amqp@^1.0.0, @opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp":
-  version: 0.0.0-use.local
-  resolution: "@opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp"
-  dependencies:
-    "@opencreek/neo4j-graphql": ^3.14.0
-    "@types/amqplib": 0.10.0
-    "@types/debug": 4.1.7
-    "@types/jest": 29.2.4
-    "@types/node": 18.11.10
-    amqplib: 0.10.3
-    apollo-server: 3.11.1
-    apollo-server-express: 3.11.1
-    camelcase: 6.3.0
-    graphql-ws: 5.11.2
-    jest: 29.3.1
-    neo4j-driver: 5.3.0
-    pluralize: 8.0.0
-    randomstring: 1.2.3
-    supertest: 6.3.3
-    ts-jest: 29.0.3
-    typescript: 4.9.4
-    ws: 8.11.0
-  peerDependencies:
-    "@opencreek/neo4j-graphql": ^3.14.0
-  languageName: unknown
-  linkType: soft
-
-"@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox":
-  version: 0.0.0-use.local
-  resolution: "@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox"
-  dependencies:
-    "@neo4j-ndl/base": 0.15.1
-    "@neo4j-ndl/react": 0.16.0
-    "@opencreek/neo4j-graphql": 3.14.1
-    "@neo4j/introspector": 1.0.2
-    "@playwright/test": 1.28.1
-    "@tsconfig/create-react-app": 1.0.3
-    "@types/codemirror": 5.60.5
-    "@types/lodash.debounce": 4.0.7
-    "@types/markdown-it": 12.2.3
-    "@types/prettier": 2.7.1
-    "@types/react-dom": 18.0.9
-    "@types/webpack": 5.28.0
-    autoprefixer: 10.4.13
-    codemirror: 5.65.10
-    codemirror-graphql: 2.0.2
-    compression-webpack-plugin: 10.0.0
-    copy-webpack-plugin: 11.0.0
-    cross-env: 7.0.3
-    css-loader: 6.7.3
-    dotenv-webpack: 8.0.1
-    fork-ts-checker-webpack-plugin: 7.2.14
-    graphiql-explorer: 0.9.0
-    graphql: 16.6.0
-    graphql-query-complexity: 0.12.0
-    html-inline-script-webpack-plugin: 3.1.0
-    html-webpack-inline-source-plugin: 0.0.10
-    html-webpack-plugin: 5.5.0
-    jest: 29.3.1
-    jest-environment-jsdom: 29.3.1
-    lodash.debounce: 4.0.8
-    markdown-it: 13.0.1
-    neo4j-driver: 5.3.0
-    node-polyfill-webpack-plugin: 2.0.1
-    parse5: 5.1.1
-    postcss: 8.4.20
-    postcss-loader: 7.0.2
-    prettier: 2.8.1
-    process: 0.11.10
-    randomstring: 1.2.3
-    react: 18.2.0
-    react-dom: 18.2.0
-    react-resizable: 3.0.4
-    style-loader: 3.3.1
-    tailwindcss: 3.2.4
-    terser-webpack-plugin: 5.3.6
-    ts-jest: 29.0.3
-    ts-loader: 9.4.2
-    ts-node: 10.9.1
-    tsconfig-paths-webpack-plugin: 4.0.0
-    typescript: 4.9.4
-    webpack: 5.75.0
-    webpack-cli: 5.0.1
-    webpack-dev-server: 4.11.1
-    webpack-notifier: 1.15.0
-  languageName: unknown
-  linkType: soft
-
-"@opencreek/neo4j-graphql@3.14.1, @opencreek/neo4j-graphql@^3.1.0, @opencreek/neo4j-graphql@^3.13.0, @opencreek/neo4j-graphql@^3.14.0, @opencreek/neo4j-graphql@^3.14.1, @opencreek/neo4j-graphql@^3.5.0, @opencreek/neo4j-graphql@^3.8.0, @opencreek/neo4j-graphql@workspace:packages/graphql":
-  version: 0.0.0-use.local
-  resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
-  dependencies:
-    "@faker-js/faker": 7.6.0
-    "@graphql-tools/merge": ^8.3.3
-    "@graphql-tools/resolvers-composition": ^6.5.3
-    "@graphql-tools/schema": 9.0.12
-    "@graphql-tools/utils": ^9.0.0
-    "@neo4j/cypher-builder": ~0.1.8
-    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.1
-    "@types/deep-equal": 1.0.1
-    "@types/is-uuid": 1.0.0
-    "@types/jest": 29.2.4
-    "@types/jsonwebtoken": 8.5.9
-    "@types/node": 18.11.10
-    "@types/pluralize": 0.0.29
-    "@types/randomstring": 1.1.8
-    "@types/semver": 7.3.13
-    "@types/supertest": 2.0.12
-    "@types/ws": 8.5.3
-    apollo-server: 3.11.1
-    apollo-server-express: 3.11.1
-    camelcase: ^6.3.0
-    debug: ^4.3.4
-    dedent: 0.7.0
-    deep-equal: ^2.0.5
-    dot-prop: ^6.0.1
-    graphql-compose: ^9.0.8
-    graphql-middleware: 6.1.33
-    graphql-parse-resolve-info: ^4.12.3
-    graphql-relay: ^0.10.0
-    graphql-tag: 2.12.6
-    graphql-ws: 5.11.2
-    is-uuid: 1.0.2
-    jest: 29.3.1
-    jest-extended: 3.2.0
-    koa: 2.14.1
-    koa-jwt: 4.0.3
-    koa-router: 12.0.0
-    libnpmsearch: 6.0.1
-    mock-jwks: 1.0.8
-    nock: 13.2.9
-    npm-run-all: 4.1.5
-    pluralize: ^8.0.0
-    randomstring: 1.2.3
-    rimraf: 3.0.2
-    semver: ^7.3.7
-    supertest: 6.3.3
-    ts-jest: 29.0.3
-    ts-node: 10.9.1
-    typescript: 4.9.4
-    uuid: ^9.0.0
-    ws: 8.11.0
-  peerDependencies:
-    graphql: ^16.0.0
-    neo4j-driver: ^4.1.0 || ^5.0.0
-  languageName: unknown
-  linkType: soft
-
 "@neo4j/introspector@1.0.2, @neo4j/introspector@workspace:packages/introspector":
   version: 0.0.0-use.local
   resolution: "@neo4j/introspector@workspace:packages/introspector"
   dependencies:
-    "@opencreek/neo4j-graphql": ^3.8.0
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
     "@types/jest": 29.2.4
     "@types/node": 18.11.10
     "@types/pluralize": 0.0.29
@@ -3028,6 +2847,225 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: 52dc02259d98da517fae4cb3a0a3850227bdae4939dda1980b788a7670636ca2b4a01b58df03dd5f65c1e3cb70c50fa8ce5762b582b3f499ec30ee5ce1fd9380
+  languageName: node
+  linkType: hard
+
+"@opencreek/neo4j-graphql-ogm@4.0.0-alpha, @opencreek/neo4j-graphql-ogm@workspace:packages/ogm":
+  version: 0.0.0-use.local
+  resolution: "@opencreek/neo4j-graphql-ogm@workspace:packages/ogm"
+  dependencies:
+    "@graphql-codegen/core": ^2.5.1
+    "@graphql-codegen/plugin-helpers": ^3.0.0
+    "@graphql-codegen/typescript": ^2.6.0
+    "@graphql-tools/merge": ^8.3.3
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+    "@opencreek/neo4j-graphql-plugin-auth": 2.0.0-alpha
+    "@types/jest": 29.2.4
+    "@types/node": 18.11.10
+    camelcase: 6.3.0
+    graphql-tag: 2.12.6
+    jest: 29.3.1
+    jsonwebtoken: 8.5.1
+    libnpmsearch: 6.0.1
+    npm-run-all: 4.1.5
+    pluralize: 8.0.0
+    prettier: ^2.7.1
+    randomstring: 1.2.3
+    semver: 7.3.8
+    ts-jest: 29.0.3
+    typescript: 4.9.4
+  peerDependencies:
+    graphql: ^16.0.0
+    neo4j-driver: ^4.1.0 || ^5.0.0
+  languageName: unknown
+  linkType: soft
+
+"@opencreek/neo4j-graphql-plugin-auth@2.0.0-alpha, @opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
+  version: 0.0.0-use.local
+  resolution: "@opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth"
+  dependencies:
+    "@types/debug": 4.1.7
+    "@types/jest": 29.2.4
+    "@types/jsonwebtoken": 8.5.9
+    "@types/node": 18.11.10
+    debug: ^4.3.4
+    jest: 29.3.1
+    jsonwebtoken: ^8.5.1
+    jwks-rsa: ^3.0.0
+    ts-jest: 29.0.3
+    typescript: 4.9.4
+  languageName: unknown
+  linkType: soft
+
+"@opencreek/neo4j-graphql-plugin-subscriptions-amqp@^1.0.0, @opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp":
+  version: 0.0.0-use.local
+  resolution: "@opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp"
+  dependencies:
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+    "@types/amqplib": 0.10.0
+    "@types/debug": 4.1.7
+    "@types/jest": 29.2.4
+    "@types/node": 18.11.10
+    amqplib: 0.10.3
+    apollo-server: 3.11.1
+    apollo-server-express: 3.11.1
+    camelcase: 6.3.0
+    graphql-ws: 5.11.2
+    jest: 29.3.1
+    neo4j-driver: 5.3.0
+    pluralize: 8.0.0
+    randomstring: 1.2.3
+    supertest: 6.3.3
+    ts-jest: 29.0.3
+    typescript: 4.9.4
+    ws: 8.11.0
+  peerDependencies:
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+  languageName: unknown
+  linkType: soft
+
+"@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox":
+  version: 0.0.0-use.local
+  resolution: "@opencreek/neo4j-graphql-toolbox@workspace:packages/graphql-toolbox"
+  dependencies:
+    "@neo4j-ndl/base": 0.15.1
+    "@neo4j-ndl/react": 0.16.0
+    "@neo4j/introspector": 1.0.2
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+    "@playwright/test": 1.28.1
+    "@tsconfig/create-react-app": 1.0.3
+    "@types/codemirror": 5.60.5
+    "@types/lodash.debounce": 4.0.7
+    "@types/markdown-it": 12.2.3
+    "@types/prettier": 2.7.1
+    "@types/react-dom": 18.0.9
+    "@types/webpack": 5.28.0
+    autoprefixer: 10.4.13
+    codemirror: 5.65.10
+    codemirror-graphql: 2.0.2
+    compression-webpack-plugin: 10.0.0
+    copy-webpack-plugin: 11.0.0
+    cross-env: 7.0.3
+    css-loader: 6.7.3
+    dotenv-webpack: 8.0.1
+    fork-ts-checker-webpack-plugin: 7.2.14
+    graphiql-explorer: 0.9.0
+    graphql: 16.6.0
+    graphql-query-complexity: 0.12.0
+    html-inline-script-webpack-plugin: 3.1.0
+    html-webpack-inline-source-plugin: 0.0.10
+    html-webpack-plugin: 5.5.0
+    jest: 29.3.1
+    jest-environment-jsdom: 29.3.1
+    lodash.debounce: 4.0.8
+    markdown-it: 13.0.1
+    neo4j-driver: 5.3.0
+    node-polyfill-webpack-plugin: 2.0.1
+    parse5: 5.1.1
+    postcss: 8.4.20
+    postcss-loader: 7.0.2
+    prettier: 2.8.1
+    process: 0.11.10
+    randomstring: 1.2.3
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-resizable: 3.0.4
+    style-loader: 3.3.1
+    tailwindcss: 3.2.4
+    terser-webpack-plugin: 5.3.6
+    ts-jest: 29.0.3
+    ts-loader: 9.4.2
+    ts-node: 10.9.1
+    tsconfig-paths-webpack-plugin: 4.0.0
+    typescript: 4.9.4
+    webpack: 5.75.0
+    webpack-cli: 5.0.1
+    webpack-dev-server: 4.11.1
+    webpack-notifier: 1.15.0
+  languageName: unknown
+  linkType: soft
+
+"@opencreek/neo4j-graphql@4.0.0-alpha, @opencreek/neo4j-graphql@workspace:packages/graphql":
+  version: 0.0.0-use.local
+  resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
+  dependencies:
+    "@faker-js/faker": 7.6.0
+    "@graphql-tools/merge": ^8.3.3
+    "@graphql-tools/resolvers-composition": ^6.5.3
+    "@graphql-tools/schema": 9.0.12
+    "@graphql-tools/utils": ^9.0.0
+    "@neo4j/cypher-builder": ~0.1.8
+    "@opencreek/neo4j-graphql-plugin-auth": 2.0.0-alpha
+    "@types/deep-equal": 1.0.1
+    "@types/is-uuid": 1.0.0
+    "@types/jest": 29.2.4
+    "@types/jsonwebtoken": 8.5.9
+    "@types/node": 18.11.10
+    "@types/pluralize": 0.0.29
+    "@types/randomstring": 1.1.8
+    "@types/semver": 7.3.13
+    "@types/supertest": 2.0.12
+    "@types/ws": 8.5.3
+    apollo-server: 3.11.1
+    apollo-server-express: 3.11.1
+    camelcase: ^6.3.0
+    debug: ^4.3.4
+    dedent: 0.7.0
+    deep-equal: ^2.0.5
+    dot-prop: ^6.0.1
+    graphql-compose: ^9.0.8
+    graphql-middleware: 6.1.33
+    graphql-parse-resolve-info: ^4.12.3
+    graphql-relay: ^0.10.0
+    graphql-tag: 2.12.6
+    graphql-ws: 5.11.2
+    is-uuid: 1.0.2
+    jest: 29.3.1
+    jest-extended: 3.2.0
+    koa: 2.14.1
+    koa-jwt: 4.0.3
+    koa-router: 12.0.0
+    libnpmsearch: 6.0.1
+    mock-jwks: 1.0.8
+    nock: 13.2.9
+    npm-run-all: 4.1.5
+    pluralize: ^8.0.0
+    randomstring: 1.2.3
+    rimraf: 3.0.2
+    semver: ^7.3.7
+    supertest: 6.3.3
+    ts-jest: 29.0.3
+    ts-node: 10.9.1
+    typescript: 4.9.4
+    uuid: ^9.0.0
+    ws: 8.11.0
+  peerDependencies:
+    graphql: ^16.0.0
+    neo4j-driver: ^4.1.0 || ^5.0.0
+  languageName: unknown
+  linkType: soft
+
+"@opencreek/neo4j-graphql@npm:^3.1.0":
+  version: 3.3.0
+  resolution: "@opencreek/neo4j-graphql@npm:3.3.0"
+  dependencies:
+    "@graphql-tools/merge": ^8.2.1
+    "@graphql-tools/resolvers-composition": ^6.4.1
+    "@graphql-tools/schema": ^8.3.1
+    "@graphql-tools/utils": ^8.6.0
+    camelcase: ^6.2.0
+    debug: ^4.3.2
+    deep-equal: ^2.0.5
+    dot-prop: ^6.0.1
+    graphql-compose: ^9.0.6
+    graphql-parse-resolve-info: ^4.12.0
+    graphql-relay: ^0.10.0
+    pluralize: ^8.0.0
+    semver: ^7.3.5
+  peerDependencies:
+    graphql: ^16.0.0
+    neo4j-driver: ^4.1.0
+  checksum: 368e82e6647c2edb709d211e1a11ee296d2062f7f0cd7d119e54756ffc0db25b27c4ee08c62259387c35cfdc71eed72378c21c16c96330a59d34155a459f4da7
   languageName: node
   linkType: hard
 
@@ -10932,7 +10970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-compose@npm:^9.0.8":
+"graphql-compose@npm:^9.0.6, graphql-compose@npm:^9.0.8":
   version: 9.0.10
   resolution: "graphql-compose@npm:9.0.10"
   dependencies:
@@ -10984,7 +11022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-parse-resolve-info@npm:^4.12.3":
+"graphql-parse-resolve-info@npm:^4.12.0, graphql-parse-resolve-info@npm:^4.12.3":
   version: 4.12.3
   resolution: "graphql-parse-resolve-info@npm:4.12.3"
   dependencies:
@@ -15150,7 +15188,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "migration@workspace:examples/migration"
   dependencies:
-    "@opencreek/neo4j-graphql": ^3.14.1
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
     apollo-server: 3.11.1
     graphql: 16.6.0
     neo4j-driver: 5.3.0
@@ -15629,8 +15667,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "neo-place@workspace:examples/neo-place"
   dependencies:
-    "@opencreek/neo4j-graphql": ^3.13.0
-    "@opencreek/neo4j-graphql-plugin-auth": ^1.1.0
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+    "@opencreek/neo4j-graphql-plugin-auth": 2.0.0-alpha
     "@opencreek/neo4j-graphql-plugin-subscriptions-amqp": ^1.0.0
     apollo-server-core: ^3.11.1
     apollo-server-express: ^3.11.1
@@ -15686,9 +15724,9 @@ __metadata:
   resolution: "neo-push-server@workspace:examples/neo-push/server"
   dependencies:
     "@faker-js/faker": 7.6.0
-    "@opencreek/neo4j-graphql": ^3.5.0
-    "@opencreek/neo4j-graphql-ogm": ^3.5.0
-    "@opencreek/neo4j-graphql-plugin-auth": ^1.0.0
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
+    "@opencreek/neo4j-graphql-ogm": 4.0.0-alpha
+    "@opencreek/neo4j-graphql-plugin-auth": 2.0.0-alpha
     "@types/bcrypt": 5.0.0
     "@types/debug": 4.1.7
     "@types/dotenv": 8.2.0
@@ -23102,7 +23140,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "yoga-subscriptions-server@workspace:examples/subscriptions/yoga_sse"
   dependencies:
-    "@opencreek/neo4j-graphql": ^3.13.0
+    "@opencreek/neo4j-graphql": 4.0.0-alpha
     graphql: ^16.6.0
     graphql-yoga: ^3.1.1
     neo4j-driver: ^5.3.0

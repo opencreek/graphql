@@ -1,6 +1,6 @@
 {
     "name": "@opencreek/neo4j-graphql",
-    "version": "3.14.1",
+    "version": "4.0.0-alpha",
     "description": "A GraphQL to Cypher query execution layer for Neo4j and JavaScript GraphQL implementations",
     "keywords": [
         "neo4j",
@@ -48,7 +48,7 @@
     "author": "Neo4j Inc.",
     "devDependencies": {
         "@faker-js/faker": "7.6.0",
-        "@opencreek/neo4j-graphql-plugin-auth": "^1.1.1",
+        "@opencreek/neo4j-graphql-plugin-auth": "2.0.0-alpha",
         "@types/deep-equal": "1.0.1",
         "@types/is-uuid": "1.0.0",
         "@types/jest": "29.2.4",
