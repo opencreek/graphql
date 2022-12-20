@@ -43,7 +43,7 @@ describe("auth/where", () => {
     });
 
     describe("read", () => {
-        test.skip("should add additional statments to query and return user", async () => {
+        test("should add additional statments to query and return user", async () => {
             const session = await neo4j.getSession({ defaultAccessMode: "WRITE" });
 
             const typeDefs = `
@@ -54,7 +54,7 @@ describe("auth/where", () => {
                 extend type User @auth(rules: [{ operations: [READ], 
                   whereCypher: {
                     query: """
-                    (:User { id: "other-user" })
+                    $$this.id = "other-user"
                     """
                   }
                 }])

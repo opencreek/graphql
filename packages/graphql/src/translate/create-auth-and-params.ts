@@ -131,7 +131,7 @@ export function createAuthPredicates({
     const authRules = nodeAuth.getRules(operations);
 
     const hasWhere = (rule: BaseAuthRule): boolean =>
-        !!(rule.where || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
+        !!(rule.where || rule.whereCypher || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
 
     if (where && !authRules.some(hasWhere)) {
         return undefined;
@@ -247,6 +247,19 @@ function createSubPredicate({
             thisPredicates.push(joinedPredicate);
         }
     });
+
+    if (where && authRule.whereCypher) {
+        const nodeRef = getOrCreateCypherNode(where.varName);
+        const query = authRule.whereCypher.query;
+
+        const wherePredicate = new Cypher.RawCypher((env) => {
+            const cypher = nodeRef.getCypher(env);
+
+            return query.replace(/\$\$this/g, cypher);
+        });
+
+        thisPredicates.push(wherePredicate);
+    }
 
     if (where && authRule.where) {
         const nodeRef = getOrCreateCypherNode(where.varName);
