@@ -33,7 +33,7 @@
     },
     "author": "Neo4j Inc.",
     "devDependencies": {
-        "@opencreek/neo4j-graphql": "4.0.0-alpha",
+        "@opencreek/neo4j-graphql": "4.0.0-alpha.1",
         "@types/jest": "29.2.4",
         "@types/node": "18.11.10",
         "@types/pluralize": "0.0.29",

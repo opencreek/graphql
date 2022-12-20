@@ -35,7 +35,7 @@
     },
     "homepage": "https://github.com/neo4j/graphql#readme",
     "dependencies": {
-        "@opencreek/neo4j-graphql": "4.0.0-alpha",
+        "@opencreek/neo4j-graphql": "4.0.0-alpha.1",
         "@opencreek/neo4j-graphql-plugin-auth": "2.0.0-alpha",
         "@opencreek/neo4j-graphql-plugin-subscriptions-amqp": "^1.0.0",
         "apollo-server-core": "^3.11.1",
