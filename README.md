@@ -1,3 +1,82 @@
+# Fork Update Instructions
+
+All changes are part of the following branches:
+
+```
+wherecypher-auth-directive
+ogm-auth
+disable-relay-checks
+add-update-instructions-to-readme
+```
+
+1. Update main branch of this repo with a release tag from upstream (the best way to find the latest release is to look at the github releases and take the last release of a sub-package, e.g. `@neo4j/graphql@3.16.0`)
+
+```bash
+git fetch
+git switch main
+git merge $LATEST_RELEASE
+```
+
+2. Rebase the branches above on the updated main branch
+
+```bash
+git switch wherecypher-auth-directive
+git rebase main
+
+git switch ogm-auth
+git rebase main
+
+git switch disable-relay-checks
+git rebase main
+
+git switch add-update-instructions-to-readme
+git rebase main
+```
+
+3. Delete the fork branch and create a new, clean fork branch
+
+```bash
+git switch main
+git branch -D fork
+git switch -c fork
+```
+
+4. Merge the branches above into the fork branch
+
+```bash
+git merge wherecypher-auth-directive
+git merge ogm-auth
+git merge disable-relay-checks
+git merge add-update-instructions-to-readme
+```
+
+5. Update all package references from `@neo4j-graphl` to `@opencreek/neo4j-graphl`
+
+```bash
+grep -l -0 "@neo4j/graphql" | xargs -0 sed -i 's,@neo4j/graphql,@opencreek/neo4j-graphql,g'
+```
+
+6. Bump the `packages/graphql` version in `package.json`, build and publish it
+
+```bash
+cd packages/graphql
+yarn build
+npm version --workspaces-update=false $NEW_VERSION
+npm publish --access=public
+```
+
+7. Bump the `packages/ogm` version and its dependencies in `package.json`, build and publish it
+
+```bash
+cd packages/ogm
+yarn add @opencreek/neo4j-graphql@$NEW_VERSION
+yarn build
+npm version --workspaces-update=false $NEW_VERSION
+npm publish --access=public
+```
+
+8. Done!
+
 # Neo4j GraphQL Library
 
 💡 Welcome to the Monorepo for [Neo4j](https://neo4j.com/) + [GraphQL](https://graphql.org/).
