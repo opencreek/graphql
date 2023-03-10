@@ -6,10 +6,11 @@ All changes are part of the following branches:
 wherecypher-auth-directive
 ogm-auth
 disable-relay-checks
+fix-date-serialization
 add-update-instructions-to-readme
 ```
 
-1. Update main branch of this repo with a release tag from upstream (the best way to find the latest release is to look at the github releases and take the last release of a sub-package, e.g. `@neo4j/graphql@3.16.0`)
+1. Update main branch of this repo with a release tag from upstream (the best way to find the latest release is to look at the github releases and take the last release of a sub-package, e.g. `@opencreek/neo4j-graphql@3.16.0`)
 
 ```bash
 git fetch
@@ -27,6 +28,9 @@ git switch ogm-auth
 git rebase main
 
 git switch disable-relay-checks
+git rebase main
+
+git switch fix-date-serialization
 git rebase main
 
 git switch add-update-instructions-to-readme
@@ -47,13 +51,14 @@ git switch -c fork
 git merge wherecypher-auth-directive
 git merge ogm-auth
 git merge disable-relay-checks
+git merge fix-date-serialization
 git merge add-update-instructions-to-readme
 ```
 
 5. Update all package references from `@neo4j-graphl` to `@opencreek/neo4j-graphl`
 
 ```bash
-grep -l -0 "@neo4j/graphql" | xargs -0 sed -i 's,@neo4j/graphql,@opencreek/neo4j-graphql,g'
+rg -g '!examples' -g '!docs' -g '!*.md' -g '!yarn.lock' -l -0 "@neo4j/graphql" | xargs -0 sed -i 's,@neo4j/graphql,@opencreek/neo4j-graphql,g'
 ```
 
 6. Bump the `packages/graphql` version in `package.json`, build and publish it
@@ -61,6 +66,8 @@ grep -l -0 "@neo4j/graphql" | xargs -0 sed -i 's,@neo4j/graphql,@opencreek/neo4j
 ```bash
 cd packages/graphql
 yarn build
+# Suffix the current version with -oc.<num>, so for the first
+# oc release on this version use -oc.1
 npm version --workspaces-update=false $NEW_VERSION
 npm publish --access=public
 ```
@@ -71,6 +78,8 @@ npm publish --access=public
 cd packages/ogm
 yarn add @opencreek/neo4j-graphql@$NEW_VERSION
 yarn build
+# Suffix the current version with -oc.<num>, so for the first
+# oc release on this version use -oc.1
 npm version --workspaces-update=false $NEW_VERSION
 npm publish --access=public
 ```
@@ -100,7 +109,7 @@ release. This is what you should base your work on if you want to make changes.
 Want to check out the code from the last release? Checkout `master` instead, which
 is only ever merged into on releases.
 
-Want to contribute to `@neo4j/graphql`? See our [contributing guide](./CONTRIBUTING.md)
+Want to contribute to `@opencreek/neo4j-graphql`? See our [contributing guide](./CONTRIBUTING.md)
 and [development guide](./docs/contributing/DEVELOPING.md) to get started!
 
 ## Links
@@ -115,13 +124,13 @@ This is a TypeScript Monorepo managed with [Yarn Workspaces](https://classic.yar
 To learn more on how to; setup, test and contribute to Neo4j GraphQL then please
 visit the [Contributing Guide](./CONTRIBUTING.md).
 
-1. [`@neo4j/graphql`](./packages/graphql) - Familiar GraphQL generation, for usage
+1. [`@opencreek/neo4j-graphql`](./packages/graphql) - Familiar GraphQL generation, for usage
    with an API such as [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
-2. [`@neo4j/graphql-ogm`](./packages/ogm) - Use GraphQL Type Definitions to drive
+2. [`@opencreek/neo4j-graphql-ogm`](./packages/ogm) - Use GraphQL Type Definitions to drive
    interactions with the database
 3. [`@neo4j/introspector`](./packages/introspector) - Introspect schema from an existing Neo4j database
-4. [`@neo4j/graphql-plugin-auth`](./packages/graphql-plugin-auth) - Auth decode plugins for @neo4j/graphql
-5. [`@neo4j/graphql-toolbox`](./packages/graphql-toolbox) - Experiment with your Neo4j GraphQL API on Neo4j Desktop.
+4. [`@opencreek/neo4j-graphql-plugin-auth`](./packages/graphql-plugin-auth) - Auth decode plugins for @opencreek/neo4j-graphql
+5. [`@opencreek/neo4j-graphql-toolbox`](./packages/graphql-toolbox) - Experiment with your Neo4j GraphQL API on Neo4j Desktop.
 
 ## Media
 
