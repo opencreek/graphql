@@ -24,6 +24,8 @@ import neo4j, { isDate } from "neo4j-driver";
 
 const formatDateString = (dateString: string) => new Date(dateString).toISOString().split("T")[0];
 
+const formatDateString = (dateString: string) => new Date(dateString).toISOString().split("T")[0];
+
 export const GraphQLDate = new GraphQLScalarType({
     name: "Date",
     description: "A date, represented as a 'yyyy-mm-dd' string",
