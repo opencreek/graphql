@@ -24,7 +24,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import neo4j from "neo4j-driver";
  
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { getLargeSchema } from "../typedefs.js";
 
 async function main() {

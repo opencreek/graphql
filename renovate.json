@@ -20,12 +20,12 @@
     "ignoreDeps": ["neo4j"],
     "packageRules": [
         {
-            "matchPackageNames": ["@neo4j/graphql-toolbox"],
+            "matchPackageNames": ["@opencreek/neo4j-graphql-toolbox"],
             "extends": [":pinAllExceptPeerDependencies"]
         },
         {
             "matchPackagePatterns": ["*"],
-            "excludePackageNames": ["@neo4j/graphql-toolbox"],
+            "excludePackageNames": ["@opencreek/neo4j-graphql-toolbox"],
             "extends": [":pinOnlyDevDependencies"]
         },
         {

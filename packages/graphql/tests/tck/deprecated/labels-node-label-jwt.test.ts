@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "graphql-tag";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../src";

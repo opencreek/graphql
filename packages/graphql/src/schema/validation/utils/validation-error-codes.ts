@@ -17,6 +17,6 @@
  * limitations under the License.
  */
 export const VALIDATION_ERROR_CODES = {
-    AUTHORIZATION: "@neo4j/graphql:AUTHORIZATION_VALIDATION",
-    AUTHENTICATION: "@neo4j/graphql:AUTHENTICATION_VALIDATION",
+    AUTHORIZATION: "@opencreek/neo4j-graphql:AUTHORIZATION_VALIDATION",
+    AUTHENTICATION: "@opencreek/neo4j-graphql:AUTHENTICATION_VALIDATION",
 };

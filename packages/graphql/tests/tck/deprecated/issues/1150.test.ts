@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "graphql-tag";
 import { Neo4jGraphQL } from "../../../../src";
 import { createJwtRequest } from "../../../utils/create-jwt-request";
@@ -119,7 +119,7 @@ describe("https://github.com/neo4j/graphql/issues/1150", () => {
                     CALL {
                         WITH this1
                         MATCH (this1:\`DriveComposition\`)-[this2:HAS]->(this3:\`Battery\`)
-                        WHERE (this2.current = $param2 AND apoc.util.validatePredicate(NOT ((any(var5 IN [\\"admin\\"] WHERE any(var4 IN $auth.roles WHERE var4 = var5)) AND apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@neo4j/graphql/UNAUTHENTICATED\\", [0]))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                        WHERE (this2.current = $param2 AND apoc.util.validatePredicate(NOT ((any(var5 IN [\\"admin\\"] WHERE any(var4 IN $auth.roles WHERE var4 = var5)) AND apoc.util.validatePredicate(NOT ($auth.isAuthenticated = true), \\"@opencreek/neo4j-graphql/UNAUTHENTICATED\\", [0]))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                         WITH { current: this2.current, node: { __resolveType: \\"Battery\\", __id: id(this3), id: this3.id } } AS edge
                         RETURN edge
                         UNION

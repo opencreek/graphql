@@ -23,7 +23,7 @@ import { generate } from "randomstring";
 import Neo4j from "../../neo4j";
 import { Neo4jGraphQL } from "../../../../src/classes";
 import { createJwtRequest } from "../../../utils/create-jwt-request";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe("auth/custom-resolvers", () => {
     let driver: Driver;

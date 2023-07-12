@@ -20,7 +20,7 @@
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-import type { Neo4jGraphQL } from "@neo4j/graphql";
+import type { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";

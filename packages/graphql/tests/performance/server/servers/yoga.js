@@ -20,7 +20,7 @@
 
 import neo4j from "neo4j-driver";
  
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 // eslint-disable-next-line import/named
 import { createYoga } from "graphql-yoga";
 import { getLargeSchema } from "../typedefs.js";

@@ -3,7 +3,7 @@ const globalConf = require("../../jest.config.base");
 
 module.exports = {
     ...globalConf,
-    displayName: "@neo4j/graphql",
+    displayName: "@opencreek/neo4j-graphql",
     globalSetup: path.join(__dirname, "jest.global-setup.js"),
     setupFilesAfterEnv: ["jest-extended/all"],
     globalTeardown: path.join(__dirname, "jest.global-teardown.js"),

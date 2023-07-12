@@ -60,7 +60,7 @@ module.exports = {
         new DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
             "process.env.VERSION": JSON.stringify(packageJson.version),
-            "process.env.NEO4J_GRAPHQL_VERSION": JSON.stringify(packageJson.dependencies["@neo4j/graphql"]),
+            "process.env.NEO4J_GRAPHQL_VERSION": JSON.stringify(packageJson.dependencies["@opencreek/neo4j-graphql"]),
         }),
         new CopyWebpackPlugin({
             patterns: ["public"],

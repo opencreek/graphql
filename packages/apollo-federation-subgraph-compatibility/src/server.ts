@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { createData } from "./data";

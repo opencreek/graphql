@@ -1,5 +1,5 @@
 {
-    "name": "@neo4j/graphql",
+    "name": "@opencreek/neo4j-graphql",
     "version": "3.23.1",
     "description": "A GraphQL to Cypher query execution layer for Neo4j and JavaScript GraphQL implementations",
     "keywords": [
@@ -37,7 +37,7 @@
         "test:e2e:watch": "jest e2e --watch",
         "test:schema": "jest tests/schema -c jest.minimal.config.js",
         "test:schema:watch": "jest tests/schema --watch -c jest.minimal.config.js",
-        "remove:graphql-plugin-auth": "node -p \"JSON.stringify({...require('./package.json')}, (k,v) => k === '@neo4j/graphql-plugin-auth' ? undefined : v, 2)\" > ./package.json.new && rm package.json && mv package.json.new package.json",
+        "remove:graphql-plugin-auth": "node -p \"JSON.stringify({...require('./package.json')}, (k,v) => k === '@opencreek/neo4j-graphql-plugin-auth' ? undefined : v, 2)\" > ./package.json.new && rm package.json && mv package.json.new package.json",
         "setup:package-tests": "yarn pack && mv *.tgz ../package-tests/ && cd ../package-tests/ && rimraf package && tar -xvzf *.tgz && cd package && npm run remove:graphql-plugin-auth && cd ../ && yarn install && yarn run setup",
         "posttest:package-tests": "yarn run cleanup:package-tests",
         "test:package-tests": "yarn run setup:package-tests && cd ../package-tests/ && yarn run test:all",
@@ -53,7 +53,7 @@
         "@apollo/gateway": "2.4.8",
         "@apollo/server": "4.7.5",
         "@faker-js/faker": "8.0.2",
-        "@neo4j/graphql-plugin-auth": "^2.2.0",
+        "@opencreek/neo4j-graphql-plugin-auth": "^2.2.0",
         "@types/deep-equal": "1.0.1",
         "@types/is-uuid": "1.0.0",
         "@types/jest": "29.5.2",

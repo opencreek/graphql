@@ -20,7 +20,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 
 import type { EditorView } from "@codemirror/view";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { toGraphQLTypeDefs } from "@neo4j/introspector";
 import { Banner } from "@neo4j-ndl/react";
 import { updateSchema } from "cm6-graphql";

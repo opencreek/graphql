@@ -2,7 +2,7 @@ const globalConf = require("../../../jest.config.base");
 
 module.exports = {
     ...globalConf,
-    displayName: "@neo4j/graphql-plugin-subscriptions-amqp",
+    displayName: "@opencreek/neo4j-graphql-plugin-subscriptions-amqp",
     roots: [
         "<rootDir>/packages/plugins/graphql-plugin-subscriptions-amqp/src",
         // "<rootDir>/packages/plugins/graphql-plugin-subscriptions-amqp/tests",

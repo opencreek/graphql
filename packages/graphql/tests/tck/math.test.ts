@@ -301,7 +301,7 @@ describe("Math operators", () => {
             		WITH this_marriedWith0
             		MATCH (this_marriedWith0)<-[this_marriedWith0_marriedWith_Actor_unique:MARRIED_WITH]-(:Actor)
             		WITH count(this_marriedWith0_marriedWith_Actor_unique) as c
-            		CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDStar.marriedWith must be less than or equal to one', [0])
+            		CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDStar.marriedWith must be less than or equal to one', [0])
             		RETURN c AS this_marriedWith0_marriedWith_Actor_unique_ignored
             	}
             	RETURN count(*) AS update_this_marriedWith0
@@ -365,7 +365,7 @@ describe("Math operators", () => {
             		WITH this_marriedWith0
             		MATCH (this_marriedWith0)<-[this_marriedWith0_marriedWith_Actor_unique:MARRIED_WITH]-(:Actor)
             		WITH count(this_marriedWith0_marriedWith_Actor_unique) as c
-            		CALL apoc.util.validate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDStar.marriedWith must be less than or equal to one', [0])
+            		CALL apoc.util.validate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDStar.marriedWith must be less than or equal to one', [0])
             		RETURN c AS this_marriedWith0_marriedWith_Actor_unique_ignored
             	}
             	WITH this_marriedWith0, this

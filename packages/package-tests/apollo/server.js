@@ -19,7 +19,7 @@
 
 const { ApolloServer } = require("@apollo/server");
 const { startStandaloneServer } = require("@apollo/server/standalone");
-const { Neo4jGraphQL } = require("@neo4j/graphql");
+const { Neo4jGraphQL } = require("@opencreek/neo4j-graphql");
 
 const defaultTypeDefs = `
     type Movie {

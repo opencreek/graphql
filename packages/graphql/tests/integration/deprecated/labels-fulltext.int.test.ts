@@ -30,7 +30,7 @@ import { delay } from "../../../src/utils/utils";
 import { isMultiDbUnsupportedError } from "../../utils/is-multi-db-unsupported-error";
 import { createJwtRequest } from "../../utils/create-jwt-request";
 import { SCORE_FIELD } from "../../../src/graphql/directives/fulltext";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 function generatedTypeDefs(personType: UniqueType, movieType: UniqueType): string {
     return `

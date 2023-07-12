@@ -7,7 +7,7 @@ module.exports = {
         TextDecoder: require("util").TextDecoder,
     },
     testEnvironment: "jsdom",
-    displayName: "@neo4j/graphql-toolbox",
+    displayName: "@opencreek/neo4j-graphql-toolbox",
     roots: ["<rootDir>/packages/graphql-toolbox/src/", "<rootDir>/packages/graphql-toolbox/tests/"],
     coverageDirectory: "<rootDir>/packages/graphql-toolbox/coverage/",
     moduleNameMapper: {
