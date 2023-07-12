@@ -30,6 +30,7 @@ const validFields = [
     "OR",
     "allow",
     "where",
+    "whereCypher",
     "bind",
     "isAuthenticated",
     "allowUnauthenticated",

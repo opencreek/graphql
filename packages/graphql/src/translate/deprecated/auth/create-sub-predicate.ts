@@ -128,6 +128,18 @@ export function createSubPredicate({
         }
     }
 
+    if (where && authRule.whereCypher) {
+        const nodeRef = getOrCreateCypherNode(where.varName);
+        const query = authRule.whereCypher.query;
+
+        const wherePredicate = new Cypher.RawCypher((env) => {
+            const referenceId = env.getReferenceId(nodeRef)
+            return query.replace(/\$\$this/g, referenceId);
+        });
+
+        thisPredicates.push(wherePredicate);
+    }
+
     if (bind && authRule.bind) {
         const nodeRef = getOrCreateCypherNode(bind.varName);
 
