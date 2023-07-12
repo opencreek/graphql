@@ -4233,7 +4233,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo4j/introspector@workspace:packages/introspector"
   dependencies:
-    "@opencreek/neo4j-graphql": ^3.16.0
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
     "@types/jest": 29.5.2
     "@types/node": 18.15.1
     "@types/pluralize": 0.0.29
@@ -4358,7 +4358,7 @@ __metadata:
     "@graphql-codegen/plugin-helpers": ^4.0.0
     "@graphql-codegen/typescript": ^3.0.0
     "@graphql-tools/merge": ^8.3.3
-    "@opencreek/neo4j-graphql": ^3.23.1
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
     "@opencreek/neo4j-graphql-plugin-auth": ^2.2.0
     "@types/jest": 29.5.2
     "@types/node": 18.15.1
@@ -4402,7 +4402,7 @@ __metadata:
   resolution: "@opencreek/neo4j-graphql-plugin-subscriptions-amqp@workspace:packages/plugins/graphql-plugin-subscriptions-amqp"
   dependencies:
     "@apollo/server": 4.7.5
-    "@opencreek/neo4j-graphql": ^3.15.0
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
     "@types/amqplib": 0.10.1
     "@types/body-parser": 1.19.2
     "@types/cors": 2.8.13
@@ -4423,7 +4423,7 @@ __metadata:
     typescript: 5.1.6
     ws: 8.13.0
   peerDependencies:
-    "@opencreek/neo4j-graphql": ^3.15.0
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
   languageName: unknown
   linkType: soft
 
@@ -4442,7 +4442,7 @@ __metadata:
     "@neo4j-ndl/base": 1.8.2
     "@neo4j-ndl/react": 1.8.5
     "@neo4j/introspector": 1.0.3
-    "@opencreek/neo4j-graphql": 3.23.1
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
     "@playwright/test": 1.35.1
     "@tsconfig/create-react-app": 2.0.0
     "@types/codemirror": 5.60.8
@@ -4498,7 +4498,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql@3.23.1, @opencreek/neo4j-graphql@^3.15.0, @opencreek/neo4j-graphql@^3.16.0, @opencreek/neo4j-graphql@^3.23.1, @opencreek/neo4j-graphql@workspace:packages/graphql":
+"@opencreek/neo4j-graphql@3.23.1-oc.1, @opencreek/neo4j-graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
   resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
   dependencies:
@@ -9545,7 +9545,7 @@ __metadata:
     "@apollo/federation-subgraph-compatibility": 1.2.2
     "@apollo/server": ^4.7.0
     "@graphql-tools/wrap": ^9.3.6
-    "@opencreek/neo4j-graphql": ^3.23.1
+    "@opencreek/neo4j-graphql": 3.23.1-oc.1
     fork-ts-checker-webpack-plugin: 8.0.0
     graphql: 16.7.1
     graphql-tag: ^2.12.6
