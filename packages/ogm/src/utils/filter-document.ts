@@ -32,7 +32,7 @@ const excludedDirectives = [
     "writeonly",
 ];
 
-function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"]): DocumentNode {
+function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"], excludeAuth?: boolean): DocumentNode {
     const merged = mergeTypeDefs(Array.isArray(typeDefs) ? (typeDefs as string[]) : [typeDefs as string]);
 
     return {
@@ -50,7 +50,11 @@ function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"]): Document
                 ...res,
                 {
                     ...def,
-                    directives: def.directives?.filter((x) => !excludedDirectives.includes(x.name.value)),
+                    directives: def.directives?.filter((x) => {
+                        if (x.name.value === "auth" && excludeAuth === false) return true;
+
+                        return !excludedDirectives.includes(x.name.value);
+                    }),
                     fields: def.fields?.reduce(
                         (r: FieldDefinitionNode[], f) => [
                             ...r,
