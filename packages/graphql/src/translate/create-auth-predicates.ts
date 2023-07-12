@@ -52,7 +52,7 @@ export function createAuthPredicates({
         const authRules = nodeAuth.getRules(operations);
 
         const hasWhere = (rule: BaseAuthRule): boolean =>
-            !!(rule.where || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
+            !!(rule.where || rule.whereCypher || rule.AND?.some(hasWhere) || rule.OR?.some(hasWhere));
 
         if (where && !authRules.some(hasWhere)) {
             return undefined;
