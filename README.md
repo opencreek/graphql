@@ -66,6 +66,8 @@ rg -g '!examples' -g '!docs' -g '!*.md' -g '!yarn.lock' -l -0 "@neo4j/graphql" |
 ```bash
 cd packages/graphql
 yarn build
+# Suffix the current version with -oc.<num>, so for the first
+# oc release on this version use -oc.1
 npm version --workspaces-update=false $NEW_VERSION
 npm publish --access=public
 ```
@@ -76,6 +78,8 @@ npm publish --access=public
 cd packages/ogm
 yarn add @opencreek/neo4j-graphql@$NEW_VERSION
 yarn build
+# Suffix the current version with -oc.<num>, so for the first
+# oc release on this version use -oc.1
 npm version --workspaces-update=false $NEW_VERSION
 npm publish --access=public
 ```
