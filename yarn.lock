@@ -4358,8 +4358,8 @@ __metadata:
     "@graphql-codegen/plugin-helpers": ^4.0.0
     "@graphql-codegen/typescript": ^3.0.0
     "@graphql-tools/merge": ^8.3.3
-    "@opencreek/neo4j-graphql": 3.23.1-oc.1
-    "@opencreek/neo4j-graphql-plugin-auth": ^2.2.0
+    "@opencreek/neo4j-graphql": 3.23.1-oc.3
+    "@opencreek/neo4j-graphql-plugin-auth": 2.2.0-oc.2
     "@types/jest": 29.5.2
     "@types/node": 18.15.1
     camelcase: 6.3.0
@@ -4380,7 +4380,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql-plugin-auth@^2.2.0, @opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
+"@opencreek/neo4j-graphql-plugin-auth@2.2.0-oc.2, @opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth":
   version: 0.0.0-use.local
   resolution: "@opencreek/neo4j-graphql-plugin-auth@workspace:packages/plugins/graphql-plugin-auth"
   dependencies:
@@ -4498,7 +4498,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@opencreek/neo4j-graphql@3.23.1-oc.1, @opencreek/neo4j-graphql@workspace:packages/graphql":
+"@opencreek/neo4j-graphql@3.23.1-oc.3, @opencreek/neo4j-graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
   resolution: "@opencreek/neo4j-graphql@workspace:packages/graphql"
   dependencies:
@@ -4511,7 +4511,7 @@ __metadata:
     "@graphql-tools/schema": 9.0.19
     "@graphql-tools/utils": ^9.0.0
     "@neo4j/cypher-builder": ~0.5.2
-    "@opencreek/neo4j-graphql-plugin-auth": ^2.2.0
+    "@opencreek/neo4j-graphql-plugin-auth": 2.2.0-oc.2
     "@types/deep-equal": 1.0.1
     "@types/is-uuid": 1.0.0
     "@types/jest": 29.5.2
@@ -4565,6 +4565,34 @@ __metadata:
   resolution: "@opencreek/neo4j-graphql@link:../../..::locator=server_perf%40workspace%3Apackages%2Fgraphql%2Ftests%2Fperformance%2Fserver"
   languageName: node
   linkType: soft
+
+"@opencreek/neo4j-graphql@npm:3.23.1-oc.1":
+  version: 3.23.1-oc.1
+  resolution: "@opencreek/neo4j-graphql@npm:3.23.1-oc.1"
+  dependencies:
+    "@apollo/subgraph": ^2.2.3
+    "@graphql-tools/merge": ^8.3.3
+    "@graphql-tools/resolvers-composition": ^6.5.3
+    "@graphql-tools/schema": 9.0.19
+    "@graphql-tools/utils": ^9.0.0
+    "@neo4j/cypher-builder": ~0.5.2
+    camelcase: ^6.3.0
+    debug: ^4.3.4
+    deep-equal: ^2.0.5
+    dot-prop: ^6.0.1
+    graphql-compose: ^9.0.8
+    graphql-parse-resolve-info: ^4.12.3
+    graphql-relay: ^0.10.0
+    jose: ^4.13.1
+    pluralize: ^8.0.0
+    semver: ^7.3.7
+    uuid: ^9.0.0
+  peerDependencies:
+    graphql: ^16.0.0
+    neo4j-driver: ^4.1.0 || ^5.0.0
+  checksum: de8dd171ca52594495d23fe6f2326368c78e083601d9b89fa14c8ffeb90f33f5a691fda91cf7e4335f0118e8ea224dbd23480b3838e9e66a6aa1c744519853e4
+  languageName: node
+  linkType: hard
 
 "@opentelemetry/api@npm:^1.0.1":
   version: 1.4.0

@@ -1,6 +1,6 @@
 {
     "name": "@opencreek/neo4j-graphql-plugin-auth",
-    "version": "2.2.0-oc.1",
+    "version": "2.2.0-oc.2",
     "description": "Auth decode plugins for @opencreek/neo4j-graphql",
     "keywords": [
         "neo4j",
