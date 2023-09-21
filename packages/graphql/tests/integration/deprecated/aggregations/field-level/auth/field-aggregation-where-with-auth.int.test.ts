@@ -25,7 +25,7 @@ import { Socket } from "net";
 import Neo4j from "../../../../neo4j";
 import { Neo4jGraphQL } from "../../../../../../src/classes";
 import { UniqueType } from "../../../../../utils/graphql-types";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe(`Field Level Auth Where Requests`, () => {
     let neoSchema: Neo4jGraphQL;

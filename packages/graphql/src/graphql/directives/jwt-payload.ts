@@ -21,6 +21,6 @@ import { DirectiveLocation, GraphQLDirective } from "graphql";
 
 export const jwt = new GraphQLDirective({
     name: "jwt",
-    description: "Instructs @neo4j/graphql that the flagged object represents the relevant JWT payload",
+    description: "Instructs @opencreek/neo4j-graphql that the flagged object represents the relevant JWT payload",
     locations: [DirectiveLocation.OBJECT],
 });

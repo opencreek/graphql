@@ -87,7 +87,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -131,7 +131,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -175,7 +175,7 @@ describe("connectOrCreate", () => {
                         this0_genres_connectOrCreate0.name = $this0_genres_connectOrCreate_param1
                     MERGE (this0)-[this0_genres_connectOrCreate_this0:IN_GENRE]->(this0_genres_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this0_genres_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN this0
@@ -276,7 +276,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -317,7 +317,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -358,7 +358,7 @@ describe("connectOrCreate", () => {
                         this_genres0_connectOrCreate0.name = $this_genres0_connectOrCreate_param1
                     MERGE (this)-[this_genres0_connectOrCreate_this0:IN_GENRE]->(this_genres0_connectOrCreate0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_genres0_connectOrCreate_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 RETURN collect(DISTINCT this { .title }) AS data"
@@ -450,7 +450,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *
@@ -492,7 +492,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *
@@ -534,7 +534,7 @@ describe("connectOrCreate", () => {
                         this_connectOrCreate_genres0.name = $this_connectOrCreate_genres_param1
                     MERGE (this)-[this_connectOrCreate_genres_this0:IN_GENRE]->(this_connectOrCreate_genres0)
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND $this_connectOrCreate_genres_param3 IN $jwt.roles), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     RETURN COUNT(*) AS _
                 }
                 WITH *

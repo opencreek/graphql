@@ -26,7 +26,7 @@ import { createJwtRequest } from "../../../utils/create-jwt-request";
 import { TestSubscriptionsPlugin } from "../../../utils/TestSubscriptionPlugin";
 import { cleanNodes } from "../../../utils/clean-nodes";
 import { UniqueType } from "../../../utils/graphql-types";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe("auth/allow", () => {
     let driver: Driver;

@@ -25,7 +25,7 @@ import { Neo4jGraphQL } from "../../../src";
 import { UniqueType } from "../../utils/graphql-types";
 import { runCypher } from "../../utils/run-cypher";
 import { createJwtRequest } from "../../utils/create-jwt-request";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe("https://github.com/neo4j/graphql/issues/1115", () => {
     const parentType = new UniqueType("Parent");

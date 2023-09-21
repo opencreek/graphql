@@ -22,6 +22,6 @@ import { DirectiveLocation, GraphQLDirective } from "graphql";
 export const writeonlyDirective = new GraphQLDirective({
     name: "writeonly",
     description:
-        "Instructs @neo4j/graphql to only include a field in the generated input types for the object type within which the directive is applied, but exclude it from the object type itself.",
+        "Instructs @opencreek/neo4j-graphql to only include a field in the generated input types for the object type within which the directive is applied, but exclude it from the object type itself.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
 });

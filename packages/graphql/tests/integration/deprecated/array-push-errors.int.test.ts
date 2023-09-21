@@ -25,7 +25,7 @@ import { generate } from "randomstring";
 import { IncomingMessage } from "http";
 import { Socket } from "net";
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { Neo4jGraphQL } from "../../../src/classes";
 import Neo4j from "../neo4j";
 import { UniqueType } from "../../utils/graphql-types";
