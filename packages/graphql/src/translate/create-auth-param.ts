@@ -24,6 +24,8 @@ import type { AuthContext } from "../types/deprecated/auth/auth-context";
 type ContextAuthParams = Pick<Context, "jwt" | "plugins">;
 
 function createAuthParam({ context }: { context: ContextAuthParams }): AuthContext {
+    if (context.plugins?.customAuthParam != null) return context.plugins.customAuthParam({ context });
+
     const { jwt } = context;
     const param: AuthContext = {
         isAuthenticated: false,
