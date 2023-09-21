@@ -59,5 +59,6 @@
     "dependencies": {
         "@changesets/changelog-github": "0.4.8",
         "@changesets/cli": "2.26.2"
-    }
+    },
+    "version": "3.23.1-oc.custom-auth.1"
 }
