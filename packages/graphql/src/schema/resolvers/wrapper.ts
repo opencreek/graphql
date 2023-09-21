@@ -200,6 +200,7 @@ export const wrapSubscription =
 
         const subscriptionContext: SubscriptionContext = {
             plugin: plugins.subscriptions,
+            plugins,
             schemaModel,
         };
 

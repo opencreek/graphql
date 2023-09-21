@@ -47,6 +47,7 @@ export {
     GraphQLWhereArg,
     Neo4jGraphQLAuthPlugin,
     Neo4jGraphQLSubscriptionsPlugin,
+    Neo4jGraphQLCustomAuthParamPlugin,
     Node,
     RelationField,
     SubscriptionsEvent,

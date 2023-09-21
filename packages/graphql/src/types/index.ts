@@ -32,6 +32,7 @@ import type { Auth } from "./deprecated/auth/auth";
 import type { JwtPayload } from "./jwt-payload";
 import type { AuthContext } from "./deprecated/auth/auth-context";
 import type { Neo4jGraphQLContext } from "./neo4j-graphql-context";
+import type createAuthParam from "src/translate/create-auth-param";
 
 export { Node } from "../classes";
 
@@ -368,6 +369,8 @@ export type StartupValidationConfig = StartupValidationOptions | boolean;
 /** Input field for graphql-compose */
 export type InputField = { type: string; defaultValue?: string; directives?: Directive[] } | string;
 
+export type Neo4jGraphQLCustomAuthParamPlugin = typeof createAuthParam;
+
 export interface Neo4jGraphQLAuthPlugin {
     rolesPath?: string;
     isGlobalAuthenticationEnabled?: boolean;
@@ -496,6 +499,7 @@ export interface Neo4jGraphQLSubscriptionsPlugin {
 export interface Neo4jGraphQLPlugins {
     auth?: Neo4jGraphQLAuthPlugin;
     subscriptions?: Neo4jGraphQLSubscriptionsPlugin;
+    customAuthParam?: Neo4jGraphQLCustomAuthParamPlugin;
 }
 
 export type CallbackReturnValue = string | number | boolean | undefined | null;
