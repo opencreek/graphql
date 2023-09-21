@@ -32,7 +32,7 @@ import type { Auth } from "./deprecated/auth/auth";
 import type { JwtPayload } from "./jwt-payload";
 import type { AuthContext } from "./deprecated/auth/auth-context";
 import type { Neo4jGraphQLContext } from "./neo4j-graphql-context";
-import type createAuthParam from "src/translate/create-auth-param";
+import type createAuthParam from "../translate/create-auth-param";
 
 export { Node } from "../classes";
 
