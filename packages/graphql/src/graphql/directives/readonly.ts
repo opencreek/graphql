@@ -22,6 +22,6 @@ import { DirectiveLocation, GraphQLDirective } from "graphql";
 export const readonlyDirective = new GraphQLDirective({
     name: "readonly",
     description:
-        "Instructs @neo4j/graphql to only include a field in generated input type for creating, and in the object type within which the directive is applied.",
+        "Instructs @opencreek/neo4j-graphql to only include a field in generated input type for creating, and in the object type within which the directive is applied.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
 });

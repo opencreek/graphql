@@ -24,7 +24,7 @@ import { Neo4jGraphQL } from "../../../src/classes";
 import Neo4j from "../neo4j";
 import { createJwtRequest } from "../../utils/create-jwt-request";
 import { UniqueType } from "../../utils/graphql-types";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe("https://github.com/neo4j/graphql/pull/2068", () => {
     let driver: Driver;

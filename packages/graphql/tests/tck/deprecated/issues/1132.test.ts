@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "graphql-tag";
 import { Neo4jGraphQL } from "../../../../src";
 import { createJwtRequest } from "../../../utils/create-jwt-request";
@@ -64,7 +64,7 @@ describe("https://github.com/neo4j/graphql/issues/1132", () => {
             	OPTIONAL MATCH (this_connect_targets0_node:Target)
             	WHERE this_connect_targets0_node.id = $this_connect_targets0_node_param0
             	WITH this, this_connect_targets0_node
-            	CALL apoc.util.validate(NOT ((this.id IS NOT NULL AND this.id = $thisauth_param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            	CALL apoc.util.validate(NOT ((this.id IS NOT NULL AND this.id = $thisauth_param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             	CALL {
             		WITH *
             		WITH collect(this_connect_targets0_node) as connectedNodes, collect(this) as parentNodes
@@ -133,7 +133,7 @@ describe("https://github.com/neo4j/graphql/issues/1132", () => {
             OPTIONAL MATCH (this)-[this_disconnect_targets0_rel:HAS_TARGET]->(this_disconnect_targets0:Target)
             WHERE this_disconnect_targets0.id = $updateSources_args_disconnect_targets0_where_Target_this_disconnect_targets0param0
             WITH this, this_disconnect_targets0, this_disconnect_targets0_rel
-            CALL apoc.util.validate(NOT ((this.id IS NOT NULL AND this.id = $thisauth_param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            CALL apoc.util.validate(NOT ((this.id IS NOT NULL AND this.id = $thisauth_param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             CALL {
             	WITH this_disconnect_targets0, this_disconnect_targets0_rel, this
             	WITH collect(this_disconnect_targets0) as this_disconnect_targets0, this_disconnect_targets0_rel, this

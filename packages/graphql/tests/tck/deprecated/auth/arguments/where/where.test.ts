@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "graphql-tag";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../../../../src";
@@ -543,7 +543,7 @@ describe("Cypher Auth Where", () => {
             		WITH this_posts0
             		MATCH (this_posts0)<-[this_posts0_creator_User_unique:HAS_POST]-(:User)
             		WITH count(this_posts0_creator_User_unique) as c
-            		CALL apoc.util.validate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            		CALL apoc.util.validate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             		RETURN c AS this_posts0_creator_User_unique_ignored
             	}
             	RETURN count(*) AS update_this_posts0

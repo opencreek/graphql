@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import type { Node, RelationField } from "@neo4j/graphql";
+import type { Node, RelationField } from "@opencreek/neo4j-graphql";
 import type { OGM } from "..";
 
 export { default as filterDocument } from "./filter-document";

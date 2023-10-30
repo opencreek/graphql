@@ -132,7 +132,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[:DIRECTED]-(this0:\`Person\`) WHERE ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) > 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[:DIRECTED]-(this0:\`Person\`) WHERE ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) > 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -189,7 +189,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[:DIRECTED]-(this0:\`Person\`) WHERE NOT ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) = 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[:DIRECTED]-(this0:\`Person\`) WHERE NOT ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) = 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -248,7 +248,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this1:DIRECTED]-(this0:\`Person\`) WHERE ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) > 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this1:DIRECTED]-(this0:\`Person\`) WHERE ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) > 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -310,7 +310,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this1:DIRECTED]-(this0:\`Person\`) WHERE NOT ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) = 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this1:DIRECTED]-(this0:\`Person\`) WHERE NOT ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub) | 1]) = 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -373,7 +373,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this0:DIRECTED]-(this1:\`Person\`) WHERE ($param3 IS NOT NULL AND this0.year = $param3) | 1]) > 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this0:DIRECTED]-(this1:\`Person\`) WHERE ($param3 IS NOT NULL AND this0.year = $param3) | 1]) > 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -433,7 +433,7 @@ describe("Cypher -> fulltext -> Auth", () => {
             expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
                 "CALL db.index.fulltext.queryNodes(\\"MovieTitle\\", $param0) YIELD node AS this
                 WITH *
-                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this0:DIRECTED]-(this1:\`Person\`) WHERE NOT ($param3 IS NOT NULL AND this0.year = $param3) | 1]) = 0), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this)<-[this0:DIRECTED]-(this1:\`Person\`) WHERE NOT ($param3 IS NOT NULL AND this0.year = $param3) | 1]) = 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -548,7 +548,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND EXISTS {
                     MATCH (this)<-[:DIRECTED]-(this0:\`Person\`)
                     WHERE ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)
-                }), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -611,7 +611,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 } AND NOT (EXISTS {
                     MATCH (this)<-[:DIRECTED]-(this0:\`Person\`)
                     WHERE NOT ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)
-                }))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -673,7 +673,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND EXISTS {
                     MATCH (this)<-[this0:DIRECTED]-(this1:\`Person\`)
                     WHERE ($jwt.sub IS NOT NULL AND this1.id = $jwt.sub)
-                }), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -741,7 +741,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 } AND NOT (EXISTS {
                     MATCH (this)<-[this0:DIRECTED]-(this1:\`Person\`)
                     WHERE NOT ($jwt.sub IS NOT NULL AND this1.id = $jwt.sub)
-                }))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -807,7 +807,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 WHERE ($param1 IN labels(this) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND EXISTS {
                     MATCH (this)<-[this0:DIRECTED]-(this1:\`Person\`)
                     WHERE ($param3 IS NOT NULL AND this0.year = $param3)
-                }), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 
@@ -873,7 +873,7 @@ describe("Cypher -> fulltext -> Auth", () => {
                 } AND NOT (EXISTS {
                     MATCH (this)<-[this0:DIRECTED]-(this1:\`Person\`)
                     WHERE NOT ($param3 IS NOT NULL AND this0.year = $param3)
-                }))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                }))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                 RETURN this { .title } AS this"
             `);
 

@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLString, GraphQLNonNull } fr
 
 export const jwtClaim = new GraphQLDirective({
     name: "jwtClaim",
-    description: "Instructs @neo4j/graphql that the flagged field has a mapped path within the JWT Payload.",
+    description: "Instructs @opencreek/neo4j-graphql that the flagged field has a mapped path within the JWT Payload.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         path: {

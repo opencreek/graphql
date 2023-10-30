@@ -23,7 +23,7 @@ import {
     type DocumentNode,
     type FieldDefinitionNode,
 } from "graphql";
-import type { Neo4jGraphQLConstructor } from "@neo4j/graphql";
+import type { Neo4jGraphQLConstructor } from "@opencreek/neo4j-graphql";
 import { mergeTypeDefs } from "@graphql-tools/merge";
 
 const excludedDirectives = [

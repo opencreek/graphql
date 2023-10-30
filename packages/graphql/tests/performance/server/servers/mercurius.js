@@ -20,7 +20,7 @@
 "use strict"
 
 import neo4j from "neo4j-driver";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import fastify from 'fastify';
 import mercurius from 'mercurius';
 import { getLargeSchema } from "../typedefs.js";

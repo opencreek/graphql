@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import type { Driver } from "neo4j-driver";
 import { OGM } from "../../src";
 import neo4j from "../integration/neo4j";
