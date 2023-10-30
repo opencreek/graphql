@@ -225,10 +225,17 @@ export class Executor {
         const queryToRun = this.generateQuery(query);
         const parametersToRun = this.generateParameters(query, parameters);
 
-        debug(
-            "%s",
-            `About to execute Cypher:\nCypher:\n${queryToRun}\nParams:\n${JSON.stringify(parametersToRun, null, 2)}`
-        );
+        if (debug.enabled) {
+            let params = "---- could not serialize ----";
+
+            try {
+                params = JSON.stringify(parametersToRun, null, 2);
+            } catch {
+                // noop
+            }
+
+            debug("%s", `About to execute Cypher:\nCypher:\n${queryToRun}\nParams:\n${params}`);
+        }
 
         const result = await transaction.run(queryToRun, parametersToRun);
 
