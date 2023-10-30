@@ -47,7 +47,7 @@ class OGM<ModelMap = unknown> {
     private initializer?: Promise<void>;
     private database?: string;
 
-    constructor(input: OGMConstructor) {
+    constructor(input: OGMConstructor & { excludeAuth?: boolean }) {
         const { typeDefs, database, ...rest } = input;
 
         this.models = [];
@@ -55,7 +55,7 @@ class OGM<ModelMap = unknown> {
 
         this.neoSchema = new Neo4jGraphQL({
             ...rest,
-            typeDefs: filterDocument(typeDefs),
+            typeDefs: filterDocument(typeDefs, input.excludeAuth),
         });
 
         this.checkNeo4jCompat = function checkNeo4jCompat({
