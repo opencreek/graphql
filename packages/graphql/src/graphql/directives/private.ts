@@ -21,6 +21,6 @@ import { DirectiveLocation, GraphQLDirective } from "graphql";
 
 export const privateDirective = new GraphQLDirective({
     name: "private",
-    description: "Instructs @neo4j/graphql to only expose a field through the Neo4j GraphQL OGM.",
+    description: "Instructs @opencreek/neo4j-graphql to only expose a field through the Neo4j GraphQL OGM.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
 });

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 import { gql } from "graphql-tag";
 import type { DocumentNode } from "graphql";
 import { Neo4jGraphQL } from "../../../src";
@@ -81,7 +81,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this1:\`Genre\`)
-                    WHERE apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH this1 { __resolveType: \\"Genre\\", __id: id(this), .name } AS this1
                     RETURN this1 AS var2
                     UNION
@@ -128,7 +128,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this1:\`Genre\`)
-                    WHERE apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param0)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH this1 { __resolveType: \\"Genre\\", __id: id(this), .name } AS this1
                     RETURN this1 AS var2
                     UNION
@@ -182,7 +182,7 @@ describe("Cypher Union", () => {
                 CALL {
                     WITH *
                     MATCH (this)-[this0:SEARCH]->(this1:\`Genre\`)
-                    WHERE (this1.name = $param1 AND apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param2)), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                    WHERE (this1.name = $param1 AND apoc.util.validatePredicate(NOT ((this1.name IS NOT NULL AND this1.name = $param2)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                     WITH this1 { __resolveType: \\"Genre\\", __id: id(this), .name } AS this1
                     RETURN this1 AS var2
                     UNION

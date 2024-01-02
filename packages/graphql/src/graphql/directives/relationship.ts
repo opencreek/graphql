@@ -17,7 +17,14 @@
  * limitations under the License.
  */
 
-import { DirectiveLocation, GraphQLBoolean, GraphQLDirective, GraphQLList, GraphQLNonNull, GraphQLString } from "graphql";
+import {
+    DirectiveLocation,
+    GraphQLBoolean,
+    GraphQLDirective,
+    GraphQLList,
+    GraphQLNonNull,
+    GraphQLString,
+} from "graphql";
 import { RelationshipNestedOperationsOption, RelationshipQueryDirectionOption } from "../../constants";
 import { RelationshipDirectionEnum } from "./arguments/enums/RelationshipDirection";
 import { RelationshipNestedOperationsEnum } from "./arguments/enums/RelationshipNestedOperations";
@@ -35,7 +42,7 @@ export const defaultNestedOperations = [
 export const relationshipDirective = new GraphQLDirective({
     name: "relationship",
     description:
-        "Instructs @neo4j/graphql to treat this field as a relationship. Opens up the ability to create and connect on this field.",
+        "Instructs @opencreek/neo4j-graphql to treat this field as a relationship. Opens up the ability to create and connect on this field.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         type: {

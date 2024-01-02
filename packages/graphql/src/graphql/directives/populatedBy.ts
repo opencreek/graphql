@@ -23,7 +23,7 @@ import { PopulatedByOperationEnum } from "./arguments/enums/PopulatedByOperation
 export const populatedByDirective = new GraphQLDirective({
     name: "populatedBy",
     description:
-        "Instructs @neo4j/graphql to invoke the specified callback function when updating or creating the properties on a node or relationship.",
+        "Instructs @opencreek/neo4j-graphql to invoke the specified callback function when updating or creating the properties on a node or relationship.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         callback: {

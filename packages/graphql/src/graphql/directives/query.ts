@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLBoolean, GraphQLDirective, GraphQLNonNull } f
 
 export const queryDirective = new GraphQLDirective({
     name: "query",
-    description: "Instructs @neo4j/graphql to exclude read or aggregate operations from the query root type.",
+    description: "Instructs @opencreek/neo4j-graphql to exclude read or aggregate operations from the query root type.",
     args: {
         read: {
             description: "Disable/Enabled read operations from query root type",

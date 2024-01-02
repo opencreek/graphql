@@ -24,7 +24,7 @@ import Neo4j from "../../../../neo4j";
 import { Neo4jGraphQL } from "../../../../../../src/classes";
 import { UniqueType } from "../../../../../utils/graphql-types";
 import { createJwtRequest } from "../../../../../utils/create-jwt-request";
-import { Neo4jGraphQLAuthJWTPlugin } from "@neo4j/graphql-plugin-auth";
+import { Neo4jGraphQLAuthJWTPlugin } from "@opencreek/neo4j-graphql-plugin-auth";
 
 describe("Field Level Aggregations Auth", () => {
     let driver: Driver;

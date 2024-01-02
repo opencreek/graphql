@@ -20,7 +20,7 @@
 "use strict";
 
 import neo4j from "neo4j-driver";
-import { Neo4jGraphQL } from "@neo4j/graphql";
+import { Neo4jGraphQL } from "@opencreek/neo4j-graphql";
 import { createYoga } from "graphql-yoga";
 import { getLargeSchema } from "../typedefs.js";
 import { createServer } from "http";

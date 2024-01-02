@@ -17,13 +17,8 @@
  * limitations under the License.
  */
 
-import {
-    Kind,
-    type DefinitionNode,
-    type DocumentNode,
-    type FieldDefinitionNode,
-} from "graphql";
-import type { Neo4jGraphQLConstructor } from "@neo4j/graphql";
+import { Kind, type DefinitionNode, type DocumentNode, type FieldDefinitionNode } from "graphql";
+import type { Neo4jGraphQLConstructor } from "@opencreek/neo4j-graphql";
 import { mergeTypeDefs } from "@graphql-tools/merge";
 
 const excludedDirectives = [
@@ -94,9 +89,11 @@ function filterDocument(typeDefs: Neo4jGraphQLConstructor["typeDefs"], excludeAu
                                     ?.filter((x) => !excludedDirectives.includes(x.name.value))
                                     .map((x) => {
                                         if (x.name.value === "relationship") {
-                                            const args = (x.arguments ? x.arguments?.filter(
-                                                (arg) => arg.name.value !== "aggregate"
-                                            ) : []) as any[]; // cast to any as this type is changing between GraphQL versions
+                                            const args = (
+                                                x.arguments
+                                                    ? x.arguments?.filter((arg) => arg.name.value !== "aggregate")
+                                                    : []
+                                            ) as any[]; // cast to any as this type is changing between GraphQL versions
                                             args?.push(relationshipAggregateArgument);
                                             return {
                                                 ...x,

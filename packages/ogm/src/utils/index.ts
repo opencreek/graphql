@@ -17,11 +17,13 @@
  * limitations under the License.
  */
 
-import type { Node, RelationField } from "@neo4j/graphql";
+import type { Node, RelationField } from "@opencreek/neo4j-graphql";
 import type { OGM } from "..";
 
 export { default as filterDocument } from "./filter-document";
 
+// NOTE(hilmar): This prevents commits
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 export function getReferenceNode(ogm: OGM, relationField: RelationField): Node | undefined {
     return ogm.nodes.find((x) => x.name === relationField.typeMeta.name);
 }

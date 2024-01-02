@@ -23,7 +23,7 @@ import { TimestampOperationEnum } from "./arguments/enums/TimestampOperation";
 export const timestampDirective = new GraphQLDirective({
     name: "timestamp",
     description:
-        "Instructs @neo4j/graphql to generate timestamps on particular events, which will be available as the value of the specified field.",
+        "Instructs @opencreek/neo4j-graphql to generate timestamps on particular events, which will be available as the value of the specified field.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         operations: {
