@@ -54,6 +54,8 @@ type AuthorizationWhere = {
     node?: GraphQLWhereArg;
 };
 
+type AuthorizationWhereCypher = string;
+
 export class AuthorizationAnnotation {
     public filter?: AuthorizationFilterRule[];
     public validate?: AuthorizationValidateRule[];
@@ -67,18 +69,21 @@ export class AuthorizationAnnotation {
 export type AuthorizationFilterRuleConstructor = {
     operations?: AuthorizationFilterOperation[];
     requireAuthentication?: boolean;
-    where: AuthorizationWhere;
+    where?: AuthorizationWhere;
+    whereCypher?: AuthorizationWhereCypher;
 };
 
 export class AuthorizationFilterRule {
     public operations: AuthorizationFilterOperation[];
     public requireAuthentication: boolean;
-    public where: AuthorizationWhere;
+    public where?: AuthorizationWhere;
+    public whereCypher?: AuthorizationWhereCypher;
 
-    constructor({ operations, requireAuthentication, where }: AuthorizationFilterRuleConstructor) {
+    constructor({ operations, requireAuthentication, where, whereCypher }: AuthorizationFilterRuleConstructor) {
         this.operations = operations ?? [...AuthorizationFilterOperationRule];
         this.requireAuthentication = requireAuthentication === undefined ? true : requireAuthentication;
         this.where = where;
+        this.whereCypher = whereCypher;
     }
 }
 

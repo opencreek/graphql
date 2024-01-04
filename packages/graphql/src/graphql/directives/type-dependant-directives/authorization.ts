@@ -100,6 +100,9 @@ function createAuthorizationFilterRule(
                 where: {
                     type: inputWhere,
                 },
+                whereCypher: {
+                    type: GraphQLString,
+                },
             };
         },
     });

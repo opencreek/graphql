@@ -21,6 +21,7 @@ import Cypher from "@neo4j/cypher-builder";
 import { Filter } from "../Filter";
 import type { QueryASTContext } from "../../QueryASTContext";
 import type { QueryASTNode } from "../../QueryASTNode";
+import { getOrCreateCypherNode } from "../../../../utils/get-or-create-cypher-variable";
 
 export class AuthorizationRuleFilter extends Filter {
     public children: Filter[];
@@ -66,5 +67,33 @@ export class AuthorizationRuleFilter extends Filter {
 
     public getChildren(): QueryASTNode[] {
         return [...this.children];
+    }
+}
+
+export class AuthorizationRuleCypherFilter extends Filter {
+    private query: string;
+    private jwtParam: Cypher.Param;
+
+    constructor({ query, jwtParam }: { query: string; jwtParam: Cypher.Param }) {
+        super();
+        this.query = query;
+        this.jwtParam = jwtParam;
+    }
+
+    public getPredicate(context: QueryASTContext): Cypher.Predicate | undefined {
+        // TODO(hilmar): Do we throw an error here?
+        if (!context.hasTarget()) return undefined;
+        const nodeRef = getOrCreateCypherNode(context.target);
+        const query = this.query;
+
+        return new Cypher.Raw((env) => {
+            env.addExtraParams({ $jwt: this.jwtParam });
+            const referenceId = env.getReferenceId(nodeRef);
+            return query.split("$$this").join(referenceId);
+        });
+    }
+
+    public getChildren(): QueryASTNode[] {
+        return [];
     }
 }

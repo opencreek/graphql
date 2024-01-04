@@ -16,21 +16,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { DirectiveNode } from "graphql";
+import type { DirectiveNode, ListValueNode, ObjectValueNode } from "graphql";
 import { AuthorizationAnnotationArguments } from "../../../../schema-model/annotation/AuthorizationAnnotation";
 import { DocumentValidationError } from "../utils/document-validation-error";
 
 export function verifyAuthorization() {
     return function ({ directiveNode }: { directiveNode: DirectiveNode }) {
+        let hasAny = false;
         for (const arg of AuthorizationAnnotationArguments) {
-            if (directiveNode.arguments?.find((a) => a.name.value === arg)) {
-                return;
+            const found = directiveNode.arguments?.find((a) => a.name.value === arg);
+            if (found) hasAny = true;
+
+            // If we're dealing with a filter directive, we need to additionally check
+            // if we have either a `where` or a `whereCypher` argument
+            if (found && arg === "filter") {
+                const filterArguments = found.value as ListValueNode;
+
+                for (const filterArgument of filterArguments.values) {
+                    const filterArgumentNode = filterArgument as ObjectValueNode;
+                    const whereArgument = filterArgumentNode.fields.find((a) => a.name.value === "where");
+                    const whereCypherArgument = filterArgumentNode.fields.find((a) => a.name.value === "whereCypher");
+
+                    if (!whereArgument && !whereCypherArgument) {
+                        throw new DocumentValidationError(
+                            `@authorization filters require either a "where" or "whereCypher" argument`,
+                            []
+                        );
+                    }
+
+                    if (whereArgument && whereCypherArgument) {
+                        throw new DocumentValidationError(
+                            `@authorization filters must not have both a "where" and "whereCypher" argument`,
+                            []
+                        );
+                    }
+                }
             }
         }
 
-        throw new DocumentValidationError(
-            `@authorization requires at least one of ${AuthorizationAnnotationArguments.join(", ")} arguments`,
-            []
-        );
+        if (!hasAny) {
+            throw new DocumentValidationError(
+                `@authorization requires at least one of ${AuthorizationAnnotationArguments.join(", ")} arguments`,
+                []
+            );
+        }
     };
 }

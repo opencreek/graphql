@@ -27,7 +27,10 @@ import type { Neo4jGraphQLTranslationContext } from "../../../types/neo4j-graphq
 import { findMatchingRules } from "../../authorization/utils/find-matching-rules";
 import { populateWhereParams } from "../../authorization/utils/populate-where-params";
 import { AuthorizationFilters } from "../ast/filters/authorization-filters/AuthorizationFilters";
-import { AuthorizationRuleFilter } from "../ast/filters/authorization-filters/AuthorizationRuleFilter";
+import {
+    AuthorizationRuleCypherFilter,
+    AuthorizationRuleFilter,
+} from "../ast/filters/authorization-filters/AuthorizationRuleFilter";
 import type { AuthFilterFactory } from "./AuthFilterFactory";
 
 export class AuthorizationFactory {
@@ -118,25 +121,44 @@ export class AuthorizationFactory {
     }): AuthorizationFilters {
         const rulesMatchingWhereOperations = findMatchingRules(authAnnotation.filter ?? [], operations);
 
-        const whereFilters = rulesMatchingWhereOperations.flatMap((rule) => {
-            const populatedWhere = populateWhereParams({ where: rule.where, context });
-            const nestedFilters = this.filterFactory.createAuthFilters({
-                entity,
-                operations,
-                context,
-                populatedWhere,
-            });
+        const whereFilters: AuthorizationRuleFilter[] = [];
+        const whereCypherFilters: AuthorizationRuleCypherFilter[] = [];
 
-            return new AuthorizationRuleFilter({
-                requireAuthentication: rule.requireAuthentication,
-                filters: nestedFilters,
-                isAuthenticatedParam: context.authorization.isAuthenticatedParam,
-            });
-        });
+        for (const rule of rulesMatchingWhereOperations) {
+            if (rule.whereCypher != null) {
+                whereCypherFilters.push(
+                    new AuthorizationRuleCypherFilter({
+                        query: rule.whereCypher,
+                        jwtParam: context.authorization.jwtParam,
+                    })
+                );
+                continue;
+            }
+
+            if (rule.where != null) {
+                const populatedWhere = populateWhereParams({ where: rule.where, context });
+                const nestedFilters = this.filterFactory.createAuthFilters({
+                    entity,
+                    operations,
+                    context,
+                    populatedWhere,
+                });
+
+                whereFilters.push(
+                    new AuthorizationRuleFilter({
+                        requireAuthentication: rule.requireAuthentication,
+                        filters: nestedFilters,
+                        isAuthenticatedParam: context.authorization.isAuthenticatedParam,
+                    })
+                );
+                continue;
+            }
+        }
 
         return new AuthorizationFilters({
             validationFilters: [],
             whereFilters: whereFilters,
+            whereCypherFilters: whereCypherFilters,
         });
     }
 
@@ -178,6 +200,7 @@ export class AuthorizationFactory {
         return new AuthorizationFilters({
             validationFilters: validationFilers,
             whereFilters: [],
+            whereCypherFilters: [],
             conditionForEvaluation,
         });
     }
