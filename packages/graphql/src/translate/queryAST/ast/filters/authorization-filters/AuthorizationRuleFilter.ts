@@ -21,7 +21,7 @@ import Cypher from "@neo4j/cypher-builder";
 import { Filter } from "../Filter";
 import type { QueryASTContext } from "../../QueryASTContext";
 import type { QueryASTNode } from "../../QueryASTNode";
-import { getOrCreateCypherNode } from "src/translate/utils/get-or-create-cypher-variable";
+import { getOrCreateCypherNode } from "../../../../utils/get-or-create-cypher-variable";
 
 export class AuthorizationRuleFilter extends Filter {
     public children: Filter[];
