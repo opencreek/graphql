@@ -21,7 +21,7 @@ import gql from "graphql-tag";
 import { OGM } from "../../src";
 import neo4j from "../integration/neo4j";
 import type { Driver, Session } from "neo4j-driver";
-import type { Neo4jGraphQLContext } from "@neo4j/graphql/src";
+import type { Neo4jGraphQLContext } from "@opencreek/neo4j-graphql/src";
 import { UniqueType } from "../utils/utils";
 
 describe("https://github.com/neo4j/graphql/issues/3773", () => {
