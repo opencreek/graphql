@@ -26,6 +26,7 @@ import Model from "./Model";
 
 export interface OGMConstructor extends Neo4jGraphQLConstructor {
     database?: string;
+    excludeAuth?: boolean;
 }
 
 type AssertIndexesAndConstraintsOptions = {
@@ -48,14 +49,14 @@ class OGM<ModelMap = unknown> {
     private database?: string;
 
     constructor(input: OGMConstructor) {
-        const { typeDefs, database, ...rest } = input;
+        const { typeDefs, database, excludeAuth, ...rest } = input;
 
         this.models = [];
         this.database = database;
 
         this.neoSchema = new Neo4jGraphQL({
             ...rest,
-            typeDefs: filterDocument(typeDefs),
+            typeDefs: filterDocument(typeDefs, excludeAuth),
         });
 
         this.checkNeo4jCompat = function checkNeo4jCompat({
