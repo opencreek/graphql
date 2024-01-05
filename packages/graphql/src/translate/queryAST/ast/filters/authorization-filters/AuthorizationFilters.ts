@@ -22,32 +22,39 @@ import { AUTH_FORBIDDEN_ERROR } from "../../../../../constants";
 import type { QueryASTContext } from "../../QueryASTContext";
 import type { QueryASTNode } from "../../QueryASTNode";
 import { Filter } from "../Filter";
-import type { AuthorizationRuleFilter } from "./AuthorizationRuleFilter";
+import type { AuthorizationRuleCypherFilter, AuthorizationRuleFilter } from "./AuthorizationRuleFilter";
 
 export class AuthorizationFilters extends Filter {
     // Maybe we can merge these into a single array
     private validationFilters: AuthorizationRuleFilter[] = [];
     private whereFilters: AuthorizationRuleFilter[] = [];
+    private whereCypherFilters: AuthorizationRuleCypherFilter[] = [];
     private conditionForEvaluation: Cypher.Predicate | undefined;
 
     constructor({
         validationFilters,
         whereFilters,
+        whereCypherFilters,
         conditionForEvaluation,
     }: {
         validationFilters: AuthorizationRuleFilter[];
         whereFilters: AuthorizationRuleFilter[];
+        whereCypherFilters: AuthorizationRuleCypherFilter[];
         conditionForEvaluation?: Cypher.Predicate;
     }) {
         super();
         this.validationFilters = validationFilters;
         this.whereFilters = whereFilters;
+        this.whereCypherFilters = whereCypherFilters;
         this.conditionForEvaluation = conditionForEvaluation;
     }
 
     public getPredicate(context: QueryASTContext): Cypher.Predicate | undefined {
         const validateInnerPredicate = Cypher.or(...this.validationFilters.map((f) => f.getPredicate(context)));
-        const wherePredicate = Cypher.or(...this.whereFilters.map((f) => f.getPredicate(context)));
+        const wherePredicate = Cypher.or(
+            ...this.whereFilters.map((f) => f.getPredicate(context)),
+            ...this.whereCypherFilters.map((f) => f.getPredicate(context))
+        );
 
         let validatePredicate: Cypher.Predicate | undefined;
         if (validateInnerPredicate) {

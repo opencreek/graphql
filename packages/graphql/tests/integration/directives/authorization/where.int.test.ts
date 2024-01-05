@@ -39,6 +39,65 @@ describe("auth/where", () => {
     });
 
     describe("read", () => {
+        test("should add whereCypher statements to query and return user", async () => {
+            const session = await neo4j.getSession({ defaultAccessMode: "WRITE" });
+
+            const typeDefs = `
+                type User {
+                    id: ID
+                }
+
+                extend type User @authorization(filter: [{ operations: [READ],
+                    whereCypher: """
+                    $$this.id = "other-user"
+                    """
+                }])
+            `;
+
+            const userId = generate({
+                charset: "alphabetic",
+            });
+
+            const query = `
+                {
+                    users {
+                        id
+                    }
+                }
+            `;
+
+            const neoSchema = new Neo4jGraphQL({
+                typeDefs,
+                features: {
+                    authorization: {
+                        key: secret,
+                    },
+                },
+            });
+
+            try {
+                await session.run(`
+                    CREATE (:User {id: "${userId}"})
+                    CREATE (:User {id: "other-user"})
+                `);
+
+                const token = createBearerToken(secret, { sub: userId });
+
+                const gqlResult = await graphql({
+                    schema: await neoSchema.getSchema(),
+                    source: query,
+                    contextValue: neo4j.getContextValues({ token }),
+                });
+
+                expect(gqlResult.errors).toBeUndefined();
+
+                const users = (gqlResult.data as any).users as any[];
+                expect(users).toEqual([{ id: "other-user" }]);
+            } finally {
+                await session.close();
+            }
+        });
+
         test("should add $jwt.id to where and return user", async () => {
             const session = await neo4j.getSession({ defaultAccessMode: "WRITE" });
 
