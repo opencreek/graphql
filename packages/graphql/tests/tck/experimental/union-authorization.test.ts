@@ -73,7 +73,7 @@ describe("Union top level operations with authorization", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "CALL {
                 MATCH (this0:Genre)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH this0 { .name, __resolveType: \\"Genre\\", __id: id(this0) } AS this0
                 RETURN this0 AS this
                 UNION
@@ -120,7 +120,7 @@ describe("Union top level operations with authorization", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "CALL {
                 MATCH (this0:Genre)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH this0 { .name, __resolveType: \\"Genre\\", __id: id(this0) } AS this0
                 RETURN this0 AS this
                 UNION
@@ -130,7 +130,7 @@ describe("Union top level operations with authorization", () => {
                     CALL {
                         WITH *
                         MATCH (this1)-[this2:SEARCH]->(this3:Genre)
-                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this3.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this3.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                         WITH this3 { .name, __resolveType: \\"Genre\\", __id: id(this3) } AS this3
                         RETURN this3 AS var4
                         UNION
@@ -184,7 +184,7 @@ describe("Union top level operations with authorization", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "CALL {
                 MATCH (this0:Genre)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this0.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH this0 { .name, __resolveType: \\"Genre\\", __id: id(this0) } AS this0
                 RETURN this0 AS this
                 UNION
@@ -195,7 +195,7 @@ describe("Union top level operations with authorization", () => {
                     CALL {
                         WITH *
                         MATCH (this1)-[this2:SEARCH]->(this3:Genre)
-                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this3.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this3.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                         WITH this3 { .name, __resolveType: \\"Genre\\", __id: id(this3) } AS this3
                         RETURN this3 AS var4
                         UNION
@@ -256,7 +256,7 @@ describe("Union top level operations with authorization", () => {
                     CALL {
                         WITH *
                         MATCH (this0)-[this1:SEARCH]->(this2:Genre)
-                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this2.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this2.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                         WITH this2 { .name, __resolveType: \\"Genre\\", __id: id(this2) } AS this2
                         RETURN this2 AS var3
                         UNION
@@ -320,7 +320,7 @@ describe("Union top level operations with authorization", () => {
                     CALL {
                         WITH *
                         MATCH (this0)-[this3:SEARCH]->(this4:Genre)
-                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this4.name = $jwt.jwtAllowedNamesExample)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                        WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.jwtAllowedNamesExample IS NOT NULL AND this4.name = $jwt.jwtAllowedNamesExample)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                         WITH this4 { .name, __resolveType: \\"Genre\\", __id: id(this4) } AS this4
                         RETURN this4 AS var5
                         UNION

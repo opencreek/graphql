@@ -100,17 +100,17 @@ describe("https://github.com/neo4j/graphql/issues/2812", () => {
                         create_this5.id = randomUUID()
                     MERGE (create_this1)<-[create_this6:ACTED_IN]-(create_this5)
                     WITH *
-                    WHERE (apoc.util.validatePredicate((create_var3.fieldA IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles))), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate((create_var3.fieldB IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param4 IN $jwt.roles))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                    WHERE (apoc.util.validatePredicate((create_var3.fieldA IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate((create_var3.fieldB IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param4 IN $jwt.roles))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                     RETURN collect(NULL) AS create_var7
                 }
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param5 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param5 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 RETURN create_this1
             }
             CALL {
                 WITH create_this1
                 MATCH (create_this1)<-[create_this8:ACTED_IN]-(create_this9:Actor)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this9 { .name } AS create_this9
                 RETURN collect(create_this9) AS create_var10
             }
@@ -212,17 +212,17 @@ describe("https://github.com/neo4j/graphql/issues/2812", () => {
                         create_this5.id = randomUUID()
                     MERGE (create_this1)<-[create_this6:ACTED_IN]-(create_this5)
                     WITH *
-                    WHERE (apoc.util.validatePredicate((create_var3.fieldA IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles))), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate((create_var3.fieldB IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param4 IN $jwt.roles))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+                    WHERE (apoc.util.validatePredicate((create_var3.fieldA IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate((create_var3.fieldB IS NOT NULL AND NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param4 IN $jwt.roles))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
                     RETURN collect(NULL) AS create_var7
                 }
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param5 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param5 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 RETURN create_this1
             }
             CALL {
                 WITH create_this1
                 MATCH (create_this1)<-[create_this8:ACTED_IN]-(create_this9:Actor)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this9 { .name } AS create_this9
                 RETURN collect(create_this9) AS create_var10
             }
@@ -322,13 +322,13 @@ describe("https://github.com/neo4j/graphql/issues/2812", () => {
                     RETURN collect(NULL) AS create_var7
                 }
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 RETURN create_this1
             }
             CALL {
                 WITH create_this1
                 MATCH (create_this1)<-[create_this8:ACTED_IN]-(create_this9:Actor)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.nodeCreatedBy = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this9 { .name } AS create_this9
                 RETURN collect(create_this9) AS create_var10
             }

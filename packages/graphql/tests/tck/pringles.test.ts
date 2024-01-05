@@ -143,7 +143,7 @@ describe("Cypher Create Pringles", () => {
             	WITH this0_photos0_node
             	MATCH (this0_photos0_node)-[this0_photos0_node_color_Color_unique:OF_COLOR]->(:Color)
             	WITH count(this0_photos0_node_color_Color_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
             	RETURN c AS this0_photos0_node_color_Color_unique_ignored
             }
             WITH *
@@ -175,7 +175,7 @@ describe("Cypher Create Pringles", () => {
             	WITH this0_photos1_node
             	MATCH (this0_photos1_node)-[this0_photos1_node_color_Color_unique:OF_COLOR]->(:Color)
             	WITH count(this0_photos1_node_color_Color_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
             	RETURN c AS this0_photos1_node_color_Color_unique_ignored
             }
             WITH *
@@ -207,7 +207,7 @@ describe("Cypher Create Pringles", () => {
             	WITH this0_photos2_node
             	MATCH (this0_photos2_node)-[this0_photos2_node_color_Color_unique:OF_COLOR]->(:Color)
             	WITH count(this0_photos2_node_color_Color_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
             	RETURN c AS this0_photos2_node_color_Color_unique_ignored
             }
             RETURN this0
@@ -323,7 +323,7 @@ describe("Cypher Create Pringles", () => {
             		WITH this_photos0
             		MATCH (this_photos0)-[this_photos0_color_Color_unique:OF_COLOR]->(:Color)
             		WITH count(this_photos0_color_Color_unique) as c
-            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
+            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPhoto.color required exactly once', [0])
             		RETURN c AS this_photos0_color_Color_unique_ignored
             	}
             	RETURN count(*) AS update_this_photos0

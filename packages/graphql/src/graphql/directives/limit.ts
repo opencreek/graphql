@@ -21,7 +21,7 @@ import { DirectiveLocation, GraphQLDirective, GraphQLInt } from "graphql";
 
 export const limitDirective = new GraphQLDirective({
     name: "limit",
-    description: "Instructs @neo4j/graphql to inject limit values into a query.",
+    description: "Instructs @opencreek/neo4j-graphql to inject limit values into a query.",
     args: {
         default: {
             description: "If no limit argument is supplied on query will fallback to this value.",

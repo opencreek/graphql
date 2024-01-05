@@ -23,7 +23,7 @@ import { GraphQLSelectionSet } from "../scalars/SelectionSet";
 export const customResolverDirective = new GraphQLDirective({
     name: "customResolver",
     description:
-        "Informs @neo4j/graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies.",
+        "Informs @opencreek/neo4j-graphql that a field will be resolved by a custom resolver, and allows specification of any field dependencies.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         requires: {

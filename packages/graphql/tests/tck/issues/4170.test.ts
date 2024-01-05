@@ -146,7 +146,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
             	WITH this0_settings0_node_openingDays0_node_open0_node
             	MATCH (this0_settings0_node_openingDays0_node_open0_node)<-[this0_settings0_node_openingDays0_node_open0_node_openingDay_OpeningDay_unique:HAS_OPEN_INTERVALS]-(:OpeningDay)
             	WITH count(this0_settings0_node_openingDays0_node_open0_node_openingDay_OpeningDay_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDOpeningHoursInterval.openingDay required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDOpeningHoursInterval.openingDay required exactly once', [0])
             	RETURN c AS this0_settings0_node_openingDays0_node_open0_node_openingDay_OpeningDay_unique_ignored
             }
             MERGE (this0_settings0_node)-[:VALID_OPENING_DAYS]->(this0_settings0_node_openingDays0_node)
@@ -155,7 +155,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
             	WITH this0_settings0_node_openingDays0_node
             	MATCH (this0_settings0_node_openingDays0_node)<-[this0_settings0_node_openingDays0_node_settings_Settings_unique:VALID_GARAGES]-(:Settings)
             	WITH count(this0_settings0_node_openingDays0_node_settings_Settings_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDOpeningDay.settings must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDOpeningDay.settings must be less than or equal to one', [0])
             	RETURN c AS this0_settings0_node_openingDays0_node_settings_Settings_unique_ignored
             }
             MERGE (this0)-[:HAS_SETTINGS]->(this0_settings0_node)
@@ -164,7 +164,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
             	WITH this0_settings0_node
             	MATCH (this0_settings0_node)<-[this0_settings0_node_tenant_Tenant_unique:HAS_SETTINGS]-(:Tenant)
             	WITH count(this0_settings0_node_tenant_Tenant_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDSettings.tenant required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDSettings.tenant required exactly once', [0])
             	RETURN c AS this0_settings0_node_tenant_Tenant_unique_ignored
             }
             WITH *
@@ -176,7 +176,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
             	WITH this0
             	MATCH (this0)-[this0_settings_Settings_unique:HAS_SETTINGS]->(:Settings)
             	WITH count(this0_settings_Settings_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDTenant.settings required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDTenant.settings required exactly once', [0])
             	RETURN c AS this0_settings_Settings_unique_ignored
             }
             WITH *
@@ -208,7 +208,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
             OPTIONAL MATCH (this0_settings0_node)<-[:HAS_SETTINGS]-(authorization_1_0_0_0_after_this1:Tenant)
             WITH *, count(authorization_1_0_0_0_after_this1) AS tenantCount
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND authorization_3_0_0_0_after_var0 = true), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND authorization_2_0_0_0_after_var0 = true), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (tenantCount <> 0 AND size([(authorization_1_0_0_0_after_this1)<-[:ADMIN_IN]-(authorization_1_0_0_0_after_this0:User) WHERE ($jwt.id IS NOT NULL AND authorization_1_0_0_0_after_this0.userId = $jwt.id) | 1]) > 0)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this0)<-[:ADMIN_IN]-(authorization_0_0_0_0_after_this0:User) WHERE ($jwt.id IS NOT NULL AND authorization_0_0_0_0_after_this0.userId = $jwt.id) | 1]) > 0), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND authorization_3_0_0_0_after_var0 = true), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND authorization_2_0_0_0_after_var0 = true), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (tenantCount <> 0 AND size([(authorization_1_0_0_0_after_this1)<-[:ADMIN_IN]-(authorization_1_0_0_0_after_this0:User) WHERE ($jwt.id IS NOT NULL AND authorization_1_0_0_0_after_this0.userId = $jwt.id) | 1]) > 0)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND size([(this0)<-[:ADMIN_IN]-(authorization_0_0_0_0_after_this0:User) WHERE ($jwt.id IS NOT NULL AND authorization_0_0_0_0_after_this0.userId = $jwt.id) | 1]) > 0), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this0
             }
             CALL {
@@ -216,7 +216,7 @@ describe("https://github.com/neo4j/graphql/issues/4170", () => {
                 CALL {
                     WITH this0
                     MATCH (this0)<-[create_this0:ADMIN_IN]-(create_this1:User)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.id IS NOT NULL AND create_this1.userId = $jwt.id)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.id IS NOT NULL AND create_this1.userId = $jwt.id)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this1 { .userId } AS create_this1
                     RETURN collect(create_this1) AS create_var2
                 }

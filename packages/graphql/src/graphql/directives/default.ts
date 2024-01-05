@@ -23,7 +23,7 @@ import { ScalarOrEnumType } from "./arguments/scalars/ScalarOrEnum";
 export const defaultDirective = new GraphQLDirective({
     name: "default",
     description:
-        "Instructs @neo4j/graphql to set the specified value as the default value in the CreateInput type for the object type in which this directive is used.",
+        "Instructs @opencreek/neo4j-graphql to set the specified value as the default value in the CreateInput type for the object type in which this directive is used.",
     locations: [DirectiveLocation.FIELD_DEFINITION],
     args: {
         value: {

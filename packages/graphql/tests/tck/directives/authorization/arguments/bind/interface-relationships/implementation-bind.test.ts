@@ -135,14 +135,14 @@ describe("Cypher Auth Allow", () => {
             	WITH this0_contentPost0_node
             	MATCH (this0_contentPost0_node)<-[this0_contentPost0_node_creator_User_unique:HAS_CONTENT]-(:User)
             	WITH count(this0_contentPost0_node_creator_User_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             	RETURN c AS this0_contentPost0_node_creator_User_unique_ignored
             }
             WITH *
             OPTIONAL MATCH (this0_contentPost0_node)<-[:HAS_CONTENT]-(authorization_1_2_1_0_after_this0:User)
             WITH *, count(authorization_1_2_1_0_after_this0) AS creatorCount
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0_contentPost0_node_creator0_node.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization_1_2_1_0_after_this0.id = $jwt.sub))), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0_contentPost0_node_creator0_node.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization_1_2_1_0_after_this0.id = $jwt.sub))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this0
             }
             CALL {
@@ -223,11 +223,11 @@ describe("Cypher Auth Allow", () => {
             	WITH this0_contentComment0_node
             	MATCH (this0_contentComment0_node)<-[this0_contentComment0_node_creator_User_unique:HAS_CONTENT]-(:User)
             	WITH count(this0_contentComment0_node_creator_User_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
             	RETURN c AS this0_contentComment0_node_creator_User_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0_contentComment0_node_creator0_node.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0_contentComment0_node_creator0_node.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this0.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this0
             }
             CALL {
@@ -296,7 +296,7 @@ describe("Cypher Auth Allow", () => {
             		MATCH (this_content0)<-[this_content0_has_content0_relationship:HAS_CONTENT]-(this_content0_creator0:User)
             		SET this_content0_creator0.id = $this_update_content0_creator0_id
             		WITH this, this_content0, this_content0_creator0
-            		WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this_content0_creator0.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            		WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this_content0_creator0.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             		RETURN count(*) AS update_this_content0_creator0
             	}
             	WITH this, this_content0
@@ -304,7 +304,7 @@ describe("Cypher Auth Allow", () => {
             		WITH this_content0
             		MATCH (this_content0)<-[this_content0_creator_User_unique:HAS_CONTENT]-(:User)
             		WITH count(this_content0_creator_User_unique) as c
-            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
+            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
             		RETURN c AS this_content0_creator_User_unique_ignored
             	}
             	RETURN count(*) AS update_this_content0
@@ -324,20 +324,20 @@ describe("Cypher Auth Allow", () => {
             		MATCH (this_content0)<-[this_content0_has_content0_relationship:HAS_CONTENT]-(this_content0_creator0:User)
             		SET this_content0_creator0.id = $this_update_content0_creator0_id
             		WITH this, this_content0, this_content0_creator0
-            		WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this_content0_creator0.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            		WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this_content0_creator0.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             		RETURN count(*) AS update_this_content0_creator0
             	}
             	WITH this, this_content0
             	OPTIONAL MATCH (this_content0)<-[:HAS_CONTENT]-(authorization__after_this0:User)
             	WITH *, count(authorization__after_this0) AS creatorCount
             	WITH *
-            	WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            	WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             	WITH this, this_content0
             	CALL {
             		WITH this_content0
             		MATCH (this_content0)<-[this_content0_creator_User_unique:HAS_CONTENT]-(:User)
             		WITH count(this_content0_creator_User_unique) as c
-            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             		RETURN c AS this_content0_creator_User_unique_ignored
             	}
             	RETURN count(*) AS update_this_content0
@@ -345,7 +345,7 @@ describe("Cypher Auth Allow", () => {
             RETURN count(*) AS update_this_Post
             }
             WITH this
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN collect(DISTINCT this { .id }) AS data"
         `);
 
@@ -428,7 +428,7 @@ describe("Cypher Auth Allow", () => {
             	}
             WITH this, this_connect_content0_node
             WITH this, this_connect_content0_node
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             	RETURN count(*) AS connect_this_connect_content_Comment0
             }
             CALL {
@@ -450,7 +450,7 @@ describe("Cypher Auth Allow", () => {
             OPTIONAL MATCH (this_connect_content1_node)<-[:HAS_CONTENT]-(authorization__after_this0:User)
             WITH *, count(authorization__after_this0) AS creatorCount
             WITH *
-            WHERE (apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+            WHERE (apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
             	RETURN count(*) AS connect_this_connect_content_Post1
             }
             WITH *
@@ -508,7 +508,7 @@ describe("Cypher Auth Allow", () => {
             	DELETE this_disconnect_content0_rel
             }
             WITH this, this_disconnect_content0
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN count(*) AS disconnect_this_disconnect_content_Comment
             }
             CALL {
@@ -525,7 +525,7 @@ describe("Cypher Auth Allow", () => {
             OPTIONAL MATCH (this_disconnect_content0)<-[:HAS_CONTENT]-(authorization__after_this0:User)
             WITH *, count(authorization__after_this0) AS creatorCount
             WITH *
-            WHERE (apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+            WHERE (apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND (creatorCount <> 0 AND ($jwt.sub IS NOT NULL AND authorization__after_this0.id = $jwt.sub))), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
             RETURN count(*) AS disconnect_this_disconnect_content_Post
             }
             WITH *

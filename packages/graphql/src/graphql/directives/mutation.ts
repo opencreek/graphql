@@ -36,7 +36,7 @@ const MUTATION_FIELDS = new GraphQLEnumType({
 
 export const mutationDirective = new GraphQLDirective({
     name: "mutation",
-    description: "Instructs @neo4j/graphql to exclude create, delete or update operations from the mutation root type.",
+    description: "Instructs @opencreek/neo4j-graphql to exclude create, delete or update operations from the mutation root type.",
     args: {
         operations: {
             description: "Describe operations available for this type",

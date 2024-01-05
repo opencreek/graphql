@@ -99,7 +99,7 @@ describe("https://github.com/neo4j/graphql/issues/3888", () => {
             	WITH this0
             	MATCH (this0)<-[this0_author_User_unique:AUTHORED]-(:User)
             	WITH count(this0_author_User_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.author required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.author required exactly once', [0])
             	RETURN c AS this0_author_User_unique_ignored
             }
             RETURN this0

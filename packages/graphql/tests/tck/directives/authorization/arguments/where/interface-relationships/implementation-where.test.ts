@@ -373,7 +373,7 @@ describe("Cypher Auth Where", () => {
             	WITH this
             	MATCH (this)<-[this_creator_User_unique:HAS_CONTENT]-(:User)
             	WITH count(this_creator_User_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             	RETURN c AS this_creator_User_unique_ignored
             }
             RETURN collect(DISTINCT this { .id }) AS data"
@@ -420,7 +420,7 @@ describe("Cypher Auth Where", () => {
             	WITH this
             	MATCH (this)<-[this_creator_User_unique:HAS_CONTENT]-(:User)
             	WITH count(this_creator_User_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             	RETURN c AS this_creator_User_unique_ignored
             }
             RETURN collect(DISTINCT this { .id }) AS data"
@@ -473,7 +473,7 @@ describe("Cypher Auth Where", () => {
             		WITH this_content0
             		MATCH (this_content0)<-[this_content0_creator_User_unique:HAS_CONTENT]-(:User)
             		WITH count(this_content0_creator_User_unique) as c
-            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
+            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDComment.creator required exactly once', [0])
             		RETURN c AS this_content0_creator_User_unique_ignored
             	}
             	RETURN count(*) AS update_this_content0
@@ -495,7 +495,7 @@ describe("Cypher Auth Where", () => {
             		WITH this_content0
             		MATCH (this_content0)<-[this_content0_creator_User_unique:HAS_CONTENT]-(:User)
             		WITH count(this_content0_creator_User_unique) as c
-            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
+            		WHERE apoc.util.validatePredicate(NOT (c = 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDPost.creator required exactly once', [0])
             		RETURN c AS this_content0_creator_User_unique_ignored
             	}
             	RETURN count(*) AS update_this_content0

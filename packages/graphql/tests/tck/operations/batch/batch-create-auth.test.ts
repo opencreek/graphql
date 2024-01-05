@@ -88,13 +88,13 @@ describe("Batch Create, Auth", () => {
                 SET
                     create_this1.id = create_var0.id
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this1
                 CALL {
                 	WITH create_this1
                 	MATCH (create_this1)-[create_this1_website_Website_unique:HAS_WEBSITE]->(:Website)
                 	WITH count(create_this1_website_Website_unique) as c
-                	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+                	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
                 	RETURN c AS create_this1_website_Website_unique_ignored
                 }
                 RETURN create_this1
@@ -169,19 +169,19 @@ describe("Batch Create, Auth", () => {
                     	WITH create_this5
                     	MATCH (create_this5)-[create_this5_website_Website_unique:HAS_WEBSITE]->(:Website)
                     	WITH count(create_this5_website_Website_unique) as c
-                    	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+                    	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
                     	RETURN c AS create_this5_website_Website_unique_ignored
                     }
                     RETURN collect(NULL) AS create_var7
                 }
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $create_param3 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this1
                 CALL {
                 	WITH create_this1
                 	MATCH (create_this1)-[create_this1_website_Website_unique:HAS_WEBSITE]->(:Website)
                 	WITH count(create_this1_website_Website_unique) as c
-                	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+                	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
                 	RETURN c AS create_this1_website_Website_unique_ignored
                 }
                 RETURN create_this1
@@ -189,7 +189,7 @@ describe("Batch Create, Auth", () => {
             CALL {
                 WITH create_this1
                 MATCH (create_this1)<-[create_this8:ACTED_IN]-(create_this9:Actor)
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this9.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 WITH create_this9 { .name } AS create_this9
                 RETURN collect(create_this9) AS create_var10
             }
@@ -298,7 +298,7 @@ describe("Batch Create, Auth", () => {
             	WITH this0_actors0_node
             	MATCH (this0_actors0_node)-[this0_actors0_node_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this0_actors0_node_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
             	RETURN c AS this0_actors0_node_website_Website_unique_ignored
             }
             WITH *
@@ -306,11 +306,11 @@ describe("Batch Create, Auth", () => {
             	WITH this0
             	MATCH (this0)-[this0_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this0_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this0_website_Website_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this0
             }
             CALL {
@@ -327,7 +327,7 @@ describe("Batch Create, Auth", () => {
             	WITH this1_actors0_node
             	MATCH (this1_actors0_node)-[this1_actors0_node_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this1_actors0_node_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDActor.website must be less than or equal to one', [0])
             	RETURN c AS this1_actors0_node_website_Website_unique_ignored
             }
             WITH *
@@ -335,11 +335,11 @@ describe("Batch Create, Auth", () => {
             	WITH this1
             	MATCH (this1)-[this1_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this1_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this1_website_Website_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this1
             }
             CALL {
@@ -354,11 +354,11 @@ describe("Batch Create, Auth", () => {
             	WITH this2
             	MATCH (this2)-[this2_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this2_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this2_website_Website_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this2
             }
             CALL {
@@ -368,7 +368,7 @@ describe("Batch Create, Auth", () => {
             CALL {
             	WITH this3
             	OPTIONAL MATCH (this3_actors_connect0_node:Actor)
-            	WHERE this3_actors_connect0_node.id = $this3_actors_connect0_node_param0 AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this3_actors_connect0_node.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            	WHERE this3_actors_connect0_node.id = $this3_actors_connect0_node_param0 AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this3_actors_connect0_node.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             	CALL {
             		WITH *
             		WITH collect(this3_actors_connect0_node) as connectedNodes, collect(this3) as parentNodes
@@ -387,11 +387,11 @@ describe("Batch Create, Auth", () => {
             	WITH this3
             	MATCH (this3)-[this3_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this3_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this3_website_Website_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this3
             }
             CALL {
@@ -411,11 +411,11 @@ describe("Batch Create, Auth", () => {
             	WITH this4
             	MATCH (this4)-[this4_website_Website_unique:HAS_WEBSITE]->(:Website)
             	WITH count(this4_website_Website_unique) as c
-            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@neo4j/graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
+            	WHERE apoc.util.validatePredicate(NOT (c <= 1), '@opencreek/neo4j-graphql/RELATIONSHIP-REQUIREDMovie.website must be less than or equal to one', [0])
             	RETURN c AS this4_website_Website_unique_ignored
             }
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization_0_0_0_0_after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this4
             }
             CALL {
@@ -429,7 +429,7 @@ describe("Batch Create, Auth", () => {
                 CALL {
                     WITH this0
                     MATCH (this0)<-[create_this3:ACTED_IN]-(create_this4:Actor)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this4.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this4.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this4 { .name } AS create_this4
                     RETURN collect(create_this4) AS create_var5
                 }
@@ -446,7 +446,7 @@ describe("Batch Create, Auth", () => {
                 CALL {
                     WITH this1
                     MATCH (this1)<-[create_this10:ACTED_IN]-(create_this11:Actor)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this11.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this11.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this11 { .name } AS create_this11
                     RETURN collect(create_this11) AS create_var12
                 }
@@ -463,7 +463,7 @@ describe("Batch Create, Auth", () => {
                 CALL {
                     WITH this2
                     MATCH (this2)<-[create_this17:ACTED_IN]-(create_this18:Actor)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this18.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this18.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this18 { .name } AS create_this18
                     RETURN collect(create_this18) AS create_var19
                 }
@@ -480,7 +480,7 @@ describe("Batch Create, Auth", () => {
                 CALL {
                     WITH this3
                     MATCH (this3)<-[create_this24:ACTED_IN]-(create_this25:Actor)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this25.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this25.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this25 { .name } AS create_this25
                     RETURN collect(create_this25) AS create_var26
                 }
@@ -497,7 +497,7 @@ describe("Batch Create, Auth", () => {
                 CALL {
                     WITH this4
                     MATCH (this4)<-[create_this31:ACTED_IN]-(create_this32:Actor)
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this32.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND create_this32.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH create_this32 { .name } AS create_this32
                     RETURN collect(create_this32) AS create_var33
                 }

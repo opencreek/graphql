@@ -84,7 +84,7 @@ describe("Node Directive", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:Person)
             WITH *
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.sub IS NOT NULL AND this.id = $jwt.sub)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN this { .id } AS this"
         `);
 
@@ -118,7 +118,7 @@ describe("Node Directive", () => {
             OPTIONAL MATCH (this)<-[:HAS_POST]-(this0:Person)
             WITH *, count(this0) AS creatorCount
             WITH *
-            WHERE ((creatorCount <> 0 AND this0.id = $param0) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $param3 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0]))
+            WHERE ((creatorCount <> 0 AND this0.id = $param0) AND apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $param3 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]))
             DETACH DELETE this"
         `);
 

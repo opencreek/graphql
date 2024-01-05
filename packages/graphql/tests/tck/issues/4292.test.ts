@@ -224,7 +224,7 @@ describe("https://github.com/neo4j/graphql/issues/4292", () => {
                     RETURN count(this5) = 1 AS var7
                 }
                 WITH *
-                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ((creatorCount <> 0 AND ($jwt.uid IS NOT NULL AND this2.id = $jwt.uid)) OR (groupCount <> 0 AND size([(this3)<-[:ADMIN_OF]-(this9:Admin) WHERE single(this8 IN [(this9)-[:IS_USER]->(this8:User) WHERE ($jwt.uid IS NOT NULL AND this8.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR (groupCount <> 0 AND size([(this4)<-[:CONTRIBUTOR_TO]-(this11:Contributor) WHERE single(this10 IN [(this11)-[:IS_USER]->(this10:User) WHERE ($jwt.uid IS NOT NULL AND this10.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR var7 = true)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ((creatorCount <> 0 AND ($jwt.uid IS NOT NULL AND this2.id = $jwt.uid)) OR (groupCount <> 0 AND size([(this3)<-[:ADMIN_OF]-(this9:Admin) WHERE single(this8 IN [(this9)-[:IS_USER]->(this8:User) WHERE ($jwt.uid IS NOT NULL AND this8.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR (groupCount <> 0 AND size([(this4)<-[:CONTRIBUTOR_TO]-(this11:Contributor) WHERE single(this10 IN [(this11)-[:IS_USER]->(this10:User) WHERE ($jwt.uid IS NOT NULL AND this10.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR var7 = true)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                 CALL {
                     WITH this1
                     MATCH (this1)-[this12:PARTNER_OF]-(this13:Person)
@@ -247,7 +247,7 @@ describe("https://github.com/neo4j/graphql/issues/4292", () => {
                         RETURN count(this18) = 1 AS var20
                     }
                     WITH *
-                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ((creatorCount <> 0 AND ($jwt.uid IS NOT NULL AND this14.id = $jwt.uid)) OR (groupCount <> 0 AND size([(this15)<-[:ADMIN_OF]-(this22:Admin) WHERE single(this21 IN [(this22)-[:IS_USER]->(this21:User) WHERE ($jwt.uid IS NOT NULL AND this21.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR (groupCount <> 0 AND size([(this16)<-[:CONTRIBUTOR_TO]-(this24:Contributor) WHERE single(this23 IN [(this24)-[:IS_USER]->(this23:User) WHERE ($jwt.uid IS NOT NULL AND this23.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR var20 = true)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+                    WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ((creatorCount <> 0 AND ($jwt.uid IS NOT NULL AND this14.id = $jwt.uid)) OR (groupCount <> 0 AND size([(this15)<-[:ADMIN_OF]-(this22:Admin) WHERE single(this21 IN [(this22)-[:IS_USER]->(this21:User) WHERE ($jwt.uid IS NOT NULL AND this21.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR (groupCount <> 0 AND size([(this16)<-[:CONTRIBUTOR_TO]-(this24:Contributor) WHERE single(this23 IN [(this24)-[:IS_USER]->(this23:User) WHERE ($jwt.uid IS NOT NULL AND this23.id = $jwt.uid) | 1] WHERE true) | 1]) > 0) OR var20 = true)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
                     WITH { active: this12.active, firstDay: this12.firstDay, lastDay: this12.lastDay, node: { __resolveType: \\"Person\\", __id: id(this13) } } AS edge
                     WITH collect(edge) AS edges
                     WITH edges, size(edges) AS totalCount

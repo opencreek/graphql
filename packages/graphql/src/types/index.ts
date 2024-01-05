@@ -451,7 +451,7 @@ export type RequestLike = {
     cookies?: { token?: string };
 };
 
-/** Options to enable extra capabilities on @neo4j/graphql API */
+/** Options to enable extra capabilities on @opencreek/neo4j-graphql API */
 export type Neo4jFeaturesSettings = {
     filters?: Neo4jFiltersSettings;
     populatedBy?: Neo4jPopulatedBySettings;

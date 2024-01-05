@@ -213,10 +213,10 @@ describe("Arrays Methods", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:Movie)
             WITH this
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__before_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(this.ratings IS NULL, \\"Property %s cannot be NULL\\", ['ratings'])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__before_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(this.ratings IS NULL, \\"Property %s cannot be NULL\\", ['ratings'])
             SET this.ratings = this.ratings + $this_update_ratings_PUSH
             WITH this
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN collect(DISTINCT this { .title, .ratings }) AS data"
         `);
 
@@ -367,10 +367,10 @@ describe("Arrays Methods", () => {
         expect(formatCypher(result.cypher)).toMatchInlineSnapshot(`
             "MATCH (this:Movie)
             WITH this
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__before_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(this.ratings IS NULL, \\"Property %s cannot be NULL\\", ['ratings'])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__before_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0]) AND apoc.util.validatePredicate(this.ratings IS NULL, \\"Property %s cannot be NULL\\", ['ratings'])
             SET this.ratings = this.ratings[0..-$this_update_ratings_POP]
             WITH this
-            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__after_param2 IN $jwt.roles)), \\"@neo4j/graphql/FORBIDDEN\\", [0])
+            WHERE apoc.util.validatePredicate(NOT ($isAuthenticated = true AND ($jwt.roles IS NOT NULL AND $authorization__after_param2 IN $jwt.roles)), \\"@opencreek/neo4j-graphql/FORBIDDEN\\", [0])
             RETURN collect(DISTINCT this { .title, .ratings }) AS data"
         `);
 
