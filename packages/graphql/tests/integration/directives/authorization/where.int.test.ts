@@ -48,11 +48,9 @@ describe("auth/where", () => {
                 }
 
                 extend type User @authorization(filter: [{ operations: [READ],
-                  whereCypher: {
-                    query: """
+                    whereCypher: """
                     $$this.id = "other-user"
                     """
-                  }
                 }])
             `;
 
