@@ -72,10 +72,12 @@ export class AuthorizationRuleFilter extends Filter {
 
 export class AuthorizationRuleCypherFilter extends Filter {
     private query: string;
+    private jwtParam: Cypher.Param;
 
-    constructor({ query }: { query: string }) {
+    constructor({ query, jwtParam }: { query: string; jwtParam: Cypher.Param }) {
         super();
         this.query = query;
+        this.jwtParam = jwtParam;
     }
 
     public getPredicate(context: QueryASTContext): Cypher.Predicate | undefined {
@@ -85,6 +87,7 @@ export class AuthorizationRuleCypherFilter extends Filter {
         const query = this.query;
 
         return new Cypher.Raw((env) => {
+            env.addExtraParams({ $jwt: this.jwtParam });
             const referenceId = env.getReferenceId(nodeRef);
             return query.split("$$this").join(referenceId);
         });

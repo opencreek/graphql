@@ -126,7 +126,12 @@ export class AuthorizationFactory {
 
         for (const rule of rulesMatchingWhereOperations) {
             if (rule.whereCypher != null) {
-                whereCypherFilters.push(new AuthorizationRuleCypherFilter({ query: rule.whereCypher }));
+                whereCypherFilters.push(
+                    new AuthorizationRuleCypherFilter({
+                        query: rule.whereCypher,
+                        jwtParam: context.authorization.jwtParam,
+                    })
+                );
                 continue;
             }
 
