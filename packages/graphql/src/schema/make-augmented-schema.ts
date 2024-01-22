@@ -100,6 +100,7 @@ function makeAugmentedSchema({
     subgraph,
     schemaModel,
     experimental,
+    suppressMissingCustomResolverWarnings,
 }: {
     document: DocumentNode;
     features?: Neo4jFeaturesSettings;
@@ -107,6 +108,7 @@ function makeAugmentedSchema({
     subgraph?: Subgraph;
     schemaModel: Neo4jGraphQLSchemaModel;
     experimental: boolean;
+    suppressMissingCustomResolverWarnings?: boolean;
 }): {
     nodes: Node[];
     relationships: Relationship[];
@@ -169,7 +171,11 @@ function makeAugmentedSchema({
 
     const aggregationTypesMapper = new AggregationTypesMapper(composer, subgraph);
 
-    const getNodesResult = getNodes(definitionNodes, { callbacks, userCustomResolvers });
+    const getNodesResult = getNodes(definitionNodes, {
+        callbacks,
+        userCustomResolvers,
+        suppressMissingCustomResolverWarnings,
+    });
 
     const { nodes, relationshipPropertyInterfaceNames, interfaceRelationshipNames } = getNodesResult;
 
@@ -204,6 +210,7 @@ function makeAugmentedSchema({
             unions: unionTypes,
             obj: relationship,
             callbacks,
+            suppressMissingCustomResolverWarnings,
         });
 
         relationshipFields.set(relationship.name.value, relFields);

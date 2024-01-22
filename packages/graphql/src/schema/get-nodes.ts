@@ -48,6 +48,7 @@ function getNodes(
     options: {
         callbacks?: Neo4jGraphQLCallbacks;
         userCustomResolvers?: IResolvers | Array<IResolvers>;
+        suppressMissingCustomResolverWarnings?: boolean;
     }
 ): Nodes {
     let pointInTypeDefs = false;
@@ -134,6 +135,7 @@ function getNodes(
             unions: definitionNodes.unionTypes,
             callbacks: options.callbacks,
             customResolvers,
+            suppressMissingCustomResolverWarnings: options.suppressMissingCustomResolverWarnings,
         });
 
         let fulltextDirective: FullText;

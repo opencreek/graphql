@@ -88,6 +88,7 @@ function getObjFieldMeta({
     enums,
     callbacks,
     customResolvers,
+    suppressMissingCustomResolverWarnings,
 }: {
     obj: ObjectTypeDefinitionNode | InterfaceTypeDefinitionNode;
     objects: ObjectTypeDefinitionNode[];
@@ -97,6 +98,7 @@ function getObjFieldMeta({
     enums: EnumTypeDefinitionNode[];
     callbacks?: Neo4jGraphQLCallbacks;
     customResolvers?: IResolvers | Array<IResolvers>;
+    suppressMissingCustomResolverWarnings?: boolean;
 }): ObjectFields {
     const objInterfaceNames = [...(obj.interfaces || [])] as NamedTypeNode[];
     const objInterfaces = interfaces.filter((i) => objInterfaceNames.map((n) => n.name.value).includes(i.name.value));
@@ -129,6 +131,7 @@ function getObjFieldMeta({
                 unions,
                 customResolvers,
                 interfaceField,
+                suppressMissingCustomResolverWarnings,
             });
             const typeMeta = getFieldTypeMeta(field.type);
             const idDirective = directives.find((x) => x.name.value === "id");
