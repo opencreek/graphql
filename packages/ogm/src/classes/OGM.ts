@@ -134,6 +134,10 @@ class OGM<ModelMap = unknown> {
         return model as M;
     }
 
+    public findNodeName(name: string): string | undefined {
+        return this.nodes.find((n) => n.name === name)?.name;
+    }
+
     private get nodes() {
         try {
             return this.neoSchema["nodes"];
