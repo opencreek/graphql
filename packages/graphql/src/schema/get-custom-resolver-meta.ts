@@ -50,6 +50,7 @@ export function getCustomResolverMeta({
     unions,
     customResolvers,
     interfaceField,
+    suppressMissingCustomResolverWarnings,
 }: {
     field: FieldDefinitionNode;
     object: ObjectTypeDefinitionNode | InterfaceTypeDefinitionNode;
@@ -58,6 +59,7 @@ export function getCustomResolverMeta({
     unions: UnionTypeDefinitionNode[];
     customResolvers?: IResolvers | IResolvers[];
     interfaceField?: FieldDefinitionNode;
+    suppressMissingCustomResolverWarnings?: boolean;
 }): CustomResolverMeta | undefined {
     const directive =
         field.directives?.find((x) => x.name.value === "customResolver") ||
@@ -67,7 +69,11 @@ export function getCustomResolverMeta({
         return undefined;
     }
 
-    if (object.kind !== Kind.INTERFACE_TYPE_DEFINITION && !customResolvers?.[field.name.value]) {
+    if (
+        !suppressMissingCustomResolverWarnings &&
+        object.kind !== Kind.INTERFACE_TYPE_DEFINITION &&
+        !customResolvers?.[field.name.value]
+    ) {
         console.warn(`Custom resolver for ${field.name.value} has not been provided`);
     }
 
