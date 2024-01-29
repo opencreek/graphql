@@ -116,6 +116,11 @@ export const wrapQueryAndMutation =
             neo4jDatabaseInfo = await getNeo4jDatabaseInfo(executor);
         }
 
+        // NOTE(hilmar): Even though the types don't indicate this,
+        // the schemaModel will be included in the context and will
+        // override the internal schema, which we never want.
+        const { schemaModel: _schemaModelOverride, ...overrides } = context as any;
+
         const internalContext = {
             nodes,
             relationships,
@@ -126,8 +131,8 @@ export const wrapQueryAndMutation =
             neo4jDatabaseInfo,
             authorization: authorizationContext,
             // Consider anything in here overrides
-            ...context,
+            ...overrides,
         };
 
-        return next(root, args, { ...context, ...internalContext }, info);
+        return next(root, args, internalContext, info);
     };
