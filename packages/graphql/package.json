@@ -1,6 +1,6 @@
 {
     "name": "@opencreek/neo4j-graphql",
-    "version": "4.4.4-oc.test.0",
+    "version": "4.4.4-oc.test.4",
     "description": "A GraphQL to Cypher query execution layer for Neo4j and JavaScript GraphQL implementations",
     "keywords": [
         "neo4j",
